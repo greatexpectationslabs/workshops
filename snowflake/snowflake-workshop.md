@@ -46,3 +46,12 @@ When you are ready, click on New Expectation in the top righthand corner one las
 For example, click on the `expect_column_max_to_be_between` Expectation and select `passenger_count` in the Column dropdown. You will see that since the metrics have been generated for this data set, the Values have been automatically filled in with `6`.
 
 ## Conclusion
+Congratulations! You've successfully completed the workshop. By now, you will have created a Snowflake Data Source and Data Asset, created Expectations, run some Validations and fetched some metrics on the data. We hope you have a better understanding of how GX Cloud works and how it can work within your data pipeline.
+
+### What's next?
+- Connect to your own Snowflake instance
+- Try creating your own Expectations in GX Cloud
+- Use the [GX API]() to create Data Sources, Data Assets, Expectations, Expectation Suites, and Checkpoints
+- Connect to GX Cloud from an orchestrator (e.g. [Airflow](https://airflow.apache.org/))
+- Invite others to work in your GX Cloud organization
+- Explore our [documentation](https://docs.greatexpectations.io/docs/cloud/)
