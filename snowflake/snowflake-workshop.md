@@ -12,6 +12,8 @@ In order to run through this workshop correctly, you will need to have the follo
 ### Step 1 - Login and Start the GX Agent
 Start by logging into [GX Cloud](https://app.greatexpectations.io/login). When you have done so, you will need to create a User Access token that the GX Agent will use to authenticate itself to your GX Cloud organization. Head to the Tokens page under Settings. Create a new user access token by giving it a name. Once the token is created, copy the value and store it some place safe. You'll only see this value once!
 
+![User Token](../img/User-Token.png)
+
 Next, go to the GX Agent page where you will see a Docker command. This is used to run the GX Agent locally. Copy the command into a terminal window, making sure to replace the `GX_CLOUD_ACCESS_TOKEN` value with the token you just generated. Running this command will start a Docker image that uses the latest version of GX. It may take a few minutes to download the image. Once it is done, your terminal will have an output of `The GX Agent is ready.`
 
 ### Step 2 - Create a Snowflake Data Source and Data Asset
