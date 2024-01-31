@@ -19,6 +19,8 @@ Next, go to the GX Agent page where you will see a Docker command. This is used 
 ### Step 2 - Create a Snowflake Data Source and Data Asset
 Now that the Agent is running, we are ready to connect to Snowflake. Click on the Data Assets page, then on New Data Asset and finally on Snowflake. Give your Data Source a name, e.g. `GX Workshop Snowflake`, and enter in your Snowflake username and password. The account identifier for the Snowflake account is `VNTUMNU-GX_WORKSHOPS`. The database name we'll be using is `GXWORKSHOP` with a Schema of `PUBLIC`, a Warehouse of `COMPUTE_WH` and the role of `PUBLIC`. Be sure to check the "Test connection" checkbox before you click on Continue.
 
+![Data Source](../img/Add-Data-Source.png)
+
 Congratulations! You have successfully added a Data Source to your GX Cloud organization. The last thing we'll do in this step is to add a Data Asset. Give your Data Asset a name, e.g. `Taxi Data`, which points to a table name of `TAXI_DATA`. Click on Save to complete the process.
 
 ### Step 3 - Create Expectations
