@@ -24,9 +24,11 @@ Now that the Agent is running, we are ready to connect to Snowflake. Click on th
 Congratulations! You have successfully added a Data Source to your GX Cloud organization. The last thing we'll do in this step is to add a Data Asset. Give your Data Asset a name, e.g. `Taxi Data`, which points to a table name of `TAXI_DATA`. Click on Save to complete the process.
 
 ### Step 3 - Create Expectations
-Now that you have created a Data Asset, click into the record. On the following page, click on the New Expectation button at the top righthand corner of the screen. Click on `Existing Suite` and select the default suite that was created for you. 
+Now that you have created a Data Asset, click into the record. On the following page, click on the New Expectation button at the top righthand corner of the screen. We will be creating a new Expectation Suite, so start by giving it a name, e.g. `GX Workshop Suite`.
 
 The data set that we are using is New York City taxi data from January 2019. This data has all of the trips that were completed by two taxi companies in New York City for that month, including information like the vendor, the number of passengers, the fare collected, etc. The first expectation we will create ensures that there is always an associated vendor with a given trip (or row). Start by selecting `expect_column_values_to_not_be_null` under Missingness. On the righthand side, enter `vendor_id` into the Column field. Click  "Save & Add More".
+
+![New Missingness Expectation](../img/New-Expectation.png)
 
 The second Expectation we will be adding is to check the values of the passenger count. Typically, we know that taxis should have no more than 4 passengers since there are only 4 seats. Select `expect_column_max_to_be_between` and then enter in `passenger_count` into the Column field. The Min Value should be 1, and the Max Value should be 4. Click on "Save", which will close this panel. You will now see the two Expectations listed.
 
