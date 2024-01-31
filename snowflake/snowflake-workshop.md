@@ -32,6 +32,8 @@ The data set that we are using is New York City taxi data from January 2019. Thi
 
 The second Expectation we will be adding is to check the values of the passenger count. Typically, we know that taxis should have no more than 4 passengers since there are only 4 seats. Select `expect_column_max_to_be_between` and then enter in `passenger_count` into the Column field. The Min Value should be 1, and the Max Value should be 4. Click on "Save", which will close this panel. You will now see the two Expectations listed.
 
+![New Column Max Expectation](../img/New-Passenger-Expectation.png)
+
 ### Step 4 - Validate the Expectations
 We have successfully created some Expectations on our data, so let's make sure they are running as we'd expect. From the same screen click on the Validate button in the top righthand corner. After a few moments, you will receive a toast notification to tell you that the results are ready. You can either click on the link on the toast notification itself, or click on the Validations tab.
 
