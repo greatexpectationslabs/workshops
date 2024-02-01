@@ -48,14 +48,20 @@ Let's fix the Expectation so that it has the right values. Click back to the Exp
 
 We can now re-run the Validation by clicking on Validation once again on the top righthand corner of the screen. Once the validation has run (look for the notification!), click back to the Validations screen to view the new results. You will see that the Expectations are now passing as expected.
 
+![Validation Result 2](../img/snowflake/Validation-Result-2.png)
+
 ### Step 6 - Fetching Metrics
 Now, you might be wondering if there is a better and easier way to set up your Expectations, instead of guessing at values or manually inspecting the data. Thankfully, GX Cloud allows you to fetch the metrics from your data directly so that you don't have to! Head back to the Overview page of your Data Asset. You will see some basic information about your asset on the left hand side. However, on the main panel, you will see a button labeled. "Fetch Metrics". Click on that button and allow the system to analyze your data. 
 
 Once the Metrics have completed, you will be presented with an updated view of your data. You will see that the Data Asset contains 10,000 rows, as well as some key information about each of the columns. Feel free to take some time now to review some of the data shown here.
 
+![Metrics](../img/snowflake/Metrics.png)
+
 When you are ready, click on New Expectation in the top righthand corner one last time. Now that we have fetched the metrics on the data, there are a few subtle, but key changes that you will notice on this page. First, whenever you select an Expectation on the lefthand side, the Column field has changed from a free text field into a dropdown where you can select the specific column you'd like to test. Furthermore, if you select a `Values and Statistics` Expectation, choosing a column will auto-fill some of the values for you.
 
 For example, click on the `expect_column_max_to_be_between` Expectation and select `passenger_count` in the Column dropdown. You will see that since the metrics have been generated for this data set, the Values have been automatically filled in with `6`.
+
+![New Expectation With Metrics](../img/snowflake/New-Expectation-With-Metrics.png)
 
 ## Conclusion
 Congratulations! You've successfully completed the workshop. By now, you will have created a Snowflake Data Source and Data Asset, created Expectations, run some Validations and fetched some metrics on the data. We hope you have a better understanding of how GX Cloud works and how it can work within your data pipeline.
