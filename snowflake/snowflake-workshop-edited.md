@@ -21,7 +21,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
     - In the **Access tokens** pane, click **Create user access token**.
 
-    - In the **Token name** field, enter a name for the token that will help you quickly identify it.
+    - In the **Token name** field, enter a name for the token.
 
     - Click **Create**.
 
@@ -124,7 +124,7 @@ You have successfully created two Expectations. Now, it's time to make sure they
 
     ![Validate](../img/snowflake/Validate-1.png)
 
-2. When the notification indicating the Validation was successful appears, click the link in the notification or click the **Validations** tab. Your results will appear similar to this:
+2. When the notification indicating the Validation was successful appears, click the link in the notification or click the **Validations** tab. Your results appear similar to this:
 
     ![Validation Result 1](../img/snowflake/Validation-Result-1.png)
 
@@ -142,7 +142,7 @@ You have successfully created two Expectations. Now, it's time to make sure they
 
 5. Click **Validate**. 
 
-6. When the notification indicating the Validation was successful appears, click the link in the notification or click the **Validations** tab. Your results will appear similar to this:
+6. When the notification indicating the Validation was successful appears, click the link in the notification or click the **Validations** tab. Your results appear similar to this:
 
     ![Validation Result 2](../img/snowflake/Validation-Result-2.png)
 
