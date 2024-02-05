@@ -8,7 +8,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
 - [Docker Desktop](https://docs.docker.com/get-docker/) installed and running on the computer you're using for the workshop
 
-- Credentials for the shared [GX Cloud](https://vntumnu-gx_workshops.snowflakecomputing.com/) instance. [Contact us](mailto:support@greatexpectations.io) if you don't have credentials.
+- Credentials for the shared [GX Cloud](https://vntumnu-gx_workshops.snowflakecomputing.com/) instance. [Contact us](mailto:support@greatexpectations.io) if you need credentials.
 
 
 ## Step 1 - Sign in to GX Cloud and start the GX Agent
