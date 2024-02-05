@@ -28,6 +28,8 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
     - Copy the user access token and store it in a safe location.
 
         ![User Token](../img/snowflake/User-Token.png)
+    
+    - Click **Close**.
 
 3. Copy the Docker command you'll use to run the GX Agent locally:
 
