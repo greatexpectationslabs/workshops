@@ -43,7 +43,9 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
 1. In GX Cloud, click **Data Assets** > **New Asset**.
 
-2. Configure your Data Source connection:
+2. Click **Snowflake**.
+
+3. Configure your Data Source connection:
 
     - In the **Data Source name** field, enter a name for the Data Source. For example, `GX Workshop Snowflake`.
 
@@ -65,9 +67,9 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
         ![Data Source](../img/snowflake/Add-Data-Source.png)
 
-3. Click **Continue**.
+4. Click **Continue**.
 
-4. Configure your Data Asset:
+5. Configure your Data Asset:
 
     - Select **Table Asset**. 
     
@@ -75,7 +77,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
     
     - In the **Data Asset** name field, enter a name for the Data Asset. For example, `TAXI_DATA`. 
     
-5. Click **Finish**.
+6. Click **Finish**.
 
     Congratulations! You have successfully added a Data Asset to your GX Cloud organization.
 
