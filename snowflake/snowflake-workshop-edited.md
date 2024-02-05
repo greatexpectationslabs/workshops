@@ -115,7 +115,7 @@ You'll be using New York City taxi data from January 2019 for your Expectations.
 
     ![New Column Max Expectation](../img/snowflake/New-Passenger-Expectation.png)
 
-7. Click **Save**. Your new Expectations appear in the **Expectations** list.
+7. Click **Save**. Your new `vendor_id` and `passenger_count` Expectations appear in the **Expectations** list.
 
 
 ## Step 4 - Validate the Expectations
