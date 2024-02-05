@@ -11,7 +11,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 - Credentials for the shared [GX Cloud](https://vntumnu-gx_workshops.snowflakecomputing.com/) instance. [Contact us](mailto:support@greatexpectations.io) if you don't have credentials.
 
 
-### Step 1 - Sign in to GX Cloud and start the GX Agent
+## Step 1 - Sign in to GX Cloud and start the GX Agent
 
 1. Sign in to [GX Cloud](https://app.greatexpectations.io/login). 
 
@@ -39,7 +39,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
     - Run the command. It may take a few minutes to download the image. When it's done, your terminal displays `The GX Agent is ready.`
 
-### Step 2 - Connect to a Snowflake Data Source and a Data Asset
+## Step 2 - Connect to a Snowflake Data Source and a Data Asset
 
 1. In GX Cloud, click **Data Assets** > **New Asset**.
 
@@ -79,7 +79,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
     Congratulations! You have successfully added a Data Asset to your GX Cloud organization.
 
-### Step 3 - Create an Expectation Suite and add Expectations
+## Step 3 - Create an Expectation Suite and add Expectations
 
 You'll be using New York City taxi data from January 2019 for your Expectations. This data has all the trips that were completed by two taxi companies in New York City for January, including information like the vendor, the number of passengers, the fare collected, and so on.
 
@@ -116,7 +116,7 @@ You'll be using New York City taxi data from January 2019 for your Expectations.
 7. Click **Save**. Your new Expectations appear in the **Expectations** list.
 
 
-### Step 4 - Validate the Expectations
+## Step 4 - Validate the Expectations
 
 You have successfully created two Expectations. Now, it's time to make sure they are running as expected. 
 
@@ -130,7 +130,7 @@ You have successfully created two Expectations. Now, it's time to make sure they
 
     Unfortunately, the `passenger_count` Expectation failed because some taxis in New York can hold more than four passengers.
 
-### Step 5 - Correct the failed Expectation and run the Validation again
+## Step 5 - Correct the failed Expectation and run the Validation again
 
 1. Click the **Expectations** tab.
 
@@ -148,7 +148,7 @@ You have successfully created two Expectations. Now, it's time to make sure they
 
     The Expectation is now successful.
 
-### Step 6 - Fetching Metrics
+## Step 6 - Fetching Metrics
 
 Now, you might be wondering if there is an easier way to create Expectations, instead of guessing at values or manually inspecting the data. Thankfully, GX Cloud allows you to fetch the metrics from your data directly so that you don't have to! 
 
@@ -172,7 +172,7 @@ Congratulations! You've successfully completed the workshop. You connected to a 
 
 - Try creating your own Expectations in GX Cloud
 
-- Use the [GX API]() to create Data Sources, Data Assets, Expectations, Expectation Suites, and Checkpoints
+- Use the [GX API](https://docs.greatexpectations.io/docs/reference/api) to create Data Sources, Data Assets, Expectations, Expectation Suites, and Checkpoints
 
 - Connect to GX Cloud from an orchestrator (for example, [Airflow](https://airflow.apache.org/))
 
