@@ -118,7 +118,7 @@ You'll be using New York City taxi data from January 2019 for your Expectations.
 
 ## Step 4 - Validate the Expectations
 
-You have successfully created two Expectations. Now, it's time to make sure they are running as expected. 
+You have successfully created two Expectations. Now, it's time to make sure they run as expected. 
 
 1. On the **Expectations** page, click **Validate**. The following image shows the location of the **Validate** button:
 
