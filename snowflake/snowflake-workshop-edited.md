@@ -43,7 +43,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
 1. In GX Cloud, click **Data Assets** > **New Asset**.
 
-2. Configure your Data Source connection
+2. Configure your Data Source connection:
 
     - In the **Data Source name** field, enter a name for the Data Source. For example, `GX Workshop Snowflake`.
 
@@ -61,7 +61,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
     - In the **Role** field, enter `PUBLIC`.
 
-    - Select **Test connection** to test the Data Asset connection. When you're done, your screen should appear similar to this:
+    - Select **Test connection** to test the Data Asset connection. When you're done, your screen should appear similar to the following:
 
         ![Data Source](../img/snowflake/Add-Data-Source.png)
 
@@ -95,7 +95,7 @@ You'll be using New York City taxi data from January 2019 for your Expectations.
 
     - Select `expect_column_values_to_not_be_null` below **Missingness**.
 
-    - In the **Column** field, enter `vendor_id`. Your screen should appear similar to this:
+    - In the **Column** field, enter `vendor_id`. Your screen should appear similar to the following:
 
     ![New Missingness Expectation](../img/snowflake/New-Expectation.png)
 
@@ -109,7 +109,7 @@ You'll be using New York City taxi data from January 2019 for your Expectations.
 
     - In the **Min Value** field, enter `1`.
 
-    - In the Max Value field, enter `4`. Your screen should appear similar to this:
+    - In the Max Value field, enter `4`. Your screen should appear similar to the following:
 
     ![New Column Max Expectation](../img/snowflake/New-Passenger-Expectation.png)
 
@@ -124,7 +124,7 @@ You have successfully created two Expectations. Now, it's time to make sure they
 
     ![Validate](../img/snowflake/Validate-1.png)
 
-2. When the notification indicating the Validation was successful appears, click the link in the notification or click the **Validations** tab. Your results appear similar to this:
+2. When the notification indicating the Validation was successful appears, click the link in the notification or click the **Validations** tab. Your results appear similar to the following:
 
     ![Validation Result 1](../img/snowflake/Validation-Result-1.png)
 
@@ -142,7 +142,7 @@ You have successfully created two Expectations. Now, it's time to make sure they
 
 5. Click **Validate**. 
 
-6. When the notification indicating the Validation was successful appears, click the link in the notification or click the **Validations** tab. Your results appear similar to this:
+6. When the notification indicating the Validation was successful appears, click the link in the notification or click the **Validations** tab. Your results appear similar to the following:
 
     ![Validation Result 2](../img/snowflake/Validation-Result-2.png)
 
