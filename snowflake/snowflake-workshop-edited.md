@@ -15,7 +15,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
 1. Sign in to [GX Cloud](https://app.greatexpectations.io/login). 
 
-2. Create a User Access token. The GX Agent uses the user access token for authentication with your GX Cloud organization: 
+2. Create a User Access token to allow the GX Agent to authenticate with your GX Cloud organization: 
 
     - Click **Settings** > **Tokens**. 
 
@@ -29,9 +29,9 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
         ![User Token](../img/snowflake/User-Token.png)
     
-    - Click **Close**.
+    - Click **Close** to close the **Create user access token** dialog.
 
-3. Copy the Docker command you'll use to run the GX Agent locally:
+3. Run the GX Agent locally:
 
     - Click **Agent** and copy the command displayed at the top of the page.
 
@@ -47,7 +47,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
 2. Click **Snowflake**.
 
-3. Configure your Data Source connection:
+3. Configure the Snowflake Data Source connection:
 
     - In the **Data Source name** field, enter a name for the Data Source. For example, `GX Workshop Snowflake`.
 
@@ -71,7 +71,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
 4. Click **Continue**.
 
-5. Configure your Data Asset:
+5. Configure the Snowflake Data Asset:
 
     - Select **Table Asset**. 
     
@@ -146,12 +146,11 @@ You have successfully created two Expectations. Now, it's time to make sure they
 
 5. Click **Validate**. 
 
-6. When the notification indicating the Validation was successful appears, click the link in the notification or click the **Validations** tab. Your results appear similar to the following:
+6. When the notification indicating the Validation was successful appears, click the link in the notification or click the **Validations** tab. Your results show a successful Expectation and appear similar to the following:
 
     ![Validation Result 2](../img/snowflake/Validation-Result-2.png)
 
-    The Expectation is now successful.
-
+    
 ## Step 6 - Fetch Metrics
 
 Now, you might be wondering if there is an easier way to create Expectations, instead of guessing at values or manually inspecting the data. Thankfully, GX Cloud allows you to fetch the metrics from your data directly so that you don't have to! 
