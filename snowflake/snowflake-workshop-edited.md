@@ -55,9 +55,9 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
     - In the **Database** field, enter `GXWORKSHOP`.
 
-    - In the Schema field, enter `PUBLIC`.
+    - In the **Schema** field, enter `PUBLIC`.
 
-    - In the Warehouse field, enter `COMPUTE_WH`.
+    - In the **Warehouse** field, enter `COMPUTE_WH`.
 
     - In the **Role** field, enter `PUBLIC`.
 
