@@ -15,7 +15,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
 1. Sign in to [GX Cloud](https://app.greatexpectations.io/login). 
 
-2. Create a User Access token and copy the organization ID. The GX Agent uses the user access token and organization ID for authentication to your GX Cloud organization: 
+2. Create a User Access token and copy the organization ID. The GX Agent uses the user access token and organization ID for authentication with your GX Cloud organization: 
 
     - Click **Settings** > **Tokens**. 
 
