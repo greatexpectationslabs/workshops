@@ -1,7 +1,5 @@
 # GX Cloud Snowflake Workshop
 
-## Introduction
-
 Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how to connect your GX Cloud account to a Snowflake Data Source, create Expectations, and run Validations.
 
 ## Prerequisites
@@ -171,8 +169,13 @@ Congratulations! You've successfully completed the workshop. You connected to a 
 ### What's next?
 
 - Connect to your own Snowflake instance
+
 - Try creating your own Expectations in GX Cloud
+
 - Use the [GX API]() to create Data Sources, Data Assets, Expectations, Expectation Suites, and Checkpoints
-- Connect to GX Cloud from an orchestrator (e.g. [Airflow](https://airflow.apache.org/))
+
+- Connect to GX Cloud from an orchestrator (for example, [Airflow](https://airflow.apache.org/))
+
 - Invite others to work in your GX Cloud organization
+
 - Explore our [documentation](https://docs.greatexpectations.io/docs/cloud/)
