@@ -69,7 +69,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
 4. Configure your Data Asset:
 
-    - Select **Table Asset**, 
+    - Select **Table Asset**. 
     
     - In the **Table name** field, enter a name for the table you're connecting to. For example, `Taxi Data`.
     
