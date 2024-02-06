@@ -137,7 +137,7 @@ Now, it's time to make sure the two Expectations you created run as expected.
 
 ## Step 5 - Update the failing Expectation and run the Validation again
 
-You need to update the Expectation so the Validation of the `passenger_count` Expectation completes successfully. 
+Now that you know your assumption about taxi passenger capacity was incorrect, you need to update the Expectation so the Validation of the `passenger_count` Expectation completes successfully. 
 
 1. Click the **Expectations** tab.
 
@@ -156,7 +156,7 @@ You need to update the Expectation so the Validation of the `passenger_count` Ex
     
 ## Step 6 - Fetch Metrics
 
-You might wonder if there is an easier way to create Expectations instead of guessing at values or manually inspecting the data. Thankfully, GX Cloud lets you fetch the metrics from your data directly, so you don't have to! 
+You might wonder if there is an easier way to create Expectations instead of making assumptions or manually inspecting the data. Thankfully, GX Cloud lets you fetch the metrics from your data directly, so you don't have to! 
 
 1. Click the **Overview** tab. Basic information about your Data Asset is displayed in the **Data Asset Information** pane. 
 
