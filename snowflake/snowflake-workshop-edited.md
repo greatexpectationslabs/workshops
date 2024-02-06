@@ -31,7 +31,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
     
     - Click **Close** to close the **Create user access token** dialog.
 
-3. Run the GX Agent locally:
+3. Start the GX Agent:
 
     - Click **Agent** and copy the command displayed at the top of the page.
 
