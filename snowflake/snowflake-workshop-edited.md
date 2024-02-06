@@ -1,12 +1,12 @@
 # GX Cloud Snowflake Workshop
 
-Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how to connect your GX Cloud account to a Snowflake Data Source, create Expectations, and run Validations.
+Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how to connect your GX Cloud account to a Snowflake Data Source, create a Data Asset, create Expectations, and run Validations.
 
 ## Prerequisites
 
-- A personal [GX Cloud](https://app.greatexpectations.io/login?ssac=true) account
+- A personal [GX Cloud](https://app.greatexpectations.io/login?ssac=true) account.
 
-- [Docker Desktop](https://docs.docker.com/get-docker/) installed and running on the computer you're using for the workshop
+- [Docker Desktop](https://docs.docker.com/get-docker/) installed and running on the computer you're using for the workshop.
 
 - Credentials for the shared [GX Snowflake](https://vntumnu-gx_workshops.snowflakecomputing.com/) instance. [Contact us](mailto:support@greatexpectations.io) if you need credentials.
 
@@ -161,7 +161,7 @@ Now, you might be wondering if there is an easier way to create Expectations, in
 
     ![Metrics](../img/snowflake/Metrics.png)
 
-3. Click **New Expectation**. Now that you fetched metrics for the Data Asset, the **Column** field is autopopulated with the Data Asset column names. If you select a `Values and Statistics` Expectation, some values are auto-filled for you when you choose a column. For example, when you select the `expect_column_max_to_be_between` Expectation and the `passenger_count` column, the **Max Value** is automatically `6` as shown in the following image:
+3. Click **New Expectation**. Now that you fetched metrics for the Data Asset, the **Column** field is autopopulated with the Data Asset column names. If you select a `Values and Statistics` Expectation, some values are auto-filled for you when you choose a column. For example, when you select the `expect_column_max_to_be_between` Expectation and the `passenger_count` column, the **Max Value** `6` is automatically entered as shown in the following image:
 
     ![New Expectation With Metrics](../img/snowflake/New-Expectation-With-Metrics.png)
 
