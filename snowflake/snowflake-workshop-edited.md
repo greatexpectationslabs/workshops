@@ -128,7 +128,7 @@ Now, it's time to make sure the two Expectations you created run as expected.
 
     ![Validate](../img/snowflake/Validate-1.png)
 
-2. When the notification indicating the Validation was successful appears, click the link in the notification or click the **Validations** tab. Unfortunately, the `passenger_count` Expectation failed because some taxis in New York can carry more than four passengers. Your results appear similar to the following:
+2. When the notification indicating the Validation was successful appears, click the link in the notification or click the **Validations** tab. Unfortunately, the `passenger_count` Expectation failed because some taxis in New York City can carry more than four passengers. Your results appear similar to the following:
 
     ![Validation Result 1](../img/snowflake/Validation-Result-1.png)
 
