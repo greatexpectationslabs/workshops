@@ -135,7 +135,7 @@ Now, it's time to make sure the two Expectations you created run as expected.
 
 ## Step 5 - Update the failing Expectation and run the Validation again
 
-You need to update the Expectation so the Validation completes successfully. 
+You need to update the Expectation so the Validation of the `passenger_count` Expectation completes successfully. 
 
 1. Click the **Expectations** tab.
 
