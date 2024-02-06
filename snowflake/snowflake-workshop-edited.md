@@ -15,7 +15,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
 1. Sign in to [GX Cloud](https://app.greatexpectations.io/login). 
 
-2. Create a User Access token to allow the GX Agent to authenticate with your GX Cloud organization: 
+2. Create a user access token to allow the GX Agent to authenticate with your GX Cloud organization: 
 
     - Click **Settings** > **Tokens**. 
 
@@ -25,7 +25,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
     - Click **Create**.
 
-    - Copy the user access token and store it in a safe location.
+    - Copy the user access token and store it in a safe location. If you close the dialog before recording the user access token, you'll need to generate it again.
 
         ![User Token](../img/snowflake/User-Token.png)
     
