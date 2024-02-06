@@ -65,7 +65,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
     - In the **Role** field, enter `PUBLIC`.
 
-    - Select **Test connection** to test the Data Asset connection. When you're done, your screen should appear similar to the following:
+    - Select **Test connection** to test the Data Asset connection. Your screen should now appear similar to the following:
 
         ![Data Source](../img/snowflake/Add-Data-Source.png)
 
