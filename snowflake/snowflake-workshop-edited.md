@@ -160,7 +160,7 @@ You might wonder if there is an easier way to create Expectations instead of gue
 
 1. Click the **Overview** tab. Basic information about your Data Asset is displayed in the **Data Asset Information** pane. 
 
-2. Click **Fetch Metrics** to allow GX cloud to analyze your data. When the process completes, an updated view of your Data Asset appears. The Data Asset contains 10,000 rows, as well as some information about each of the columns, as shown in the following image:
+2. Click **Fetch Metrics** to allow GX Cloud to analyze your data. When the process completes, an updated view of your Data Asset appears. The Data Asset contains 10,000 rows, as well as some information about each of the columns, as shown in the following image:
 
     ![Metrics](../img/snowflake/Metrics.png)
 
