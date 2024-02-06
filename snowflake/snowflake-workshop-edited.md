@@ -134,9 +134,10 @@ Now, it's time to make sure the two Expectations you created run as expected.
 
     ![Validation Result 1](../img/snowflake/Validation-Result-1.png)
 
-    Unfortunately, the `passenger_count` Expectation failed because some taxis in New York can hold more than four passengers.
 
 ## Step 5 - Correct the failed Expectation and run the Validation again
+
+Unfortunately, the `passenger_count` Expectation failed because some taxis in New York hold more than four passengers. You need to update the Expectation so the Validation completes successfully. 
 
 1. Click the **Expectations** tab.
 
