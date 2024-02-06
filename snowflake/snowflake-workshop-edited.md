@@ -75,9 +75,9 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
     - Select **Table Asset**. 
     
-    - In the **Table name** field, enter a name for the table you're connecting to. For example, `Taxi Data`.
+    - In the **Table name** field, enter a name for the table you're connecting to. For example, `TAXI_DATA`.
     
-    - In the **Data Asset** name field, enter a name for the Data Asset. For example, `TAXI_DATA`. 
+    - In the **Data Asset** name field, enter a name for the Data Asset. For example, `Taxi Data`. 
     
 6. Click **Finish**.
 
@@ -87,7 +87,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
 You'll be using New York City taxi data from January 2019 for your Expectations. This data has all the trips that were completed by two taxi companies in New York City for January, including information like the vendor, the number of passengers, the fare collected, and so on.
 
-1. In the **Data Assets** list, click the `TAXI_DATA` Data Asset.
+1. In the **Data Assets** list, click the `Taxi Data` Data Asset.
 
 2. Click the **Expectations** tab and then **New Suite**. 
 
@@ -122,7 +122,7 @@ You'll be using New York City taxi data from January 2019 for your Expectations.
 
 ## Step 4 - Validate the Expectations
 
-You have successfully created two Expectations. Now, it's time to make sure they run as expected. 
+Now, it's time to make sure the two Expectations you created run as expected. 
 
 1. On the **Expectations** page, click **Validate**. The following image shows the location of the **Validate** button:
 
