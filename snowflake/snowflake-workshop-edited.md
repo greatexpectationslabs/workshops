@@ -4,7 +4,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
 ## Prerequisites
 
-- A personal [GX Cloud](https://app.greatexpectations.io/login?ssac=true) account with Admin or Editor permissions.
+- A local [GX Cloud](https://app.greatexpectations.io/login) instance and Admin or Editor permissions.
 
 - [Docker Desktop](https://docs.docker.com/get-docker/) installed and running on the computer you're using for the workshop.
 
