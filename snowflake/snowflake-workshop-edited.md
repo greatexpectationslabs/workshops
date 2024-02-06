@@ -13,6 +13,8 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
 ## Step 1 - Sign in to GX Cloud and start the GX Agent
 
+The GX Agent is an intermediary between GX Cloud and your organization's data stores. GX Cloud does not connect directly to your data, all data access occurs within the GX Agent. GX Cloud sends jobs to the GX Agent, the GX Agent executes these jobs against your data, and then sends the job results to GX Cloud.
+
 1. Sign in to [GX Cloud](https://app.greatexpectations.io/login). 
 
 2. Create a user access token to allow the GX Agent to authenticate with your GX Cloud organization: 
