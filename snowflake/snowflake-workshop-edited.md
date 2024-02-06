@@ -155,7 +155,7 @@ Now, it's time to make sure the two Expectations you created run as expected.
     
 ## Step 6 - Fetch Metrics
 
-Now, you might be wondering if there is an easier way to create Expectations, instead of guessing at values or manually inspecting the data. Thankfully, GX Cloud allows you to fetch the metrics from your data directly so that you don't have to! 
+You might be wondering if there is an easier way to create Expectations, instead of guessing at values or manually inspecting the data. Thankfully, GX Cloud allows you to fetch the metrics from your data directly so that you don't have to! 
 
 1. Click the **Overview** tab. Basic information about your Data Asset is displayed in the **Data Asset Information** pane. 
 
