@@ -183,6 +183,6 @@ Congratulations! You've successfully completed the workshop. You connected to a 
 
 - Connect to GX Cloud from an orchestrator (for example, [Airflow](https://airflow.apache.org/))
 
-- Invite others to work in your GX Cloud organization
+- [Invite users](https://docs.greatexpectations.io/docs/cloud/users/manage_users#invite-a-user) to your GX Cloud organization
 
 - Explore our [documentation](https://docs.greatexpectations.io/docs/cloud/)
