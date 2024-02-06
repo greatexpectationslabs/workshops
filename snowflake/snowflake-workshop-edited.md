@@ -89,15 +89,13 @@ You'll use New York City taxi data from January 2019 for your Expectations. This
 
 1. In the **Data Assets** list, click the `Taxi Data` Data Asset.
 
-2. Click the **Expectations** tab and then **New Suite**. 
+2. Click the **Overview** tab and then **New Expectation**. 
 
-3. In the **Expectation Suite name** field, enter a name for the Expectation Suite. For example, `GX Workshop Suite`.
+3. Click the **New Suite** tab.
 
-4. Click **Create Suite**.
+4. In the **Enter new Expectation Suite name** field, enter a name for the Expectation Suite. For example, `GX Workshop Suite`.
 
 5. Create an Expectation that ensures there is always an associated vendor with a given trip (or row):
-
-    - Click **New Expectation**.
 
     - Select `expect_column_values_to_not_be_null` below **Missingness**.
 
@@ -109,13 +107,13 @@ You'll use New York City taxi data from January 2019 for your Expectations. This
 
  7. Create an Expectation that checks the passenger count values to determine if the maximum allowable capacity of four passengers is exceeded:
 
-    - Select `expect_column_max_to_be_between` below **Volume**.
+    - Select `expect_column_max_to_be_between` below **Values and Statistics**.
 
     - In the **Column** field, enter `passenger_count`.
 
     - In the **Min Value** field, enter `1`.
 
-    - In the Max Value field, enter `4`. Your screen should appear similar to the following:
+    - In the **Max Value** field, enter `4`. Your screen should appear similar to the following:
 
     ![New Column Max Expectation](../img/snowflake/New-Passenger-Expectation.png)
 
