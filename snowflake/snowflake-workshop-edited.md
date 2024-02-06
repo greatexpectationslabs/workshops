@@ -111,9 +111,9 @@ You'll use New York City taxi data from January 2019 for your Expectations. This
 
     - In the **Column** field, enter `passenger_count`.
 
-    - In the **Min Value** field, enter `1`.
+    - In the **Min Value** field, enter `1`. You're assuming a taxi can carry a minimum of one passenger.
 
-    - In the **Max Value** field, enter `4`. Your screen should appear similar to the following:
+    - In the **Max Value** field, enter `4`. You're assuming a taxi can carry a maximum of four passengers. Your screen should appear similar to the following:
 
     ![New Column Max Expectation](../img/snowflake/New-Passenger-Expectation.png)
 
@@ -128,14 +128,14 @@ Now, it's time to make sure the two Expectations you created run as expected.
 
     ![Validate](../img/snowflake/Validate-1.png)
 
-2. When the notification indicating the Validation was successful appears, click the link in the notification or click the **Validations** tab. Your results appear similar to the following:
+2. When the notification indicating the Validation was successful appears, click the link in the notification or click the **Validations** tab. Unfortunately, the `passenger_count` Expectation failed because some taxis in New York can carry more than four passengers. Your results appear similar to the following:
 
     ![Validation Result 1](../img/snowflake/Validation-Result-1.png)
 
 
-## Step 5 - Correct the failed Expectation and run the Validation again
+## Step 5 - Update the failing Expectation and run the Validation again
 
-Unfortunately, the `passenger_count` Expectation failed because some taxis in New York hold more than four passengers. You need to update the Expectation so the Validation completes successfully. 
+You need to update the Expectation so the Validation completes successfully. 
 
 1. Click the **Expectations** tab.
 
