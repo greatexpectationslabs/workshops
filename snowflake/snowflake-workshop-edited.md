@@ -33,7 +33,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
 3. Start the GX Agent:
 
-    - Click **Agent** and copy the command displayed at the top of the page.
+    - Click **GX Agent** and copy the command displayed at the top of the page.
 
     - Open a terminal and paste the command you copied.
 
