@@ -37,7 +37,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
     - Open a terminal and paste the command you copied.
 
-    - Replace `GX_CLOUD_ACCESS_TOKEN` with the user access token value you copied. 
+    - Replace `GX_CLOUD_ACCESS_TOKEN` with the user access token. 
 
     - Run the command. It may take a few minutes to download the image. When it's done, your terminal displays `The GX Agent is ready.`
 
