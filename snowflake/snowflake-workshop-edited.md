@@ -85,7 +85,7 @@ Welcome to the GX Cloud Snowflake workshop! In this workshop, you’ll learn how
 
 ## Step 3 - Create an Expectation Suite and add Expectations
 
-You'll be using New York City taxi data from January 2019 for your Expectations. This data has all the trips that were completed by two taxi companies in New York City for January, including information like the vendor, the number of passengers, the fare collected, and so on.
+You'll use New York City taxi data from January 2019 for your Expectations. This data has all the trips completed by two taxi companies in New York City for January, including information like the vendor, the number of passengers, the fare collected, and so on.
 
 1. In the **Data Assets** list, click the `Taxi Data` Data Asset.
 
@@ -155,15 +155,15 @@ Now, it's time to make sure the two Expectations you created run as expected.
     
 ## Step 6 - Fetch Metrics
 
-You might be wondering if there is an easier way to create Expectations, instead of guessing at values or manually inspecting the data. Thankfully, GX Cloud allows you to fetch the metrics from your data directly so that you don't have to! 
+You might wonder if there is an easier way to create Expectations instead of guessing at values or manually inspecting the data. Thankfully, GX Cloud lets you fetch the metrics from your data directly, so you don't have to! 
 
 1. Click the **Overview** tab. Basic information about your Data Asset is displayed in the **Data Asset Information** pane. 
 
-2. Click **Fetch Metrics** to allow GX cloud to analyze your data. When the process completes, an updated view of your Data Asset appears. The Data Asset contains 10,000 rows, as well as some information about each of the columns as shown in the following image:
+2. Click **Fetch Metrics** to allow GX cloud to analyze your data. When the process completes, an updated view of your Data Asset appears. The Data Asset contains 10,000 rows, as well as some information about each of the columns, as shown in the following image:
 
     ![Metrics](../img/snowflake/Metrics.png)
 
-3. Click **New Expectation**. Now that you fetched metrics for the Data Asset, the **Column** field is autopopulated with the Data Asset column names. If you select a `Values and Statistics` Expectation, some values are auto-filled for you when you choose a column. For example, when you select the `expect_column_max_to_be_between` Expectation and the `passenger_count` column, the **Max Value** `6` is automatically entered as shown in the following image:
+3. Click **New Expectation**. Now that you fetched metrics for the Data Asset, the **Column** field is auto-populated with the Data Asset column names. If you select a `Values and Statistics` Expectation, some values are auto-filled for you when you choose a column. For example, when you select the `expect_column_max_to_be_between` Expectation and the `passenger_count` column, the **Max Value** `6` is automatically entered, as shown in the following image:
 
     ![New Expectation With Metrics](../img/snowflake/New-Expectation-With-Metrics.png)
 
@@ -171,7 +171,7 @@ You might be wondering if there is an easier way to create Expectations, instead
 
 ## Conclusion
 
-Congratulations! You've successfully completed the workshop. You connected to a Snowflake Data Source and created a Data Asset, you created Expectations, you ran Validations, and then you fetched some metrics on the data. We hope you have a better understanding of how GX Cloud works and how it can work within your data pipeline.
+Congratulations! You've successfully completed the workshop. You connected to a Snowflake Data Source and created a Data Asset, created Expectations, ran Validations, and then fetched some metrics on the data. We hope you better understand of how GX Cloud works and how it can work within your data pipeline.
 
 ## What's next?
 
