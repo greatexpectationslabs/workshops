@@ -37,7 +37,7 @@ The GX Agent is an intermediary between GX Cloud and your organization's data st
 
 3. Open a terminal and then copy and paste the following command into the command line:
 
-    docker run --rm --pull=always -e GX_CLOUD_ACCESS_TOKEN="<user_access_token>" -e GX_CLOUD_ORGANIZATION_ID="<organization_id>" greatexpectations/agent
+    `docker run --rm --pull=always -e GX_CLOUD_ACCESS_TOKEN="<user_access_token>" -e GX_CLOUD_ORGANIZATION_ID="<organization_id>" greatexpectations/agent`
 
 4. Replace `<user_access_token>` with the user access token and `<organization_id>` with the organization ID you copied. 
 
