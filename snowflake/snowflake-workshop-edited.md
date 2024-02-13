@@ -21,7 +21,7 @@ The GX Agent is an intermediary between GX Cloud and your organization's data st
 
     - Click **Settings** > **Tokens**. 
 
-    - In the **Access tokens** pane, click **Create user access token**.
+    - In the **User access tokens** pane, click **Create user access token**.
 
     - In the **Token name** field, enter a name for the token.
 
