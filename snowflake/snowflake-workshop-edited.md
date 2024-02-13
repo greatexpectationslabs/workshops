@@ -172,7 +172,7 @@ You might wonder if there is an easier way to create Expectations instead of mak
 
 ## Conclusion
 
-Congratulations! You've successfully completed the workshop. You connected to a Snowflake Data Source and created a Data Asset, created Expectations, ran Validations, and then fetched some metrics on the data. We hope you better understand of how GX Cloud works and how it can work within your data pipeline.
+Congratulations! You've successfully completed the workshop. You connected to a Snowflake Data Source and created a Data Asset, created Expectations, ran Validations, and then fetched some metrics on the data. We hope you better understand how GX Cloud works and how it can work within your data pipeline.
 
 ## What's next?
 
