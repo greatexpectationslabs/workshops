@@ -17,7 +17,7 @@ The GX Agent is an intermediary between GX Cloud and your organization's data st
 
 1. Sign in to [GX Cloud](https://app.greatexpectations.io/login). 
 
-2. Create a user access token to allow the GX Agent to authenticate with your GX Cloud organization: 
+2. Create a user access token and then copy your organization ID to allow the GX Agent to authenticate with your GX Cloud organization: 
 
     - Click **Settings** > **Tokens**. 
 
@@ -33,15 +33,15 @@ The GX Agent is an intermediary between GX Cloud and your organization's data st
     
     - Click **Close** to close the **Create user access token** dialog.
 
-3. Start the GX Agent:
+    - Copy the value in the **Organization ID** field and store it with the user access token.
 
-    - Click **GX Agent** and copy the command displayed at the top of the page.
+3. Open a terminal and then copy and paste the following command into the command line:
 
-    - Open a terminal and paste the command you copied.
+    docker run --rm --pull=always -e GX_CLOUD_ACCESS_TOKEN="<user_access_token>" -e GX_CLOUD_ORGANIZATION_ID="<organization_id>" greatexpectations/agent
 
-    - Replace `GX_CLOUD_ACCESS_TOKEN` with the user access token. 
+4. Replace `<user_access_token>` with the user access token and `<organization_id>` with the organization ID you copied. 
 
-    - Run the command. It may take a few minutes to download the image. When it's done, your terminal displays `The GX Agent is ready.`
+5. Run the command. It may take a few minutes to download the image. When it's done, your terminal displays `The GX Agent is ready.`
 
 ## Step 2 - Connect to a Snowflake Data Source and a Data Asset
 
