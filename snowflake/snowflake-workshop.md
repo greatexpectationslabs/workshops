@@ -18,8 +18,8 @@ You will need to create a User Access token that the GX Agent will use to authen
 
 ![User Token](../img/snowflake/User-Token.png)
 
-[!WARNING]  
-You will only be shown the value if this token once. If you lose it, you will need to create a new one using the same steps.
+> [!WARNING]  
+> You will only be shown the value if this token once. If you lose it, you will need to create a new one using the same steps.
 
 In order to start the GX Agent, run the following Docker command in a terminal window, replacing the `GX_CLOUD_ACCESS_TOKEN` and `GX_CLOUD_ORGANIZATION_ID` values with your own. You can find your Organization ID in the same Tokens page.
 
@@ -34,8 +34,8 @@ Running this command will start a Docker image that uses the latest version of G
 ## Step 2 - Create a Snowflake Data Source and Data Asset
 Now that the Agent is running, we are ready to connect to Snowflake. Click on the Data Assets page, then on New Data Asset and finally on Snowflake. Give your Data Source a name, e.g. `GX Workshop Snowflake`, and enter in your Snowflake username and password. The account identifier for the Snowflake account is `VNTUMNU-GX_WORKSHOPS`. The database name we'll be using is `GXWORKSHOP` with a Schema of `PUBLIC`, a Warehouse of `COMPUTE_WH` and the role of `PUBLIC`. Be sure to check the "Test connection" checkbox before you click on Continue.
 
-[!NOTE]
-Your Snowflake username and password is stored securely.
+> [!NOTE]
+> Your Snowflake username and password is stored securely.
 
 ![Data Source](../img/snowflake/Add-Data-Source.png)
 
