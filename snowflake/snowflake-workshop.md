@@ -87,12 +87,12 @@ For example, click on the `expect_column_max_to_be_between` Expectation and sele
 ![New Expectation With Metrics](../img/snowflake/New-Expectation-With-Metrics.png)
 
 ## Conclusion
-Congratulations! You've successfully completed the workshop. By now, you will have created a Snowflake Data Source and Data Asset, created Expectations, run some Validations and fetched some metrics on the data. We hope you have a better understanding of how GX Cloud works and how it can work within your data pipeline.
+Congratulations! You've successfully completed the GX Cloud Snowflake Workshop. By now, you will have created a Snowflake Data Source and Data Asset, created Expectations, run some Validations and fetched some metrics on the data. We hope you have a better understanding of how GX Cloud works and how it can work within your data pipeline.
 
 ## What's next?
 - Connect to your own Snowflake instance
-- Try creating your own Expectations in GX Cloud
-- Use the [GX API]() to create Data Sources, Data Assets, Expectations, Expectation Suites, and Checkpoints
+- Create your own Expectations in GX Cloud
+- Use the [GX API](https://docs.greatexpectations.io/docs/reference/api) to create Data Sources, Data Assets, Expectations, Expectation Suites, and Checkpoints
 - Connect to GX Cloud from an orchestrator (e.g. [Airflow](https://airflow.apache.org/))
-- Invite others to work in your GX Cloud organization
+- [Invite others](https://docs.greatexpectations.io/docs/cloud/users/manage_users#invite-a-user) to work in your GX Cloud organization
 - Explore our [documentation](https://docs.greatexpectations.io/docs/cloud/)
