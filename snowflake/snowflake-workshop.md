@@ -44,7 +44,7 @@ Congratulations! You have successfully added a Data Source to your GX Cloud orga
 ## Step 3 - Create Expectations
 An Expectation is a verifiable assertion about your data. They make implicit assumptions about your data explicit, and they provide a flexible, declarative language for describing expected behavior. They can help you better understand your data and help you improve data quality. An Expectation Suite contains multiple Expectations.
 
-Now that you have created a Data Asset, click into the record. On the following page, click on the New Expectation button at the top righthand corner of the screen. We will be creating a new Expectation Suite, so start by giving it a name, e.g. `GX Workshop Suite`.
+Now that you have created a Data Asset, click into the record. On the following page, click on the New Expectation button at the top righthand corner of the screen. You will be creating a new Expectation Suite, so start by giving it a name, e.g. `GX Workshop Suite`.
 
 The data set that you will be using is New York City taxi data from January 2019. This data has all of the trips that were completed by two taxi companies in New York City for that month, including information such the vendor, the number of passengers, the fare collected and more. The first expectation you will create ensures that there is always an associated vendor with a given trip (or row). Start by selecting `expect_column_values_to_not_be_null` under Missingness. On the righthand side, enter `vendor_id` into the Column field. Click **Save** to finish creating this Expectation.
 
@@ -59,7 +59,7 @@ You have successfully created some Expectations on our data, so let's make sure 
 
 ![Validate](../img/snowflake/Validate-1.png)
 
-You will see that while the Validation has run, the `passenger_count` Expectation has failed. This is because we failed to recognize that some taxis in New York can hold up to 6 people! 
+You will see that while the Validation has run, the `passenger_count` Expectation has failed. This is because some taxis in New York can hold up to 6 people! 
 
 ![Validation Result 1](../img/snowflake/Validation-Result-1.png)
 
@@ -70,6 +70,9 @@ You can now re-run the Validation by clicking on **Validate** once again on the 
 
 ![Validation Result 2](../img/snowflake/Validation-Result-2.png)
 
+> [!NOTE]
+> You can view the full history of your Validation Runs by cliking on **All Runs** on the lefthand side.
+
 ## Step 6 - Fetching Metrics
 You might be wondering if there is a better and easier way to set up your Expectations, instead of guessing at values or manually inspecting the data. Thankfully, GX Cloud allows you to fetch the metrics from your data directly so that you don't have to! Head back to the **Overview** page of your Data Asset. You will see some basic information about your asset on the left hand side. On the main panel, you will see a button labeled, **Fetch Metrics**. Click on that button and allow the system to analyze your data. 
 
@@ -77,7 +80,7 @@ Once the Metrics have completed, you will be presented with an updated view of y
 
 ![Metrics](../img/snowflake/Metrics.png)
 
-When you are ready, click on **New Expectation** in the top righthand corner one last time. Now that we have fetched the metrics on the data, there are a few subtle, but key changes that you will notice on this page. First, whenever you select an Expectation on the lefthand side, the Column field has changed from a free text field into a dropdown where you can select the specific column you'd like to test. Furthermore, if you select a `Values and Statistics` Expectation, choosing a column will auto-fill some of the values for you.
+When you are ready, click on **New Expectation** in the top righthand corner one last time. Now that you have fetched the metrics on the data, there are a few subtle, but key changes that you will notice on this page. First, whenever you select an Expectation on the lefthand side, the Column field has changed from a free text field into a dropdown where you can select the specific column you'd like to test. Furthermore, if you select a `Values and Statistics` Expectation, choosing a column will auto-fill some of the values for you.
 
 For example, click on the `expect_column_max_to_be_between` Expectation and select `passenger_count` in the Column dropdown. You will see that since the metrics have been generated for this data set, the Values have been automatically filled in with `6`.
 
