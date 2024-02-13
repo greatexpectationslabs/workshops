@@ -32,14 +32,14 @@ docker run --rm --pull=always -e GX_CLOUD_ACCESS_TOKEN="<user_access_token>" -e 
 Running this command will start a Docker image that uses the latest version of GX. It may take a few minutes to download the image and start the Docker container. Once it is done, your terminal will have an output of `The GX Agent is ready.`
 
 ## Step 2 - Create a Snowflake Data Source and Data Asset
-Now that the Agent is running, you are ready to connect to Snowflake. Click on the Data Assets page, then on New Data Asset and finally on Snowflake. Give your Data Source a name, e.g. `GX Workshop Snowflake`, and enter in your Snowflake username and password. The account identifier for the Snowflake account is `VNTUMNU-GX_WORKSHOPS`. The database name we'll be using is `GXWORKSHOP` with a Schema of `PUBLIC`, a Warehouse of `COMPUTE_WH` and the role of `PUBLIC`. Be sure to check the "Test connection" checkbox before you click on Continue.
+Now that the Agent is running, you are ready to connect to Snowflake. Click on the Data Assets page, then on New Data Asset and finally on Snowflake. Give your Data Source a name, e.g. `GX Workshop Snowflake`, and enter in your Snowflake username and password. The account identifier for the Snowflake account is `VNTUMNU-GX_WORKSHOPS`. The database name we'll be using is `GXWORKSHOP` with a Schema of `PUBLIC`, a Warehouse of `COMPUTE_WH` and the role of `PUBLIC`. Be sure to check the *Test connection* checkbox before you click on Continue.
 
 > [!NOTE]
 > Your Snowflake username and password is stored securely.
 
 ![Data Source](../img/snowflake/Add-Data-Source.png)
 
-Congratulations! You have successfully added a Data Source to your GX Cloud organization. The last thing you'll do in this step is to add a Data Asset. Give your Data Asset a name, e.g. `Taxi Data`, which points to a table name of `TAXI_DATA`. Click on Save to complete the process.
+Congratulations! You have successfully added a Data Source to your GX Cloud organization. The last thing you'll do in this step is to add a Data Asset. Give your Data Asset a name, e.g. `Taxi Data`, which points to a table name of `TAXI_DATA`. Click on **Save** to complete the process.
 
 ## Step 3 - Create Expectations
 An Expectation is a verifiable assertion about your data. They make implicit assumptions about your data explicit, and they provide a flexible, declarative language for describing expected behavior. They can help you better understand your data and help you improve data quality. An Expectation Suite contains multiple Expectations.
