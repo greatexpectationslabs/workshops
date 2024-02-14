@@ -71,10 +71,10 @@ You can now re-run the Validation by clicking on **Validate** once again on the 
 ![Validation Result 2](../img/snowflake/Validation-Result-2.png)
 
 > [!NOTE]
-> You can view the full history of your Validation Runs by cliking on **All Runs** on the lefthand side.
+> You can view the full history of your Validation Runs by clicking on **All Runs** on the lefthand side.
 
-## Step 6 - Fetching Metrics
-You might be wondering if there is a better and easier way to set up your Expectations, instead of guessing at values or manually inspecting the data. Thankfully, GX Cloud allows you to fetch the metrics from your data directly so that you don't have to! Head back to the **Overview** page of your Data Asset. You will see some basic information about your asset on the left hand side. On the main panel, you will see a button labeled, **Fetch Metrics**. Click on that button and allow the system to analyze your data. 
+## Step 6 - Fetch Metrics
+You might be wondering if there is a better and easier way to set up your Expectations, instead of guessing at values or manually inspecting the data. Thankfully, GX Cloud allows you to fetch the metrics from your data directly so that you don't have to! Head back to the **Overview** page of your Data Asset. You will see some basic information about your asset on the lefthand side. On the main panel, you will see a button labeled, **Fetch Metrics**. Click on that button and allow the system to analyze your data. 
 
 Once the Metrics have completed, you will be presented with an updated view of your data. You will see that the Data Asset contains 10,000 rows, as well as some key information about each of the columns. Feel free to take some time now to review some of the data shown here.
 
