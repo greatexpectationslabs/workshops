@@ -1,7 +1,7 @@
 # Welcome to GX Workshops
 
-This repository contains all of our workshop content for self-service.
+This repository contains self-service versions of our GX workshops.
 
 ## Available Workshops
 
-[GX Cloud Snowflake](snowflake/snowflake-workshop.md)
+* [Getting Started with GX Cloud and Snowflake](snowflake/snowflake-workshop.md)
