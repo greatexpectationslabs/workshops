@@ -47,7 +47,6 @@ If you are interested in learning more about the GX Agent and how it fits into t
 #### Get your user access token and organization id
 To allow the GX Agent to connect to your GX Cloud organization, you need to supply a **user access token** and **organization id**.
 
-> [!IMPORTANT]
 > **Create a user access token**
 > * Click **Settings** > **Tokens** in the sidebar to navigate to the Tokens page.
 > * Click the **Create user access token** button.
