@@ -37,8 +37,6 @@ If you are new to GX, you'll find the following terminology helpful as you under
 ### Step 1 - Log in to GX Cloud
 Start by logging into [GX Cloud](https://app.greatexpectations.io/login).
 
-
-
 ### Step 2 - Run the GX Agent
 GX Cloud does not connect directly to your data. Instead, it uses the **GX Agent** as an intermediary between GX Cloud and your data stores. The GX Agent runs in an environment where it has access to your data - today, you'll run it on your local machine using Docker. The GX Agent receives jobs from GX Cloud, executes these jobs against your data, and then sends the job results back to GX Cloud.
 
@@ -53,16 +51,15 @@ To allow the GX Agent to connect to your GX Cloud organization, you need to supp
 > * Provide a name for your token and click **Create**.
 > * Copy your new token value and store it in a safe place - you'll need it shortly!
 >
->   <span style="color: red;">*You are only shown the value of your new token once. If you lose the value, you will need to create a new user access token by repeating the same steps.*</span>
+>   *You are only shown the value of your new token once. If you lose the value, you will need to create a new user access token by repeating the same steps.*
 
-<img src="../img/snowflake/User-Token.png" alt="User access token creation results" style="width:400px;"/>
+<img src="../img/snowflake/User-Token.png" alt="User access token creation results" style="width:400px;"/><br>
 
-> [!IMPORTANT]
 > **Get your organization id**
 > * Click **Settings** > **Tokens** in the sidebar to navigate to the Tokens page.
 > * Copy your Organization ID.
 
-<img src="../img/snowflake/Organization-ID.png" alt="Organization id" style="width:800px;"/>
+<img src="../img/snowflake/Organization-ID.png" alt="Organization id" style="width:800px;"/><br>
 
 #### Start the GX Agent
 Replace the `GX_CLOUD_ACCESS_TOKEN` and `GX_CLOUD_ORGANIZATION_ID` values (shown as `<user_access_token>` and `<organization_id>`, respectively) with your own values in the following Docker command.
