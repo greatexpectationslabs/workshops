@@ -7,7 +7,7 @@ Welcome to our *Getting Started with GX Cloud and Snowflake* workshop! In this w
 
 ## Prerequisites
 In order to successfully run this workshop, you need to have the following:
-- Your own [GX Cloud](https://app.greatexpectations.io/login?ssac=true) account
+- Your own [GX Cloud](https://app.greatexpectations.io/login?ssac=true) account.
 - [Docker Desktop](https://docs.docker.com/get-docker/) installed and running on your local machine.
 - Credentials for our shared [GX Workshop Snowflake instance](https://vntumnu-gx_workshops.snowflakecomputing.com/). Please [reach out to us](mailto:support@greatexpectations.io) if you do not have an account!
 
@@ -16,7 +16,7 @@ This workshop walks you through the following hands-on activities:
 
 1. [Log in to GX Cloud](#step-1---log-in-to-gx-cloud)
 2. [Run the GX Agent](#step-2---run-the-gx-agent)
-3. [Create a Snowflake Data Source and Data Asset](##step-3---create-a-snowflake-data-source-and-data-asset)
+3. [Create a Snowflake Data Source and Data Asset](#step-3---create-a-snowflake-data-source-and-data-asset)
 4. [Create Expectations](#step-4---create-expectations)
 5. [Validate Expectations](#step-5---validate-a-data-asset)
 6. [Update failing Expectations and re-run Validations](#step-6---update-failing-expectations-and-re-run-validations)
@@ -170,7 +170,7 @@ After validation is completed, you will receive a toast notification in GX Cloud
 
 <img src="img/Validation-Result-1.png" alt="Validation results with passing and failing Expectations" style="width:600px;"/><br>
 
-You will see that the `passenger_count` Expectation has failed. This is because some minivan-sized taxis in New York can hold up to six passengers!
+You will see that the `passenger_count` Expectation has failed. This is because some minivan-sized taxis in NYC can hold up to six passengers!
 
 
 ## Step 6 - Update failing Expectations and re-run Validations
