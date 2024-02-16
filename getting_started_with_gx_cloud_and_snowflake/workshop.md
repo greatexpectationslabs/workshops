@@ -33,7 +33,7 @@ If you are new to GX, you'll find the following terminology helpful as you under
 | Expectation Suite | A collection of Expectations. |
 | Checkpoint | A data validation mechanism that runs an Expectation Suite on a Data Asset. |
 
-## Hands-On Exercises
+## Workshop Exercises
 
 ### Step 1 - Log in to GX Cloud
 Start by logging into [GX Cloud](https://app.greatexpectations.io/login).
@@ -54,13 +54,13 @@ To allow the GX Agent to connect to your GX Cloud organization, you need to supp
 >
 >   *You are only shown the value of your new token once. If you lose the value, you will need to create a new user access token by repeating the same steps.*
 
-<img src="../img/snowflake/User-Token.png" alt="User access token creation results" style="width:400px;"/><br>
+<img src="img/User-Token.png" alt="User access token creation results" style="width:400px;"/><br>
 
 > **Get your organization id**
 > * Click **Settings** > **Tokens** in the sidebar to navigate to the Tokens page.
 > * Copy your Organization ID.
 
-<img src="../img/snowflake/Organization-ID.png" alt="Organization id" style="width:800px;"/><br>
+<img src="img/Organization-ID.png" alt="Organization id" style="width:800px;"/><br>
 
 #### Start the GX Agent
 You will use Docker to start and run the GX Agent. The following command is the template command for starting the GX Agent:
@@ -77,7 +77,7 @@ docker run --rm --pull=always -e GX_CLOUD_ACCESS_TOKEN="<user_access_token>" -e 
 
 Before starting the agent, Docker will download the latest GX Agent image. This may take a few minutes. Once the GX Agent is running, `The GX Agent is ready.` will be displayed in your terminal output.
 
-<img src="../img/snowflake/docker_gx_agent_is_ready.png" alt="Running and ready GX Agent" style="width:600px;"/><br>
+<img src="img/docker_gx_agent_is_ready.png" alt="Running and ready GX Agent" style="width:600px;"/><br>
 
 
 ## Step 3 - Create a Snowflake Data Source and Data Asset
@@ -100,7 +100,7 @@ With the GX Agent running, we can now connect to Snowflake from the GX Cloud UI 
 > * Check the **Test connection** checkbox.
 > * Click the **Continue** button.
 
-<img src="../img/snowflake/Add-Data-Source.png" alt="Add a Snowflake Data Source" style="width:600px;"/><br>
+<img src="img/Add-Data-Source.png" alt="Add a Snowflake Data Source" style="width:600px;"/><br>
 
 After creating the Data Source and testing its connection, next you'll create the Snowflake Data Asset.
 
@@ -135,7 +135,7 @@ Our first Expectation will expect that there is an associated vendor for each ta
 >   * In the **Column** field, enter `vendor_id`.
 >   * Click **Save** to finish creating the Expectation.
 
-<img src="../img/snowflake/New-Expectation.png" alt="Create a missingness Expectation" style="width:600px;"/><br>
+<img src="img/New-Expectation.png" alt="Create a missingness Expectation" style="width:600px;"/><br>
 
 You will now see your first Expectation displayed on the Data Asset Expectations page.
 
@@ -152,7 +152,7 @@ The second Expectation you create will verify the values of the `passenger_count
 >   * Leave the other fields blank.
 >   * Click **Save** to finish creating the Expectation.
 
-<img src="../img/snowflake/New-Passenger-Expectation.png" alt="Create a column max Expectation" style="width:600px;"/><br>
+<img src="img/New-Passenger-Expectation.png" alt="Create a column max Expectation" style="width:600px;"/><br>
 
 
 ## Step 5 - Validate a Data Asset
@@ -162,13 +162,13 @@ You have successfully created two Expectations. Now, let's make sure that they p
 > * Navigate to the Data Asset Expectations page.
 > * Click the **Validate** button.
 
-<img src="../img/snowflake/Validate-1.png" alt="Validate a Data Asset" style="width:800px;"/><br>
+<img src="img/Validate-1.png" alt="Validate a Data Asset" style="width:800px;"/><br>
 
 After you click **Validate**, GX Cloud sends a job to your locally running GX Agent to run queries, based on the defined Expectations, against the data in Snowflake. The GX Agent uses the query results to determine if the data fails or meets your Expectations, and reports the results back to GX Cloud.
 
 After validation is completed, you will receive a toast notification in GX Cloud notifying you that the results are ready. To view the results, you can either click on the link provided in the notification, or click on the Data Asset **Validations** tab. Your results will appear similar to this:
 
-<img src="../img/snowflake/Validation-Result-1.png" alt="Validation results with passing and failing Expectations" style="width:600px;"/><br>
+<img src="img/Validation-Result-1.png" alt="Validation results with passing and failing Expectations" style="width:600px;"/><br>
 
 You will see that the `passenger_count` Expectation has failed. This is because some minivan-sized taxis in New York can hold up to six passengers!
 
@@ -190,7 +190,7 @@ After the Expectation is updated, you can re-run Validation.
 
 Once validation is completed, navigate to the results and you will see that all your Expectations are now passing, as expected. You can view the history of your Data Asset Validations by clicking **All Runs** under the **Batches & run history** section of the page.
 
-<img src="../img/snowflake/Validation-Result-2.png" alt="Validation results with all passing Expectations" style="width:600px;"/><br>
+<img src="img/Validation-Result-2.png" alt="Validation results with all passing Expectations" style="width:600px;"/><br>
 
 ## Step 7 - Fetch Metrics
 You might be wondering if there is an easier way to define and create your Expectations, instead of guessing at values or manually inspecting the data. Thankfully, GX Cloud allows you to fetch the metrics from your data directly so that you don't have to!
@@ -203,7 +203,7 @@ When you fetch Metrics for a Data Asset, GX Cloud profiles your Data Asset (via 
 
 After Metrics have been fetched for your Data Asset, you will be presented with an updated view of your Data Asset on the Overview page. You will see that the Data Asset contains 10,000 rows, as well as some key information about each of the columns. Take some time now to review the data included in Metrics.
 
-<img src="../img/snowflake/Metrics.png" alt="Data Asset Metrics" style="width:600px;"/><br>
+<img src="img/Metrics.png" alt="Data Asset Metrics" style="width:600px;"/><br>
 
 When you have fetched Metrics for a Data Asset, you can use the introspection results when creating new Expectations. Let's create a new Expectation for this Data Asset. Let's note the several subtle, but key, changes on the Expectation creation page.
 
@@ -218,7 +218,7 @@ When you have fetched Metrics for a Data Asset, you can use the introspection re
 > * Select `passenger_count` from the **Column** drop down menu.
 > * Note that the **Min Value** and **Max Value** are automatically filled with the column max, `6`.
 
-<img src="../img/snowflake/New-Expectation-With-Metrics.png" alt="Create a new Expectation using Data Asset Metrics" style="width:600px;"/><br>
+<img src="img/New-Expectation-With-Metrics.png" alt="Create a new Expectation using Data Asset Metrics" style="width:600px;"/><br>
 
 
 ## Conclusion
