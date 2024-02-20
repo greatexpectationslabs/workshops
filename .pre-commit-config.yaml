@@ -1,0 +1,9 @@
+# For available hooks and configuration options see: https://pre-commit.com/hooks.html
+# To auto update to the latest versions `pre-commit autoupdate`
+# To manually run against all files `pre-commit run --all-files`
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: no-commit-to-branch
+        args: [--branch, develop, --branch, main]
