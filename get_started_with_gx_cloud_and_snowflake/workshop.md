@@ -71,7 +71,7 @@ You use Docker to start and run the GX Agent.
 > 2. Replace `<user_access_token>` with your user access token and `<organization_id>` with the organization identifier that you copied.
 > 3. Run the command.
 
-Before starting the GX Agent, Docker will download the latest GX Agent image. This might take a few minutes. Whe it is done, your terminal displays `The GX Agent is ready.`
+Before starting the GX Agent, Docker will download the latest GX Agent image. This might take a few minutes. When it is done, your terminal displays `The GX Agent is ready.`
 
 <img src="img/docker_gx_agent_is_ready.png" alt="Running and ready GX Agent" style="width:600px;"/><br>
 
@@ -160,7 +160,7 @@ After you click **Validate**, GX Cloud sends a job to your locally running GX Ag
 
 After validation is completed, a notification appears indicating that the Validation results are ready. To view the results, you can either click on the link provided in the notification, or click on the Data Asset **Validations** tab.
 
-<img src="img/Validation-Result-1.png" alt="Validation results with passing and failing Expectations" style="width:600px;"/><br>
+<img src="img/Validation-Result-1.png" alt="Validation results with passing and failing Expectations" style="width:700px;"/><br>
 
 You can see that the `passenger_count` Expectation has failed. This is because some of the larger New York City taxis in NYC can carry up to six passengers.
 
@@ -175,7 +175,7 @@ Now that you know your assumption about taxi passenger capacity was incorrect, y
 
 After the Expectation is updated, run the Validation again. When the notification indicating the Validation was successful appears, click the link in the notification or click the **Validations** tab. The `passenger_count` Expectation was successful. You can view the history of your Data Asset Validations by clicking **All Runs** below **Batches & run history**.
 
-<img src="img/Validation-Result-2.png" alt="Validation results with all passing Expectations" style="width:600px;"/><br>
+<img src="img/Validation-Result-2.png" alt="Validation results with all passing Expectations" style="width:700px;"/><br>
 
 ## Fetch Metrics
 You might wonder if there is an easier way to create your Expectations, instead of making assumptions or manually inspecting the data. Thankfully, GX Cloud lets you to fetch the metrics from your data directly, so that you don't have to!
@@ -188,7 +188,7 @@ When you fetch Metrics for a Data Asset, GX Cloud profiles your Data Asset (usin
 
 When the process completes, an updated view of your Data Asset appears. You can see the Data Asset row count as well as some key information about each of the columns. Take some time now to review the data included in Metrics.
 
-<img src="img/Metrics.png" alt="Data Asset Metrics" style="width:600px;"/><br>
+<img src="img/Metrics.png" alt="Data Asset Metrics" style="width:700px;"/><br>
 
 When you have fetched Metrics for a Data Asset, you can use the introspection results when creating new Expectations. Let's create a new Expectation for this Data Asset. Note the several subtle, but key, changes on the Expectation creation page.
 
