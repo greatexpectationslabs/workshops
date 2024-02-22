@@ -178,7 +178,7 @@ After the Expectation is updated, run the Validation again. When the notificatio
 <img src="img/Validation-Result-2.png" alt="Validation results with all passing Expectations" style="width:700px;"/><br>
 
 ## Fetch Metrics
-You might wonder if there is an easier way to create your Expectations, instead of making assumptions or manually inspecting the data. Thankfully, GX Cloud lets you to fetch the metrics from your data directly, so that you don't have to!
+You might wonder if there is an easier way to create your Expectations, instead of making assumptions or manually inspecting the data. Thankfully, GX Cloud lets you fetch the metrics from your data directly, so that you don't have to!
 
 When you fetch Metrics for a Data Asset, GX Cloud profiles your Data Asset (using the GX Agent) and returns a collection of descriptive metrics including column types, statistical summaries, and null percentages.
 
