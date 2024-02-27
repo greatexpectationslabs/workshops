@@ -5,7 +5,7 @@
 Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a Snowflake Data Source, create Expectations, and run Validations.
 
 ## Prerequisites
-- A [GX Cloud](https://app.greatexpectations.io/login) account with Admin or Editor permissions.
+- A [GX Cloud](https://hubs.li/Q02mpbXd0) account with Admin or Editor permissions.
 - [Docker Desktop](https://docs.docker.com/get-docker/) installed and running on the computer you're using for the workshop.
 - Credentials for the shared [GX Workshop Snowflake instance](https://vntumnu-gx_workshops.snowflakecomputing.com/). [Contact us](mailto:support@greatexpectations.io) if you need credentials.
 
@@ -33,7 +33,7 @@ If you're new to GX, an understanding of the following GX terminology will be he
 
 
 ## Sign in to GX Cloud
-Sign in to [GX Cloud](https://app.greatexpectations.io/login).
+Sign in to [GX Cloud](https://hubs.li/Q02mpbXd0).
 
 ## Run the GX Agent
 The GX Agent is an intermediary between GX Cloud and your data stores. GX Cloud does not connect directly to your data; all data access occurs within the GX Agent. The GX Agent receives jobs from GX Cloud, executes these jobs against your data, and then sends the job results back to GX Cloud. The GX Agent runs in an environment where it has access to your data. Today, you'll run it on your local machine using Docker.
