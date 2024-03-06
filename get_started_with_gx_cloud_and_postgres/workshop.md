@@ -66,6 +66,11 @@ You use Docker Compose to start and run the GX Agent and Postgres database.
 > GX_CLOUD_ORGANIZATION_ID="<your-organization-id>" GX_CLOUD_ACCESS_TOKEN="<your-access-token>" docker compose up
 > ```
 
+Before starting the GX Agent, Docker will download the latest GX Agent and Postgres image. This might take a few minutes. When it is done, the Docker Compose output in your terminal displays `The GX Agent is ready`.
+
+
+<img src="img/docker_compose_gx_agent_is_ready.png" alt="Running and ready GX Agent" style="width:500px;"/><br>
+
 
 ## Create a Postgres Data Source and Data Asset
 With the GX Agent running, you can connect to Postgres from GX Cloud (via the GX Agent).
@@ -191,6 +196,15 @@ When you have fetched Metrics for a Data Asset, you can use the introspection re
 
 <img src="../common/img/new_expectation_with_metrics.png" alt="Create a new Expectation using Data Asset Metrics" style="width:600px;"/><br>
 
+## Stop the running GX Agent and Postgres database
+To stop the running GX Agent and Postgres database, spin down Docker Compose.
+
+> **Stop Docker Compose**
+> 1. `cd` to the `get_started_with_gx_cloud_and_postgres` subdirectory of this cloned repo.
+> 2. Execute the following command in your terminal:
+>  ```bash
+> docker compose down
+> ```
 
 ## Conclusion
 Congratulations! You've successfully completed the GX Cloud Postgres Workshop. You have created a Postgres Data Source and Data Asset, created Expectations, run some Validations, and fetched Metrics for your data. We hope you have a better understanding of how GX Cloud works and how it can work within your data pipeline.
