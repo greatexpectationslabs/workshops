@@ -1,24 +1,24 @@
-# Get Started with GX Cloud and Snowflake
+# Get Started with GX Cloud and Postgres
 
-*This workshop content is current as of 21 February 2024.*
+*This workshop content is current as of 12 March 2024.*
 
-Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a Snowflake Data Source, create Expectations, and run Validations.
+Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a Postgres Data Source, create Expectations, and run Validations.
 
 ## Prerequisites
-- A [GX Cloud](https://hubs.li/Q02mpbXd0) account with Admin or Editor permissions.
-- [Docker Desktop](https://docs.docker.com/get-docker/) installed and running on the computer you're using for the workshop.
-- Credentials for the shared [GX Workshop Snowflake instance](https://vntumnu-gx_workshops.snowflakecomputing.com/). [Contact us](mailto:support@greatexpectations.io) if you need credentials.
+- A [GX Cloud](https://hubl.li/Q02ng2Jx0) account with Admin or Editor permissions.
+- [Docker Desktop](https://docs.docker.com/get-docker/) installed and [running](https://docs.docker.com/config/daemon/troubleshoot/#check-whether-docker-is-running) on the computer you're using for the workshop.
 
 ## Agenda
 You'll complete the following tasks in this workshop:
 
 1. [Sign in to GX Cloud](#sign-in-to-gx-cloud)
-2. [Run the GX Agent](#run-the-gx-agent)
-3. [Create a Snowflake Data Source and Data Asset](#create-a-snowflake-data-source-and-data-asset)
+2. [Run the GX Agent and Postgres database](#run-the-gx-agent-and-postgres-database)
+3. [Create a Postgres Data Source and Data Asset](#create-a-postgres-data-source-and-data-asset)
 4. [Create Expectations](#create-expectations)
 5. [Validate Expectations](#validate-a-data-asset)
 6. [Update the failing Expectation and run the Validation again](#update-the-failing-expectation-and-run-the-validation-again)
 7. [Fetch Metrics](#fetch-metrics)
+
 
 ## GX terminology
 If you're new to GX, an understanding of the following GX terminology will be helpful as you complete this workshop.
@@ -26,9 +26,9 @@ If you're new to GX, an understanding of the following GX terminology will be he
 <img src="../common/img/gx_terminology.png" alt="Introductory GX terminology" style="width:800px;"/><br>
 
 ## Sign in to GX Cloud
-Sign in to [GX Cloud](https://hubs.li/Q02mpbXd0).
+Sign in to [GX Cloud](https://hubl.li/Q02ng2Jx0).
 
-## Run the GX Agent
+## Run the GX Agent and Postgres database
 The GX Agent is an intermediary between GX Cloud and your data stores. GX Cloud does not connect directly to your data; all data access occurs within the GX Agent. The GX Agent receives jobs from GX Cloud, executes these jobs against your data, and then sends the job results back to GX Cloud. The GX Agent runs in an environment where it has access to your data. Today, you'll run it on your local machine using Docker.
 
 To learn more about the GX Agent and how it works with GX Cloud, [see our GX Cloud architecture documentation](https://docs.greatexpectations.io/docs/cloud/about_gx#gx-cloud-architecture).
@@ -53,57 +53,55 @@ To allow the GX Agent to connect to your GX Cloud organization, you need to supp
 <img src="../common/img/organization_id.png" alt="Organization id" style="width:800px;"/><br>
 
 ### Start the GX Agent
-You use Docker to start and run the GX Agent.
+You use Docker Compose to start and run the GX Agent and Postgres database.
 
-> **Start the GX Agent**
-> 1. Copy and paste the following command into a terminal:
+> **Run the GX Agent and Postgres database using Docker Compose**
+> 1. Clone this workshop repo to your local machine.
 >  ```bash
-> docker run --rm --pull=always -e GX_CLOUD_ACCESS_TOKEN="<user_access_token>"
-> -e GX_CLOUD_ORGANIZATION_ID="<organization_id>" greatexpectations/agent
+> git clone git@github.com:greatexpectationslabs/workshops.git
 > ```
-> 2. Replace `<user_access_token>` with your user access token and `<organization_id>` with the organization identifier that you copied.
-> 3. Run the command.
+> 2. `cd` to the `get_started_with_gx_cloud_and_postgres` subdirectory of the cloned repo.
+> 3. Using the following command, replace `<your-organization-id>` and `<your-access-token>` with the values of your GX Cloud organization id and access token, respectively. Execute the command in your terminal.
+>  ```bash
+> GX_CLOUD_ORGANIZATION_ID="<your-organization-id>" GX_CLOUD_ACCESS_TOKEN="<your-access-token>" docker compose up
+> ```
 
-Before starting the GX Agent, Docker will download the latest GX Agent image. This might take a few minutes. When it is done, your terminal displays `The GX Agent is ready.`
-
-<img src="img/docker_gx_agent_is_ready.png" alt="Running and ready GX Agent" style="width:600px;"/><br>
+Before starting the GX Agent, Docker will download the latest GX Agent and Postgres image. This might take a few minutes. When it is done, the Docker Compose output in your terminal displays `The GX Agent is ready`.
 
 
-## Create a Snowflake Data Source and Data Asset
-With the GX Agent running, you can connect to Snowflake from GX Cloud (via the GX Agent).
+<img src="img/docker_compose_gx_agent_is_ready.png" alt="Running and ready GX Agent" style="width:500px;"/><br>
 
-> **Create a Snowflake Data Source**
+
+## Create a Postgres Data Source and Data Asset
+With the GX Agent running, you can connect to Postgres from GX Cloud (via the GX Agent).
+
+> **Create a Postgres Data Source**
 > 1. In GX Cloud, click **Data Assets** > **New Data Asset**.
-> 1. Click **Snowflake**.
-> 1. Configure the Snowflake Data Source connection:
+> 1. Click **Postgres**.
+> 1. Configure the Postgres Data Source connection:
 >
->    * In the **Data Source name** field, enter a name. For example, `GX Workshop Snowflake`.
->    * In **Username** field, enter the Snowflake username that you use to log in to the [GX Workshop Snowflake instance](https://vntumnu-gx_workshops.snowflakecomputing.com/).
->    * In **Account identifier** field, enter `VNTUMNU-GX_WORKSHOPS`.
->    * In **Password** field, enter the Snowflake password that you use to log in to the [GX Workshop Snowflake instance](https://vntumnu-gx_workshops.snowflakecomputing.com/).
->    * In the **Database** field, enter `GXWORKSHOP`.
->    * In the **Schema** field, enter `PUBLIC`.
->    * In the **Warehouse** field, enter `COMPUTE_WH`.
->    * In the **Role** field, enter `PUBLIC`.
+>    * In the **Data Source name** field, enter a name. For example, `GX Workshop Postgres`.
+>    * In the **Connection string** field, enter `postgresql://example_user@db/gx_example_db`.
 >    * Select **Test connection** to test the Data Source connection upon creation.
 > 1. Click **Continue**.
 
-<img src="img/Add-Data-Source.png" alt="Add a Snowflake Data Source" style="width:600px;"/><br>
+<img src="img/add_pg_data_source.png" alt="Add a Postgres Data Source" style="width:600px;"/><br>
 
-> **Configure the Snowflake Data Asset**
+> **Configure the Postgres Data Asset**
 > 1. Select **Table Asset**.
-> 1. In the **Table Name** field, enter `TAXI_DATA`.
+> 1. In the **Table Name** field, enter `nyc_taxi_data`.
 > 1. In the **Data Asset name** field, give your data Asset a name. For example, `Taxi data`.
 > 1. Click **Finish**.
 
-Congratulations! You have successfully added a Snowflake Data Asset to your GX Cloud organization.
+Congratulations! You have successfully added a Postgres Data Asset to your GX Cloud organization.
+
 
 ## Create Expectations
 Expectations are a unique GX construct that enable you to make simple, declarative assertions about your data. You can think of Expectations as unit tests for your data. They make implicit assumptions about your data explicit, and they use self-explanatory language for describing data. Expectations can help you better understand your data and help you improve data quality.
 
 In GX Cloud, you create Expectations within an Expectation Suite, which is just a collection of Expectations.
 
-The Snowflake Data Asset table contains New York City (NYC) taxi data from January 2019. The [NYC Taxi data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) is a popular set of open source data that contains records of completed taxi cab trips in NYC, including information such as pick up and drop off times, the number of passengers, the fare collected, and so on.
+The Postgres Data Asset table contains New York City (NYC) taxi data from January 2019. The [NYC Taxi data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) is a popular set of open source data that contains records of completed taxi cab trips in NYC, including information such as pick up and drop off times, the number of passengers, the fare collected, and so on.
 
 You'll create Expectations to validate the taxi data. You will create a new Expectation Suite as a part of creating your first Expectation.
 
@@ -149,7 +147,7 @@ You have successfully created two Expectations. Now, make sure that they pass as
 
 <img src="../common/img/validate_1.png" alt="Validate a Data Asset" style="width:800px;"/><br>
 
-After you click **Validate**, GX Cloud sends a job to your locally running GX Agent to run queries, based on the defined Expectations, against the data in Snowflake. The GX Agent uses the query results to determine if the data fails or meets your Expectations, and reports the results back to GX Cloud.
+After you click **Validate**, GX Cloud sends a job to your locally running GX Agent to run queries, based on the defined Expectations, against the data in Postgres. The GX Agent uses the query results to determine if the data fails or meets your Expectations, and reports the results back to GX Cloud.
 
 After validation is completed, a notification appears indicating that the Validation results are ready. To view the results, you can either click on the link provided in the notification, or click on the Data Asset **Validations** tab.
 
@@ -170,6 +168,7 @@ After the Expectation is updated, run the Validation again. When the notificatio
 
 <img src="../common/img/validation_result_2.png" alt="Validation results with all passing Expectations" style="width:700px;"/><br>
 
+
 ## Fetch Metrics
 You might wonder if there is an easier way to create your Expectations, instead of making assumptions or manually inspecting the data. Thankfully, GX Cloud lets you fetch the metrics from your data directly, so that you don't have to!
 
@@ -177,11 +176,11 @@ When you fetch Metrics for a Data Asset, GX Cloud profiles your Data Asset (usin
 
 > **Fetch Metrics for a Data Asset**
 > 1. Click the Data Asset **Overview** tab. Basic information about your Data Asset is displayed in the **Data Asset Information** pane.
-> 1. Click the **Fetch Metrics** button. 
+> 1. Click the **Fetch Metrics** button.
 
 When the process completes, an updated view of your Data Asset appears. You can see the Data Asset row count as well as some key information about each of the columns. Take some time now to review the data included in Metrics.
 
-<img src="img/Metrics.png" alt="Data Asset Metrics" style="width:700px;"/><br>
+<img src="img/fetch_pg_metrics.png" alt="Data Asset Metrics" style="width:700px;"/><br>
 
 When you have fetched Metrics for a Data Asset, you can use the introspection results when creating new Expectations. Let's create a new Expectation for this Data Asset. Note the several subtle, but key, changes on the Expectation creation page.
 
@@ -197,12 +196,21 @@ When you have fetched Metrics for a Data Asset, you can use the introspection re
 
 <img src="../common/img/new_expectation_with_metrics.png" alt="Create a new Expectation using Data Asset Metrics" style="width:600px;"/><br>
 
+## Stop the running GX Agent and Postgres database
+To stop the running GX Agent and Postgres database, spin down Docker Compose.
+
+> **Stop Docker Compose**
+> 1. `cd` to the `get_started_with_gx_cloud_and_postgres` subdirectory of this cloned repo.
+> 2. Execute the following command in your terminal:
+>  ```bash
+> docker compose down
+> ```
 
 ## Conclusion
-Congratulations! You've successfully completed the GX Cloud Snowflake Workshop. You have created a Snowflake Data Source and Data Asset, created Expectations, run some Validations, and fetched Metrics for your data. We hope you have a better understanding of how GX Cloud works and how it can work within your data pipeline.
+Congratulations! You've successfully completed the GX Cloud Postgres Workshop. You have created a Postgres Data Source and Data Asset, created Expectations, run some Validations, and fetched Metrics for your data. We hope you have a better understanding of how GX Cloud works and how it can work within your data pipeline.
 
 ## What's next?
-* [Connect to your own Snowflake instance](https://docs.greatexpectations.io/docs/cloud/connect/connect_snowflake)
+* [Connect to your own Postgres instance](https://docs.greatexpectations.io/docs/cloud/connect/connect_postgresql)
 * [Create your own Expectations in GX Cloud](https://docs.greatexpectations.io/docs/cloud/expectations/manage_expectations)
 * Use the [GX Python API](https://docs.greatexpectations.io/docs/oss/) to create Data Sources, Data Assets, Expectations, Expectation Suites, and Checkpoints
 * Connect to GX Cloud from an orchestrator (for example, [Airflow](https://airflow.apache.org/))

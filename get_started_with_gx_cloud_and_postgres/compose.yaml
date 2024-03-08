@@ -1,0 +1,36 @@
+
+services:
+  db:
+    image: gx-workshop-postgres
+    command: ["postgres", "-c", "log_statement=all", "-c", "log_destination=stderr"]
+    container_name: gx-workshop-postgres
+    build:
+      context: .
+      dockerfile: postgres.Dockerfile
+    restart: always
+    environment:
+      POSTGRES_USER: example_user
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_DB: gx_example_db
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "example_user", "-d", "gx_example_db"]
+      interval: 5s
+      retries: 5
+      start_period: 5s
+    networks:
+      - gx-workshop-net
+    ports:
+      - 5432:5432
+
+  gx-agent:
+    image: greatexpectations/agent
+    container_name: gx-workshop-agent
+    environment:
+      GX_CLOUD_ORGANIZATION_ID : ${GX_CLOUD_ORGANIZATION_ID}
+      GX_CLOUD_ACCESS_TOKEN : ${GX_CLOUD_ACCESS_TOKEN}
+    networks:
+      - gx-workshop-net
+
+networks:
+  gx-workshop-net:
+    driver: bridge
