@@ -81,7 +81,7 @@ With the GX Agent running, you can connect to Postgres from GX Cloud (via the GX
 > 1. Configure the Postgres Data Source connection:
 >
 >    * In the **Data Source name** field, enter a name. For example, `GX Workshop Postgres`.
->    * In the **Connection string** field, enter `postgresql://example_user@db/gx_example_db`.
+>    * In the **Connection string** field, enter `postgresql+psycopg2://example_user@db/gx_example_db`.
 >    * Select **Test connection** to test the Data Source connection upon creation.
 > 1. Click **Continue**.
 
