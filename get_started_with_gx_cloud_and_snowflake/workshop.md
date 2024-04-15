@@ -36,21 +36,10 @@ To learn more about the GX Agent and how it works with GX Cloud, [see our GX Clo
 ### Get your user access token and organization identifier
 To allow the GX Agent to connect to your GX Cloud organization, you need to supply a user access token and organization identifier.
 
-> **Create a user access token**
-> 1. In GX Cloud, click **Settings** > **Tokens**.
-> 1. In the **User access tokens** pane, click **Create user access token**.
-> 1. In the **Token name** field, enter a name for the token and click **Create**.
-> 1. Copy the user access token value and store it in a safe location - you'll need it shortly!
->
->   *You are shown the newly created token once. If you close the dialog before recording the user access token, you'll need to create it again.*
-
-<img src="../common/img/user_token.png" alt="User access token creation results" style="width:400px;"/><br>
-
-> **Get your organization identifier**
->
-> Copy the value in the **Organization ID** field and store it with the user access token.
-
-<img src="../common/img/organization_id.png" alt="Organization id" style="width:800px;"/><br>
+If you are logging into GX Cloud for the first time, you will be presented with the following screen:
+<img src="../common/img/gx_agent_setup_splash_screen.png" alt="GX Agent setup splash screen" style="width:600px;"><br>
+> 1. Copy the value in the **Access token** fieldand store it in a safe location - you'll need it shortly!
+> 1. Copy the value in the **Organization ID** field and store it with the user access token. 
 
 ### Start the GX Agent
 You use Docker to start and run the GX Agent.
