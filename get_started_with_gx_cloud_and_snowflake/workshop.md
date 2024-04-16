@@ -64,6 +64,7 @@ With the GX Agent running, you can connect to Snowflake from GX Cloud (via the G
 > **Create a Snowflake Data Source**
 > 1. In GX Cloud, click **Data Assets** > **New Data Asset**.
 > 1. Click **Snowflake**.
+> 1. Click on the **I have created a GX Cloud user with access permissions** checkbox and click on **Continue**
 > 1. Configure the Snowflake Data Source connection:
 >
 >    * In the **Data Source name** field, enter a name. For example, `GX Workshop Snowflake`.
@@ -106,7 +107,7 @@ Your first Expectation will expect that there is an associated vendor for each t
 > 1. Create an Expectation that verifies that there is an associated vendor for each taxi trip:
 >
 >    1. Select `expect_column_values_to_not_be_null` below **Missingness**.
->    1. In the **Column** field, enter `vendor_id`.
+>    1. In the **Column** field, select `vendor_id`.
 >    1. Click **Save**.
 
 <img src="../common/img/new_expectation.png" alt="Create a missingness Expectation" style="width:600px;"/><br>
@@ -118,8 +119,10 @@ Create a second Expectation that checks the passenger count values to determine 
 > **Create your second Expectation**
 >
 > Create an Expectation that asserts that there are no more than four passengers for any trip:
+>   1. Click back on the Overview tab and then New Expectation
+>   1. Click on Existing Suite and select the name of the suite you created in the previous step.
 >   1. Select `expect_column_max_to_be_between` below **Values and Statistics**.
->   1. In the **Column** field, enter `passenger_count`.
+>   1. In the **Column** field, select `passenger_count`.
 >   1. In the **Max Value** field, enter `4`.
 >   1. Leave the other fields blank.
 >   1. Click **Save**.
@@ -166,7 +169,7 @@ When you fetch Metrics for a Data Asset, GX Cloud profiles your Data Asset (usin
 
 > **Fetch Metrics for a Data Asset**
 > 1. Click the Data Asset **Overview** tab. Basic information about your Data Asset is displayed in the **Data Asset Information** pane.
-> 1. Click the **Fetch Metrics** button. 
+> 1. Click the **Profile Data** button. 
 
 When the process completes, an updated view of your Data Asset appears. You can see the Data Asset row count as well as some key information about each of the columns. Take some time now to review the data included in Metrics.
 
