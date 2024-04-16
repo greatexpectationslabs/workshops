@@ -38,7 +38,7 @@ To allow the GX Agent to connect to your GX Cloud organization, you need to supp
 
 If you are logging into GX Cloud for the first time, you will be presented with the following screen:
 <img src="../common/img/gx_agent_setup_splash_screen.png" alt="GX Agent setup splash screen" style="width:600px;"><br>
-> 1. Copy the value in the **Access token** fieldand store it in a safe location - you'll need it shortly!
+> 1. Copy the value in the **Access token** field and store it in a safe location - you'll need it shortly!
 > 1. Copy the value in the **Organization ID** field and store it with the user access token. 
 
 ### Start the GX Agent
