@@ -1,12 +1,13 @@
 # Get Started with GX Cloud and Postgres
 
-*This workshop content is current as of 12 March 2024.*
+*This workshop content is current as of 17 May 2024.*
 
 Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a Postgres Data Source, create Expectations, and run Validations.
 
 ## Prerequisites
 - A [GX Cloud](https://hubl.li/Q02ng2Jx0) account with Admin or Editor permissions.
 - [Docker Desktop](https://docs.docker.com/get-docker/) installed and [running](https://docs.docker.com/config/daemon/troubleshoot/#check-whether-docker-is-running) on the computer you're using for the workshop.
+- git installed on the computer you're using for this workshop.
 
 ## Agenda
 You'll complete the following tasks in this workshop:
@@ -39,7 +40,7 @@ To allow the GX Agent to connect to your GX Cloud organization, you need to supp
 If you are logging into GX Cloud for the first time, you will be presented with the following screen:
 <img src="../common/img/gx_agent_setup_splash_screen.png" alt="GX Agent setup splash screen" style="width:600px;"><br>
 > 1. Copy the value in the **Access token** field and store it in a safe location - you'll need it shortly!
-> 1. Copy the value in the **Organization ID** field and store it with the user access token. 
+> 1. Copy the value in the **Organization ID** field and store it with the user access token.
 
 ### Start the GX Agent
 You use Docker Compose to start and run the GX Agent and Postgres database.
@@ -57,8 +58,11 @@ You use Docker Compose to start and run the GX Agent and Postgres database.
 
 Before starting the GX Agent, Docker will download the latest GX Agent and Postgres image. This might take a few minutes. When it is done, the Docker Compose output in your terminal displays `The GX Agent is ready`.
 
-
 <img src="img/docker_compose_gx_agent_is_ready.png" alt="Running and ready GX Agent" style="width:500px;"/><br>
+
+Additionally, you will see the Active Agent indicator displayed in the GX Cloud menu.
+
+<img src="../common/img/active_agent_indicator.png" alt="Active Agent indicator" style="width:200px;"/><br>
 
 
 ## Create a Postgres Data Source and Data Asset
@@ -67,13 +71,15 @@ With the GX Agent running, you can connect to Postgres from GX Cloud (via the GX
 > **Create a Postgres Data Source**
 > 1. In GX Cloud, click **Data Assets** > **New Data Asset**.
 > 1. Click **Postgres**.
-> 1. Click on the **I have created a GX Cloud user with access permissions** checkbox and then on **Continue**.
+> 1. Click the **I have created a GX Cloud user with access permissions** checkbox (you do not need to create a user for this workshop) and then **Continue**.
 > 1. Configure the Postgres Data Source connection:
 >
 >    * In the **Data Source name** field, enter a name. For example, `GX Workshop Postgres`.
 >    * In the **Connection string** field, enter `postgresql+psycopg2://example_user@db/gx_example_db`.
 >    * Select **Test connection** to test the Data Source connection upon creation.
 > 1. Click **Continue**.
+
+<img src="img/pg_data_source_create_user.png" alt="Check the GX Cloud user box" style="width:600px;"/><br>
 
 <img src="img/add_pg_data_source.png" alt="Add a Postgres Data Source" style="width:600px;"/><br>
 
@@ -82,6 +88,8 @@ With the GX Agent running, you can connect to Postgres from GX Cloud (via the GX
 > 1. In the **Table Name** field, enter `nyc_taxi_data`.
 > 1. In the **Data Asset name** field, give your data Asset a name. For example, `Taxi data`.
 > 1. Click **Finish**.
+
+<img src="img/add_pg_data_asset.png" alt="Add a Postgres Data Source" style="width:600px;"/><br>
 
 Congratulations! You have successfully added a Postgres Data Asset to your GX Cloud organization.
 
@@ -93,22 +101,22 @@ In GX Cloud, you create Expectations within an Expectation Suite, which is just 
 
 The Postgres Data Asset table contains New York City (NYC) taxi data from January 2019. The [NYC Taxi data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) is a popular set of open source data that contains records of completed taxi cab trips in NYC, including information such as pick up and drop off times, the number of passengers, the fare collected, and so on.
 
-You'll create Expectations to validate the taxi data. You will create a new Expectation Suite as a part of creating your first Expectation.
+You'll create Expectations to validate the taxi data. New Expectations are selected from the Expectation picker.
+
+<img src="../common/img/expectation_picker.png" alt="Create a missingness Expectation" style="width:500px;"/><br>
 
 Your first Expectation will expect that there is an associated vendor for each taxi trip. You expect that you should not see any null `vendor_id` values.
 
 > **Create your first Expectation**
 > 1. In the **Data Assets** list, click the `Taxi data` Data Asset.
 > 1. Click the **Overview** tab and then **New Expectation**.
-> 1. Click the **New Suite** tab.
-> 1. In the **Enter new Expectation Suite name** field, enter a name for the Expectation suite. For example, `GX Workshop Suite`.
+> 1. Click the **Expect Column Values To Not Be Null** Expectation.
 > 1. Create an Expectation that verifies that there is an associated vendor for each taxi trip:
 >
->    1. Select `expect_column_values_to_not_be_null` below **Missingness**.
 >    1. In the **Column** field, select `vendor_id` from the dropdown.
 >    1. Click **Save**.
 
-<img src="../common/img/new_expectation.png" alt="Create a missingness Expectation" style="width:600px;"/><br>
+<img src="../common/img/new_expectation.png" alt="Create a missingness Expectation" style="width:500px;"/><br>
 
 Once created, your first Expectation is displayed on the Data Asset Expectations page.
 
@@ -118,14 +126,13 @@ Create a second Expectation that checks the passenger count values to determine 
 >
 > Create an Expectation that asserts that there are no more than four passengers for any trip:
 >   1. Click back on the **Overview** tab and click on **New Expectation**.
->   1. Click on **Existing Suite** and then select the Suite you created in the previous step.
->   1. Select `expect_column_max_to_be_between` below **Values and Statistics**.
+>   1. Click the **Expect Column Max To Be Between** Expectation.
 >   1. In the **Column** field, select `passenger_count` from the dropdown.
 >   1. In the **Max Value** field, enter `4`.
 >   1. Leave the other fields blank.
 >   1. Click **Save**.
 
-<img src="../common/img/new_passenger_expectation.png" alt="Create a column max Expectation" style="width:600px;"/><br>
+<img src="../common/img/new_passenger_expectation.png" alt="Create a column max Expectation" style="width:500px;"/><br>
 
 
 Your new `vendor_id` and `passenger_count` Expectations appear in the Data Asset **Expectations** list under the `GX Workshop Suite` Expectation Suite.
@@ -182,11 +189,11 @@ When you have fetched Metrics for a Data Asset, you can use the introspection re
 
 > **Examine creating a new Expectation using Metrics data**
 > 1. Click **New Expectation**.
-> 1. Select `expect_column_max_to_be_between` below **Values and Statistics**.
+> 1. Click the **Expect Column Max To Be Between** Expectation.
 > 1. In the **Column** menu, select `passenger_count`.
 > 1. The value `6` is automatically added to the **Min Value** and **Max Value** fields.
 
-<img src="../common/img/new_expectation_with_metrics.png" alt="Create a new Expectation using Data Asset Metrics" style="width:600px;"/><br>
+<img src="../common/img/new_expectation_with_metrics.png" alt="Create a new Expectation using Data Asset Metrics" style="width:500px;"/><br>
 
 ## Stop the running GX Agent and Postgres database
 To stop the running GX Agent and Postgres database, spin down Docker Compose.
