@@ -1,6 +1,6 @@
 # Get Started with GX Cloud and Snowflake
 
-*This workshop content is current as of 21 February 2024.*
+*This workshop content is current as of 17 May 2024.*
 
 Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a Snowflake Data Source, create Expectations, and run Validations.
 
@@ -57,6 +57,9 @@ Before starting the GX Agent, Docker will download the latest GX Agent image. Th
 
 <img src="img/docker_gx_agent_is_ready.png" alt="Running and ready GX Agent" style="width:600px;"/><br>
 
+Additionally, you will see the Active Agent indicator displayed in the GX Cloud menu.
+
+<img src="../common/img/active_agent_indicator.png" alt="Active Agent indicator" style="width:200px;"/><br>
 
 ## Create a Snowflake Data Source and Data Asset
 With the GX Agent running, you can connect to Snowflake from GX Cloud (via the GX Agent).
@@ -64,7 +67,7 @@ With the GX Agent running, you can connect to Snowflake from GX Cloud (via the G
 > **Create a Snowflake Data Source**
 > 1. In GX Cloud, click **Data Assets** > **New Data Asset**.
 > 1. Click **Snowflake**.
-> 1. Click on the **I have created a GX Cloud user with access permissions** checkbox and click on **Continue**
+> 1. Click the **I have created a GX Cloud user with access permissions** checkbox (you do not need to create a user for this workshop) and then **Continue**.
 > 1. Configure the Snowflake Data Source connection:
 >
 >    * In the **Data Source name** field, enter a name. For example, `GX Workshop Snowflake`.
@@ -78,7 +81,9 @@ With the GX Agent running, you can connect to Snowflake from GX Cloud (via the G
 >    * Select **Test connection** to test the Data Source connection upon creation.
 > 1. Click **Continue**.
 
-<img src="img/Add-Data-Source.png" alt="Add a Snowflake Data Source" style="width:600px;"/><br>
+<img src="img/snowflake_add_data_source_user.png" alt="Check the GX Cloud user box" style="width:600px;"/><br>
+
+<img src="img/snowflake_add_data_source.png" alt="Add a Snowflake Data Source" style="width:600px;"/><br>
 
 > **Configure the Snowflake Data Asset**
 > 1. Select **Table Asset**.
@@ -86,31 +91,33 @@ With the GX Agent running, you can connect to Snowflake from GX Cloud (via the G
 > 1. In the **Data Asset name** field, give your data Asset a name. For example, `Taxi data`.
 > 1. Click **Finish**.
 
+<img src="img/snowflake_add_data_asset.png" alt="Add a Snowflake Data Asset" style="width:600px;"/><br>
+
 Congratulations! You have successfully added a Snowflake Data Asset to your GX Cloud organization.
 
 ## Create Expectations
 Expectations are a unique GX construct that enable you to make simple, declarative assertions about your data. You can think of Expectations as unit tests for your data. They make implicit assumptions about your data explicit, and they use self-explanatory language for describing data. Expectations can help you better understand your data and help you improve data quality.
 
-In GX Cloud, you create Expectations within an Expectation Suite, which is just a collection of Expectations.
+In GX Cloud, you create Expectations within an Expectation Suite, which is a collection of Expectations.
 
 The Snowflake Data Asset table contains New York City (NYC) taxi data from January 2019. The [NYC Taxi data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) is a popular set of open source data that contains records of completed taxi cab trips in NYC, including information such as pick up and drop off times, the number of passengers, the fare collected, and so on.
 
-You'll create Expectations to validate the taxi data. You will create a new Expectation Suite as a part of creating your first Expectation.
+You'll create Expectations to validate the taxi data. New Expectations are selected from the Expectation picker.
+
+<img src="../common/img/expectation_picker.png" alt="Create a missingness Expectation" style="width:500px;"/><br>
 
 Your first Expectation will expect that there is an associated vendor for each taxi trip. You expect that you should not see any null `vendor_id` values.
 
 > **Create your first Expectation**
 > 1. In the **Data Assets** list, click the `Taxi data` Data Asset.
 > 1. Click the **Overview** tab and then **New Expectation**.
-> 1. Click the **New Suite** tab.
-> 1. In the **Enter new Expectation Suite name** field, enter a name for the Expectation suite. For example, `GX Workshop Suite`.
+> 1. Click the **Expect Column Values To Not Be Null** Expectation.
 > 1. Create an Expectation that verifies that there is an associated vendor for each taxi trip:
 >
->    1. Select `expect_column_values_to_not_be_null` below **Missingness**.
 >    1. In the **Column** field, select `vendor_id`.
 >    1. Click **Save**.
 
-<img src="../common/img/new_expectation.png" alt="Create a missingness Expectation" style="width:600px;"/><br>
+<img src="../common/img/new_expectation.png" alt="Create a missingness Expectation" style="width:500px;"/><br>
 
 Once created, your first Expectation is displayed on the Data Asset Expectations page.
 
@@ -119,15 +126,14 @@ Create a second Expectation that checks the passenger count values to determine 
 > **Create your second Expectation**
 >
 > Create an Expectation that asserts that there are no more than four passengers for any trip:
->   1. Click back on the Overview tab and then New Expectation
->   1. Click on Existing Suite and select the name of the suite you created in the previous step.
->   1. Select `expect_column_max_to_be_between` below **Values and Statistics**.
->   1. In the **Column** field, select `passenger_count`.
+>   1. Click back on the **Overview** tab and click on **New Expectation**.
+>   1. Click the **Expect Column Max To Be Between** Expectation.
+>   1. In the **Column** field, select `passenger_count` from the dropdown.
 >   1. In the **Max Value** field, enter `4`.
 >   1. Leave the other fields blank.
 >   1. Click **Save**.
 
-<img src="../common/img/new_passenger_expectation.png" alt="Create a column max Expectation" style="width:600px;"/><br>
+<img src="../common/img/new_passenger_expectation.png" alt="Create a column max Expectation" style="width:500px;"/><br>
 
 
 Your new `vendor_id` and `passenger_count` Expectations appear in the Data Asset **Expectations** list under the `GX Workshop Suite` Expectation Suite.
@@ -173,7 +179,7 @@ When you fetch Metrics for a Data Asset, GX Cloud profiles your Data Asset (usin
 
 When the process completes, an updated view of your Data Asset appears. You can see the Data Asset row count as well as some key information about each of the columns. Take some time now to review the data included in Metrics.
 
-<img src="img/Metrics.png" alt="Data Asset Metrics" style="width:700px;"/><br>
+<img src="img/fetch_snowflake_metrics.png" alt="Data Asset Metrics" style="width:700px;"/><br>
 
 When you have fetched Metrics for a Data Asset, you can use the introspection results when creating new Expectations. Let's create a new Expectation for this Data Asset. Note the several subtle, but key, changes on the Expectation creation page.
 
@@ -183,11 +189,11 @@ When you have fetched Metrics for a Data Asset, you can use the introspection re
 
 > **Examine creating a new Expectation using Metrics data**
 > 1. Click **New Expectation**.
-> 1. Select `expect_column_max_to_be_between` below **Values and Statistics**.
+> 1. Click the **Expect Column Max To Be Between** Expectation.
 > 1. In the **Column** menu, select `passenger_count`.
 > 1. The value `6` is automatically added to the **Min Value** and **Max Value** fields.
 
-<img src="../common/img/new_expectation_with_metrics.png" alt="Create a new Expectation using Data Asset Metrics" style="width:600px;"/><br>
+<img src="../common/img/new_expectation_with_metrics.png" alt="Create a new Expectation using Data Asset Metrics" style="width:500px;"/><br>
 
 
 ## Conclusion
