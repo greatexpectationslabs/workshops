@@ -54,7 +54,7 @@ You will use Docker Compose to start and run the GX Agent and Postgres database.
 > git clone https://github.com/greatexpectationslabs/workshops.git
 > ```
 > 2. `cd` to the `get_started_with_gx_cloud_and_postgres` subdirectory of the cloned repo.
-> 3. Using the following  command, replace `<your-oragnization-id>` and `<your_access-token>` with the values of your GX Cloud organization ID and access token, respectively from earlier. Execute this command in your terminal.
+> 3. Using the following  command, replace `<your-organization-id>` and `<your_access-token>` with the values of your GX Cloud organization ID and access token, respectively from earlier. Execute this command in your terminal.
 >  ```bash
 > GX_CLOUD_ORGANIZATION_ID="<your-organization-id>" GX_CLOUD_ACCESS_TOKEN="<your-access-token>" docker compose up
 > ```
@@ -72,7 +72,7 @@ Additionally, you will see the Active Agent indicator displayed in the GX Cloud 
 With the GX Agent running, you can connect to Postgres from GX Cloud (via the GX Agent).
 
 > **Create a Postgres Data Source**
-> 1. In GX Cloud, click **Data Assets** > **New Data Asset**, if this is your first time using GX Cloud, the **Data Assets** page will prompt to create a **Data Source**
+> 1. In GX Cloud, click **Data Assets** > **New Data Asset**, if this is your first time using GX Cloud, the **Data Assets** page will prompt to create a **Data Source**.
 > 1. Click **PostgreSQL**.
 > 1. Click the **I have created a GX Cloud user with access permissions** checkbox (you do not need to create a user for this workshop) and then **Continue**.
 > 1. Configure the PostgreSQL **Data Source** connection:
