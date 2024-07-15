@@ -59,7 +59,7 @@ You will use Docker Compose to start and run the GX Agent and Postgres database.
 > GX_CLOUD_ORGANIZATION_ID="<your-organization-id>" GX_CLOUD_ACCESS_TOKEN="<your-access-token>" docker compose up
 > ```
 >
-> :warning: If you are running Docker on Windows, use the following  command instead to correctly set the environment variables:
+> :warning: If you are running Docker on Windows, use the following command instead to correctly set the environment variables:
 > ```bash
 > set GX_CLOUD_ORGANIZATION_ID="<your-organization-id>" && set GX_CLOUD_ACCESS_TOKEN="<your-access-token>" && docker compose up
 > ```
