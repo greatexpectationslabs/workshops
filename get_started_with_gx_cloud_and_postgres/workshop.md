@@ -58,6 +58,11 @@ You will use Docker Compose to start and run the GX Agent and Postgres database.
 >  ```bash
 > GX_CLOUD_ORGANIZATION_ID="<your-organization-id>" GX_CLOUD_ACCESS_TOKEN="<your-access-token>" docker compose up
 > ```
+>
+> :warning: If you are running Docker on Windows, use the following  command instead to correctly set the environment variables:
+> ```bash
+> set GX_CLOUD_ORGANIZATION_ID="<your-organization-id>" && set GX_CLOUD_ACCESS_TOKEN="<your-access-token>" && docker compose up
+> ```
 
 Before starting the GX Agent, Docker will download the latest GX Agent and Postgres image. This might take a few minutes. When it is done, the Docker Compose output in your terminal displays `The GX Agent is ready`.
 
