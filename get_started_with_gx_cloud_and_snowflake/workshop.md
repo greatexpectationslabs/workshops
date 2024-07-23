@@ -50,7 +50,7 @@ You will use Docker to start and run the GX Agent.
 > **Run the GX Agent with Docker**
 > - Using the following  command, replace `<your-organization-id>` and `<your_access-token>` with the values of your GX Cloud organization ID and access token, respectively from earlier. Execute this command in your terminal.
 >  ```bash
-> docker run --rm --pull=always GX_CLOUD_ORGANIZATION_ID="<your-organization-id>" GX_CLOUD_ACCESS_TOKEN="<your-access-token>" greatexpectations/agent
+> docker run --rm --pull=always -e GX_CLOUD_ORGANIZATION_ID="<your-organization-id>" -e GX_CLOUD_ACCESS_TOKEN="<your-access-token>" greatexpectations/agent
 > ```
 
 Before starting the GX Agent, Docker will download the latest GX Agent image. This might take a few minutes. When it is done, your terminal displays `The GX Agent is ready.`
