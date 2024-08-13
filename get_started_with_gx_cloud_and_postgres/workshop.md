@@ -1,25 +1,23 @@
 # Get Started with GX Cloud and Postgres
 
-*This workshop content is current as of 26 June 2024.*
+*This workshop content is current as of 13 August 2024.*
 
 Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a Postgres Data Source, create Expectations, and run Validations.
 
 ## Prerequisites
 - A [GX Cloud](https://hubl.li/Q02ng2Jx0) account with Admin or Editor permissions.
-- [Docker Desktop](https://docs.docker.com/get-docker/) installed and [running](https://docs.docker.com/config/daemon/troubleshoot/#check-whether-docker-is-running) on the computer you're using for the workshop.
 - [git](https://git-scm.com/) installed on the computer you're using for this workshop.
+- A publicly accessible PostgreSQL database.
 
 ## Agenda
 You'll complete the following tasks in this workshop:
 
 1. [Sign in to GX Cloud](#sign-in-to-gx-cloud)
-1. [Run the GX Agent and Postgres database](#run-the-gx-agent-and-postgres-database)
 1. [Create a Postgres Data Source and Data Asset](#create-a-postgres-data-source-and-data-asset)
 1. [Create Expectations](#create-expectations)
 1. [Validate Expectations](#validate-a-data-asset)
 1. [Update the failing Expectation and run the Validation again](#update-the-failing-expectation-and-run-the-validation-again)
 1. [Fetch Metrics](#fetch-metrics)
-
 
 ## GX terminology
 If you're new to GX, an understanding of the following [GX terminology](https://docs.greatexpectations.io/docs/reference/learn/glossary#) will be helpful as you complete this workshop.
@@ -29,52 +27,8 @@ If you're new to GX, an understanding of the following [GX terminology](https://
 ## Sign in to GX Cloud
 Sign in to [GX Cloud](https://hubl.li/Q02ng2Jx0).
 
-## Run the GX Agent and Postgres database
-The GX Agent is an intermediary between GX Cloud and your data stores. GX Cloud does not connect directly to your data; all data access occurs within the GX Agent. The GX Agent receives jobs from GX Cloud, executes these jobs against your data, and then sends the job results back to GX Cloud. The GX Agent runs in an environment where it has access to your data. Today, you'll run it on your local machine using Docker.
-
-To learn more about the GX Agent and how it works with GX Cloud, [see our GX Cloud architecture documentation](https://docs.greatexpectations.io/docs/cloud/about_gx#gx-cloud-architecture).
-
-### Get your user access token and organization identifier
-To allow the GX Agent to connect to your GX Cloud organization, you need to supply a user access token and organization identifier.
-
-If you are logging into GX Cloud for the first time, you will be presented with the following screen:
-<img src="../common/img/gx_agent_setup_splash_screen.png" alt="GX Agent setup splash screen" style="width:600px;"><br>
-
-You will use these values in the next step.
-
-1. Copy the value in the **Access token** field and store it in a safe location.
-1. Copy the value in the **Organization ID** field and store it with the user access token.
-
-### Start the GX Agent
-You will use Docker Compose to start and run the GX Agent and Postgres database.
-
-**Run the GX Agent and Postgres database using Docker Compose**
-> 1. Clone this workshop repo to your local machine.
->  ```bash
-> git clone https://github.com/greatexpectationslabs/workshops.git
-> ```
-> 2. `cd` to the `get_started_with_gx_cloud_and_postgres` subdirectory of the cloned repo.
-> 3. Using the following  command, replace `<your-organization-id>` and `<your_access-token>` with the values of your GX Cloud organization ID and access token, respectively from earlier. Execute this command in your terminal.
->  ```bash
-> GX_CLOUD_ORGANIZATION_ID="<your-organization-id>" GX_CLOUD_ACCESS_TOKEN="<your-access-token>" docker compose up
-> ```
->
-> :warning: If you are running Docker on Windows, use the following command instead to correctly set the environment variables:
-> ```bash
-> set GX_CLOUD_ORGANIZATION_ID="<your-organization-id>" && set GX_CLOUD_ACCESS_TOKEN="<your-access-token>" && docker compose up
-> ```
-
-Before starting the GX Agent, Docker will download the latest GX Agent and Postgres image. This might take a few minutes. When it is done, the Docker Compose output in your terminal displays `The GX Agent is ready`.
-
-<img src="img/docker_compose_gx_agent_is_ready.png" alt="Running and ready GX Agent" style="width:500px;"/><br>
-
-Additionally, you will see the Active Agent indicator displayed in the GX Cloud menu.
-
-<img src="../common/img/active_agent_indicator.png" alt="Active Agent indicator" style="width:200px;"/><br>
-
-
 ## Create a Postgres Data Source and Data Asset
-With the GX Agent running, you can connect to Postgres from GX Cloud (via the GX Agent).
+You'll need to connect to Postgres from GX Cloud. We have set up a publicly available AWS RDS instance for workshop users.
 
 > **Create a Postgres Data Source**
 > 1. In GX Cloud, click **Data Assets** > **New Data Asset**, if this is your first time using GX Cloud, the **Data Assets** page will prompt to create a **Data Source**.
@@ -82,7 +36,7 @@ With the GX Agent running, you can connect to Postgres from GX Cloud (via the GX
 > 1. Click the **I have created a GX Cloud user with access permissions** checkbox (you do not need to create a user for this workshop) and then **Continue**.
 > 1. Configure the PostgreSQL **Data Source** connection:
 >    * In the **Data Source name** field, enter a name. For example, `GX Workshop Postgres`.
->    * In the **Connection string** field, enter `postgresql+psycopg2://example_user@db/gx_example_db`.
+>    * In the **Connection string** field, enter `postgresql+psycopg2://example_user:workshop_example_password@workshops-gx-cloud.cvqgq2g6er9a.us-east-1.rds.amazonaws.com/gx_example_db`
 > 1. Click **Connect**.
 
 <img src="img/pg_data_source_create_user.png" alt="Check the GX Cloud user box" style="width:600px;"/><br>
@@ -90,8 +44,7 @@ With the GX Agent running, you can connect to Postgres from GX Cloud (via the GX
 <img src="img/add_pg_data_source.png" alt="Add a Postgres Data Source" style="width:600px;"/><br>
 
 > **Configure the GX Workshop Postgres Data Asset**
-> 1. In the **Table Name** field, enter `nyc_taxi_data`.
-> 1. In the **Data Asset name** field, give your data Asset a name. For example, `Taxi data`.
+> 1. On the **Select tables to import** page, check the box next to `nyc_taxi_data`.
 > 1. Click **Finish**.
 
 <img src="img/add_pg_data_asset.png" alt="Add a Postgres Data Source" style="width:600px;"/><br>
@@ -101,7 +54,7 @@ Congratulations! You have successfully added a Postgres Data Asset to your GX Cl
 ## Create Expectations
 Expectations are a unique GX construct that enable you to make simple, declarative assertions about your data. You can think of Expectations as unit tests for your data. They make implicit assumptions about your data explicit, and they use self-explanatory language for describing data. Expectations can help you better understand your data and help you improve data quality.
 
-In GX Cloud, you create Expectations within an Expectation Suite, which is a collection of Expectations.
+In GX Cloud, you create Expectations for the Data Asset.
 
 The Postgres Data Asset table contains New York City (NYC) taxi data from January 2019. The [NYC Taxi data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) is a popular set of open source data that contains records of completed taxi cab trips in NYC, including information such as pick up and drop off times, the number of passengers, the fare collected, and so on.
 
@@ -112,7 +65,7 @@ You'll create Expectations to validate the taxi data. New Expectations are selec
 Your first Expectation will expect that there is an associated vendor for each taxi trip. You expect that you should not see any null `vendor_id` values.
 
 > **Create your first Expectation**
-> 1. In the **Data Assets** list, click the `Taxi data` Data Asset.
+> 1. In the **Data Assets** list, click the `nyc_taxi_data` Data Asset.
 > 1. Click the **Overview** tab and then **New Expectation**.
 > 1. Click the **Expect Column Values To Not Be Null** Expectation.
 > 1. Create an Expectation that verifies that there is an associated vendor for each taxi trip:
@@ -177,7 +130,7 @@ When you fetch Metrics for a Data Asset, GX Cloud profiles the Data Asset throug
 
 > **Fetch Metrics for a Data Asset**
 > 1. Click the Data Asset **Overview** tab. Basic information about your Data Asset is displayed in the **Data Asset Information** pane.
-> 1. Click the **Profile Data** button.
+> 1. Click the **Fetch Schema** button.
 
 <img src="img/pg_profile_data.png" alt="Profile data button for Postgres Data Asset" style="width:700px;"/><br>
 
