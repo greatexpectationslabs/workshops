@@ -124,7 +124,7 @@ After the Expectation is updated, run the Validation again. When the notificatio
 ## Fetch Metrics
 You might wonder if there is an easier way to create your Expectations instead of making assumptions or manually inspecting the data. Thankfully, GX Cloud lets you fetch the metrics from your data directly, so that you don't have to!
 
-When you fetch Metrics for a Data Asset, GX Cloud profiles the Data Asset through the GX Agent and returns a collection of descriptive metrics including column types, statistical summaries, and null percentages.
+When you fetch Metrics for a Data Asset, GX Cloud profiles the Data Asset and returns a collection of descriptive metrics including column types, statistical summaries, and null percentages.
 
 > **Fetch Metrics for a Data Asset**
 > 1. Click the Data Asset **Overview** tab. Basic information about your Data Asset is displayed in the **Data Asset Information** pane.
@@ -153,20 +153,10 @@ When you have fetched Metrics for a Data Asset, you can use the introspection re
 ## Conclusion
 Congratulations! You've successfully completed the GX Cloud Postgres Workshop. You have created a Postgres Data Source and Data Asset, created Expectations, run some Validations, and fetched Metrics for your data. We hope you have a better understanding of how GX Cloud works and how it can work within your data pipeline.
 
-## Stop the running GX Agent and Postgres database
-To stop the running GX Agent and Postgres database, spin down Docker Compose.
-
-> **Stop Docker Compose**
-> 1. `cd` to the `get_started_with_gx_cloud_and_postgres` subdirectory of this cloned repo.
-> 2. Execute the following command in your terminal:
->  ```bash
-> docker compose down
-> ```
-
 ## What's next?
 * [Connect to your own Postgres instance](https://docs.greatexpectations.io/docs/cloud/connect/connect_postgresql)
 * [Create your own Expectations in GX Cloud](https://docs.greatexpectations.io/docs/cloud/expectations/manage_expectations)
-* Use the [GX Python API](https://docs.greatexpectations.io/docs/oss/) to create Data Sources, Data Assets, Expectations, Expectation Suites, and Checkpoints
+* Use the [GX Python API](https://docs.greatexpectations.io/docs/oss/) to create Data Sources, Data Assets, and Expectations
 * Connect to GX Cloud from an orchestrator (for example, [Airflow](https://airflow.apache.org/))
 * [Invite others](https://docs.greatexpectations.io/docs/cloud/users/manage_users#invite-a-user) to work in your GX Cloud organization
 * Explore our [documentation](https://docs.greatexpectations.io/docs/cloud/)
