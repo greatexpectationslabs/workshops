@@ -100,7 +100,7 @@ You have successfully created two Expectations. Now, make sure that they pass as
 
 <img src="../common/img/validate_1.png" alt="Validate a Data Asset" style="width:800px;"/><br>
 
-After you click **Validate**, GX Cloud starts a job to run queries based on the defined Expectations against the data in Postgres. GX Cloud uses the query results to determine if the data fails or meets your Expectations, and reports the results back to the UI.
+After you click **Validate**, GX Cloud runs queries based on the defined Expectations against the data in Postgres. GX Cloud uses the query results to determine if the data fails or meets your Expectations, and reports the results back to the UI.
 
 After validation is completed, a notification appears indicating that the Validation results are ready. To view the results, you can either click on the link provided in the notification, or click on the Data Asset **Validations** tab.
 
@@ -121,12 +121,12 @@ After the Expectation is updated, run the Validation again. When the notificatio
 
 <img src="../common/img/validation_result_2.png" alt="Validation results with all passing Expectations" style="width:700px;"/><br>
 
-## Fetch Metrics
+## Profile Data
 You might wonder if there is an easier way to create your Expectations instead of making assumptions or manually inspecting the data. Thankfully, GX Cloud lets you fetch the metrics from your data directly, so that you don't have to!
 
-When you fetch Metrics for a Data Asset, GX Cloud profiles the Data Asset and returns a collection of descriptive metrics including column types, statistical summaries, and null percentages.
+When you profile the data for a Data Asset, GX Cloud profiles the Data Asset and returns a collection of descriptive metrics including column types, statistical summaries, and null percentages.
 
-> **Fetch Metrics for a Data Asset**
+> **Profile Data for a Data Asset**
 > 1. Click the Data Asset **Overview** tab. Basic information about your Data Asset is displayed in the **Data Asset Information** pane.
 > 1. Click the **Profile Data** button.
 
