@@ -1,12 +1,11 @@
 # Get Started with GX Cloud and Postgres
 
-*This workshop content is current as of 13 August 2024.*
+*This workshop content is current as of 14 August 2024.*
 
 Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a Postgres Data Source, create Expectations, and run Validations.
 
 ## Prerequisites
 - A [GX Cloud](https://hubl.li/Q02ng2Jx0) account with Admin or Editor permissions.
-- [git](https://git-scm.com/) installed on the computer you're using for this workshop.
 - A publicly accessible PostgreSQL database.
 
 ## Agenda
