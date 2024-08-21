@@ -34,7 +34,7 @@ You'll need to connect to Postgres from GX Cloud. We have set up a publicly avai
 > 1. Click the **I have created a GX Cloud user with access permissions** checkbox (you do not need to create a user for this workshop) and then **Continue**.
 > 1. Configure the PostgreSQL **Data Source** connection:
 >    * In the **Data Source name** field, enter a name. For example, `GX Workshop Postgres`.
->    * In the **Connection string** field, enter `postgresql+psycopg2://example_user:workshop_example_password@workshops-gx-cloud.cvqgq2g6er9a.us-east-1.rds.amazonaws.com/gx_example_db`
+>    * In the **Connection string** field, enter `postgresql+psycopg2://example_user:workshop_example_password@postgres.workshops.greatexpectations.io/gx_example_db`
 > 1. Click **Connect**.
 
 <img src="img/pg_data_source_create_user.png" alt="Check the GX Cloud user box" style="width:600px;"/><br>
