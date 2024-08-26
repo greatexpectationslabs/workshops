@@ -153,7 +153,7 @@ When you have profiled the data for a Data Asset, you can use the introspection 
 
 * Depending on the Expectation type and column selected, default values are populated automatically.
 
-> **Examine creating a new Expectation using Metrics data**
+> **Examine creating a new Expectation using profiled data**
 > 1. Click **New Expectation**.
 > 1. Click the **Expect Column Max To Be Between** Expectation.
 > 1. In the **Column** menu, select `passenger_count`.
