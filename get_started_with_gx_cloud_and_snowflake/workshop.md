@@ -6,7 +6,6 @@ Welcome to our workshop! In this workshop, you'll learn how to connect your GX C
 
 ## Prerequisites
 - A [GX Cloud](https://hubs.li/Q02mpbXd0) account with Admin or Editor permissions.
-- [Docker Desktop](https://docs.docker.com/get-docker/) installed and [running](https://docs.docker.com/config/daemon/troubleshoot/#check-whether-docker-is-running) on the computer you're using for the workshop.
 - Credentials for the shared [GX Workshop Snowflake instance](https://vntumnu-gx_workshops.snowflakecomputing.com/). [Contact us](mailto:support@greatexpectations.io) if you need credentials.
 
 ## Agenda
@@ -29,7 +28,7 @@ If you're new to GX, an understanding of the following [GX terminology](https://
 Sign in to [GX Cloud](https://hubs.li/Q02mpbXd0).
 
 ## Create a Snowflake Data Source and Data Asset
-With the GX Agent running, you can connect to Snowflake from GX Cloud (via the GX Agent).
+You can connect to Snowflake from GX Cloud by creating a Data Source and Data Asset.
 
 > **Create a Snowflake Data Source**
 > 1. In GX Cloud, click **Data Assets** > **New Data Asset**, if this is your first time using GX Cloud, the **Data Assets** page will prompt to create a **Data Source**.
@@ -111,7 +110,7 @@ You have successfully created two Expectations. Now, make sure that they pass as
 
 <img src="../common/img/validate_1.png" alt="Validate a Data Asset" style="width:800px;"/><br>
 
-After you click **Validate**, GX Cloud sends a job to your locally running GX Agent to run queries, based on the defined Expectations, against the data in Snowflake. The GX Agent uses the query results to determine if the data fails or meets your Expectations, and reports the results back to GX Cloud.
+After you click **Validate**, GX Cloud queries the data in Snowflake based on the defined Expectations. GX Cloud uses the query results to determine if the data fails or meets your Expectations.
 
 After validation is completed, a notification appears indicating that the Validation results are ready. To view the results, you can either click on the link provided in the notification, or click on the Data Asset **Validations** tab.
 
