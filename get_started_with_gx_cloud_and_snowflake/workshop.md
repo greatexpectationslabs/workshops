@@ -13,7 +13,7 @@ Welcome to our workshop! In this workshop, you'll learn how to connect your GX C
 You'll complete the following tasks in this workshop:
 
 1. [Sign in to GX Cloud](#sign-in-to-gx-cloud)
-1. [Run the GX Agent](#run-the-gx-agent)
+
 1. [Create a Snowflake Data Source and Data Asset](#create-a-snowflake-data-source-and-data-asset)
 1. [Create Expectations](#create-expectations)
 1. [Validate Expectations](#validate-a-data-asset)
@@ -27,39 +27,6 @@ If you're new to GX, an understanding of the following [GX terminology](https://
 
 ## Sign in to GX Cloud
 Sign in to [GX Cloud](https://hubs.li/Q02mpbXd0).
-
-## Run the GX Agent
-The GX Agent is an intermediary between GX Cloud and your data stores. GX Cloud does not connect directly to your data; all data access occurs within the GX Agent. The GX Agent receives jobs from GX Cloud, executes these jobs against your data, and then sends the job results back to GX Cloud. The GX Agent runs in an environment where it has access to your data. Today, you'll run it on your local machine using Docker.
-
-To learn more about the GX Agent and how it works with GX Cloud, [see our GX Cloud architecture documentation](https://docs.greatexpectations.io/docs/cloud/about_gx#gx-cloud-architecture).
-
-### Get your user access token and organization identifier
-To allow the GX Agent to connect to your GX Cloud organization, you need to supply a user access token and organization identifier.
-
-If you are logging into GX Cloud for the first time, you will be presented with the following screen:
-<img src="../common/img/gx_agent_setup_splash_screen.png" alt="GX Agent setup splash screen" style="width:600px;"><br>
-
-You will use these values in the next step.
-
-1. Copy the value in the **Access token** field and store it in a safe location
-1. Copy the value in the **Organization ID** field and store it with the user access token.
-
-### Start the GX Agent
-You will use Docker to start and run the GX Agent.
-
-> **Run the GX Agent with Docker**
-> - Using the following  command, replace `<your-organization-id>` and `<your_access-token>` with the values of your GX Cloud organization ID and access token, respectively from earlier. Execute this command in your terminal.
->  ```bash
-> docker run --rm --pull=always -e GX_CLOUD_ORGANIZATION_ID="<your-organization-id>" -e GX_CLOUD_ACCESS_TOKEN="<your-access-token>" greatexpectations/agent
-> ```
-
-Before starting the GX Agent, Docker will download the latest GX Agent image. This might take a few minutes. When it is done, your terminal displays `The GX Agent is ready.`
-
-<img src="img/docker_gx_agent_is_ready.png" alt="Running and ready GX Agent" style="width:600px;"/><br>
-
-Additionally, you will see the Active Agent indicator displayed in the GX Cloud menu.
-
-<img src="../common/img/active_agent_indicator.png" alt="Active Agent indicator" style="width:200px;"/><br>
 
 ## Create a Snowflake Data Source and Data Asset
 With the GX Agent running, you can connect to Snowflake from GX Cloud (via the GX Agent).
@@ -196,9 +163,6 @@ When you have fetched Metrics for a Data Asset, you can use the introspection re
 
 ## Conclusion
 Congratulations! You've successfully completed the GX Cloud Snowflake Workshop. You have created a Snowflake Data Source and Data Asset, created Expectations, run some Validations, and fetched Metrics for your data. We hope you have a better understanding of how GX Cloud works and how it can work within your data pipeline.
-
-## Stop the running GX Agent
-To stop the running GX Agent, cancel the `docker` running in your terminal by pressing Control-C.
 
 ## What's next?
 * [Connect to your own Snowflake instance](https://docs.greatexpectations.io/docs/cloud/connect/connect_snowflake)
