@@ -1,24 +1,23 @@
 # Get Started with GX Cloud and Snowflake
 
-*This workshop content is current as of 26 June 2024.*
+*This workshop content is current as of 26 August 2024.*
 
 Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a Snowflake Data Source, create Expectations, and run Validations.
 
 ## Prerequisites
 - A [GX Cloud](https://hubs.li/Q02mpbXd0) account with Admin or Editor permissions.
-- [Docker Desktop](https://docs.docker.com/get-docker/) installed and [running](https://docs.docker.com/config/daemon/troubleshoot/#check-whether-docker-is-running) on the computer you're using for the workshop.
 - Credentials for the shared [GX Workshop Snowflake instance](https://vntumnu-gx_workshops.snowflakecomputing.com/). [Contact us](mailto:support@greatexpectations.io) if you need credentials.
 
 ## Agenda
 You'll complete the following tasks in this workshop:
 
 1. [Sign in to GX Cloud](#sign-in-to-gx-cloud)
-1. [Run the GX Agent](#run-the-gx-agent)
+
 1. [Create a Snowflake Data Source and Data Asset](#create-a-snowflake-data-source-and-data-asset)
 1. [Create Expectations](#create-expectations)
 1. [Validate Expectations](#validate-a-data-asset)
 1. [Update the failing Expectation and run the Validation again](#update-the-failing-expectation-and-run-the-validation-again)
-1. [Fetch Metrics](#fetch-metrics)
+1. [Profile Data](#profile-data)
 
 ## GX terminology
 If you're new to GX, an understanding of the following [GX terminology](https://docs.greatexpectations.io/docs/reference/learn/glossary#) will be helpful as you complete this workshop.
@@ -28,41 +27,8 @@ If you're new to GX, an understanding of the following [GX terminology](https://
 ## Sign in to GX Cloud
 Sign in to [GX Cloud](https://hubs.li/Q02mpbXd0).
 
-## Run the GX Agent
-The GX Agent is an intermediary between GX Cloud and your data stores. GX Cloud does not connect directly to your data; all data access occurs within the GX Agent. The GX Agent receives jobs from GX Cloud, executes these jobs against your data, and then sends the job results back to GX Cloud. The GX Agent runs in an environment where it has access to your data. Today, you'll run it on your local machine using Docker.
-
-To learn more about the GX Agent and how it works with GX Cloud, [see our GX Cloud architecture documentation](https://docs.greatexpectations.io/docs/cloud/about_gx#gx-cloud-architecture).
-
-### Get your user access token and organization identifier
-To allow the GX Agent to connect to your GX Cloud organization, you need to supply a user access token and organization identifier.
-
-If you are logging into GX Cloud for the first time, you will be presented with the following screen:
-<img src="../common/img/gx_agent_setup_splash_screen.png" alt="GX Agent setup splash screen" style="width:600px;"><br>
-
-You will use these values in the next step.
-
-1. Copy the value in the **Access token** field and store it in a safe location
-1. Copy the value in the **Organization ID** field and store it with the user access token.
-
-### Start the GX Agent
-You will use Docker to start and run the GX Agent.
-
-> **Run the GX Agent with Docker**
-> - Using the following  command, replace `<your-organization-id>` and `<your_access-token>` with the values of your GX Cloud organization ID and access token, respectively from earlier. Execute this command in your terminal.
->  ```bash
-> docker run --rm --pull=always -e GX_CLOUD_ORGANIZATION_ID="<your-organization-id>" -e GX_CLOUD_ACCESS_TOKEN="<your-access-token>" greatexpectations/agent
-> ```
-
-Before starting the GX Agent, Docker will download the latest GX Agent image. This might take a few minutes. When it is done, your terminal displays `The GX Agent is ready.`
-
-<img src="img/docker_gx_agent_is_ready.png" alt="Running and ready GX Agent" style="width:600px;"/><br>
-
-Additionally, you will see the Active Agent indicator displayed in the GX Cloud menu.
-
-<img src="../common/img/active_agent_indicator.png" alt="Active Agent indicator" style="width:200px;"/><br>
-
 ## Create a Snowflake Data Source and Data Asset
-With the GX Agent running, you can connect to Snowflake from GX Cloud (via the GX Agent).
+You can connect to Snowflake from GX Cloud by creating a Data Source and Data Asset.
 
 > **Create a Snowflake Data Source**
 > 1. In GX Cloud, click **Data Assets** > **New Data Asset**, if this is your first time using GX Cloud, the **Data Assets** page will prompt to create a **Data Source**.
@@ -86,10 +52,8 @@ With the GX Agent running, you can connect to Snowflake from GX Cloud (via the G
 <img src="img/snowflake_add_data_source.png" alt="Add a Snowflake Data Source" style="width:600px;"/><br>
 
 > **Configure the Snowflake Data Asset**
-> 1. Select **Table Asset**.
-> 1. In the **Table Name** field, enter `TAXI_DATA`.
-> 1. In the **Data Asset name** field, give your data Asset a name. For example, `Taxi data`.
-> 1. Click **Finish**.
+> 1. On the **Select tables to import** page, check the box next to `nyc_taxi_data`.
+> 1. Click **Add 1 Asset**.
 
 <img src="img/snowflake_add_data_asset.png" alt="Add a Snowflake Data Asset" style="width:600px;"/><br>
 
@@ -146,7 +110,7 @@ You have successfully created two Expectations. Now, make sure that they pass as
 
 <img src="../common/img/validate_1.png" alt="Validate a Data Asset" style="width:800px;"/><br>
 
-After you click **Validate**, GX Cloud sends a job to your locally running GX Agent to run queries, based on the defined Expectations, against the data in Snowflake. The GX Agent uses the query results to determine if the data fails or meets your Expectations, and reports the results back to GX Cloud.
+After you click **Validate**, GX Cloud queries the data in Snowflake based on the defined Expectations. GX Cloud uses the query results to determine if the data fails or meets your Expectations.
 
 After validation is completed, a notification appears indicating that the Validation results are ready. To view the results, you can either click on the link provided in the notification, or click on the Data Asset **Validations** tab.
 
@@ -167,26 +131,28 @@ After the Expectation is updated, run the Validation again. When the notificatio
 
 <img src="../common/img/validation_result_2.png" alt="Validation results with all passing Expectations" style="width:700px;"/><br>
 
-## Fetch Metrics
-You might wonder if there is an easier way to create your Expectations, instead of making assumptions or manually inspecting the data. Thankfully, GX Cloud lets you fetch the metrics from your data directly, so that you don't have to!
+## Profile Data
+You might wonder if there is an easier way to create your Expectations instead of making assumptions or manually inspecting the data. Thankfully, GX Cloud lets you profile your data directly, so that you don't have to!
 
-When you fetch Metrics for a Data Asset, GX Cloud profiles your Data Asset through the GX Agent and returns a collection of descriptive metrics including column types, statistical summaries, and null percentages.
+When you profile the data for a Data Asset, GX Cloud profiles the Data Asset and returns a collection of descriptive metrics including column types, statistical summaries, and null percentages.
 
-> **Fetch Metrics for a Data Asset**
+> **Profile Data for a Data Asset**
 > 1. Click the Data Asset **Overview** tab. Basic information about your Data Asset is displayed in the **Data Asset Information** pane.
 > 1. Click the **Profile Data** button.
 
-When the process completes, an updated view of your Data Asset appears. You can see the Data Asset row count as well as some key information about each of the columns. Take some time now to review the data included in Metrics.
+<img src="img/snowflake_profile_data.png" alt="Profile data button for Postgres Data Asset" style="width:700px;"/><br>
+
+When the process completes, an updated view of your Data Asset appears. You can see the Data Asset row count as well as some key information about each of the columns. Take some time now to review the data included in metrics.
 
 <img src="img/fetch_snowflake_metrics.png" alt="Data Asset Metrics" style="width:700px;"/><br>
 
-When you have fetched Metrics for a Data Asset, you can use the introspection results when creating new Expectations. Let's create a new Expectation for this Data Asset. Note the several subtle, but key, changes on the Expectation creation page.
+When you have profiled the data for a Data Asset, you can use the introspection results when creating new Expectations. Let's create a new Expectation for this Data Asset. Note the several subtle, but key, changes on the Expectation creation page.
 
 * When selecting new Expectations types, the **Column** input provides a dropdown menu of existing Data Asset columns, rather than a freeform text field.
 
 * Depending on the Expectation type and column selected, default values are populated automatically.
 
-> **Examine creating a new Expectation using Metrics data**
+> **Examine creating a new Expectation using profiled data**
 > 1. Click **New Expectation**.
 > 1. Click the **Expect Column Max To Be Between** Expectation.
 > 1. In the **Column** menu, select `passenger_count`.
@@ -196,9 +162,6 @@ When you have fetched Metrics for a Data Asset, you can use the introspection re
 
 ## Conclusion
 Congratulations! You've successfully completed the GX Cloud Snowflake Workshop. You have created a Snowflake Data Source and Data Asset, created Expectations, run some Validations, and fetched Metrics for your data. We hope you have a better understanding of how GX Cloud works and how it can work within your data pipeline.
-
-## Stop the running GX Agent
-To stop the running GX Agent, cancel the `docker` running in your terminal by pressing Control-C.
 
 ## What's next?
 * [Connect to your own Snowflake instance](https://docs.greatexpectations.io/docs/cloud/connect/connect_snowflake)
