@@ -133,7 +133,7 @@ After the Expectation is updated, run the Validation again. When the notificatio
 <img src="../common/img/validation_result_2.png" alt="Validation results with all passing Expectations" style="width:700px;"/><br>
 
 ## Profile Data
-You might wonder if there is an easier way to create your Expectations instead of making assumptions or manually inspecting the data. Thankfully, GX Cloud lets you fetch the metrics from your data directly, so that you don't have to!
+You might wonder if there is an easier way to create your Expectations instead of making assumptions or manually inspecting the data. Thankfully, GX Cloud lets you profile your data directly, so that you don't have to!
 
 When you profile the data for a Data Asset, GX Cloud profiles the Data Asset and returns a collection of descriptive metrics including column types, statistical summaries, and null percentages.
 
@@ -143,7 +143,7 @@ When you profile the data for a Data Asset, GX Cloud profiles the Data Asset and
 
 <img src="img/snowflake_profile_data.png" alt="Profile data button for Postgres Data Asset" style="width:700px;"/><br>
 
-When the process completes, an updated view of your Data Asset appears. You can see the Data Asset row count as well as some key information about each of the columns. Take some time now to review the data included in Metrics.
+When the process completes, an updated view of your Data Asset appears. You can see the Data Asset row count as well as some key information about each of the columns. Take some time now to review the data included in metrics.
 
 <img src="img/fetch_snowflake_metrics.png" alt="Data Asset Metrics" style="width:700px;"/><br>
 
