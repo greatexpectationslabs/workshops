@@ -18,7 +18,7 @@ You'll complete the following tasks in this workshop:
 1. [Create Expectations](#create-expectations)
 1. [Validate Expectations](#validate-a-data-asset)
 1. [Update the failing Expectation and run the Validation again](#update-the-failing-expectation-and-run-the-validation-again)
-1. [Fetch Metrics](#fetch-metrics)
+1. [Profile Data](#profile-data)
 
 ## GX terminology
 If you're new to GX, an understanding of the following [GX terminology](https://docs.greatexpectations.io/docs/reference/learn/glossary#) will be helpful as you complete this workshop.
