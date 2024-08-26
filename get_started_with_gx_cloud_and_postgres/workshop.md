@@ -136,7 +136,7 @@ When the process completes, an updated view of your Data Asset appears. You can 
 
 <img src="img/fetch_pg_metrics.png" alt="Data Asset Metrics" style="width:700px;"/><br>
 
-When you have fetched Metrics for a Data Asset, you can use the introspection results when creating new Expectations. Let's create a new Expectation for this Data Asset. Note the several subtle, but key, changes on the Expectation creation page.
+When you have profiled the data for a Data Asset, you can use the introspection results when creating new Expectations. Let's create a new Expectation for this Data Asset. Note the several subtle, but key, changes on the Expectation creation page.
 
 * When selecting new Expectations types, the **Column** input provides a dropdown menu of existing Data Asset columns, rather than a freeform text field.
 

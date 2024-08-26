@@ -1,6 +1,6 @@
 # Get Started with GX Cloud and Snowflake
 
-*This workshop content is current as of 26 June 2024.*
+*This workshop content is current as of 26 August 2024.*
 
 Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a Snowflake Data Source, create Expectations, and run Validations.
 
@@ -53,10 +53,8 @@ With the GX Agent running, you can connect to Snowflake from GX Cloud (via the G
 <img src="img/snowflake_add_data_source.png" alt="Add a Snowflake Data Source" style="width:600px;"/><br>
 
 > **Configure the Snowflake Data Asset**
-> 1. Select **Table Asset**.
-> 1. In the **Table Name** field, enter `TAXI_DATA`.
-> 1. In the **Data Asset name** field, give your data Asset a name. For example, `Taxi data`.
-> 1. Click **Finish**.
+> 1. On the **Select tables to import** page, check the box next to `nyc_taxi_data`.
+> 1. Click **Add 1 Asset**.
 
 <img src="img/snowflake_add_data_asset.png" alt="Add a Snowflake Data Asset" style="width:600px;"/><br>
 
@@ -134,20 +132,22 @@ After the Expectation is updated, run the Validation again. When the notificatio
 
 <img src="../common/img/validation_result_2.png" alt="Validation results with all passing Expectations" style="width:700px;"/><br>
 
-## Fetch Metrics
-You might wonder if there is an easier way to create your Expectations, instead of making assumptions or manually inspecting the data. Thankfully, GX Cloud lets you fetch the metrics from your data directly, so that you don't have to!
+## Profile Data
+You might wonder if there is an easier way to create your Expectations instead of making assumptions or manually inspecting the data. Thankfully, GX Cloud lets you fetch the metrics from your data directly, so that you don't have to!
 
-When you fetch Metrics for a Data Asset, GX Cloud profiles your Data Asset through the GX Agent and returns a collection of descriptive metrics including column types, statistical summaries, and null percentages.
+When you profile the data for a Data Asset, GX Cloud profiles the Data Asset and returns a collection of descriptive metrics including column types, statistical summaries, and null percentages.
 
-> **Fetch Metrics for a Data Asset**
+> **Profile Data for a Data Asset**
 > 1. Click the Data Asset **Overview** tab. Basic information about your Data Asset is displayed in the **Data Asset Information** pane.
 > 1. Click the **Profile Data** button.
+
+<img src="img/snowflake_profile_data.png" alt="Profile data button for Postgres Data Asset" style="width:700px;"/><br>
 
 When the process completes, an updated view of your Data Asset appears. You can see the Data Asset row count as well as some key information about each of the columns. Take some time now to review the data included in Metrics.
 
 <img src="img/fetch_snowflake_metrics.png" alt="Data Asset Metrics" style="width:700px;"/><br>
 
-When you have fetched Metrics for a Data Asset, you can use the introspection results when creating new Expectations. Let's create a new Expectation for this Data Asset. Note the several subtle, but key, changes on the Expectation creation page.
+When you have profiled the data for a Data Asset, you can use the introspection results when creating new Expectations. Let's create a new Expectation for this Data Asset. Note the several subtle, but key, changes on the Expectation creation page.
 
 * When selecting new Expectations types, the **Column** input provides a dropdown menu of existing Data Asset columns, rather than a freeform text field.
 
