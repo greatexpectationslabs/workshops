@@ -98,13 +98,13 @@ You have successfully created two Expectations. Now, make sure that they pass as
 >
 > On the Data Asset **Expectations** page, click **Validate**.
 
-<img src="./img/validate_1.png" alt="Validate a Data Asset" style="width:800px;"/><br>
+<img src="../common/img/validate_1.png" alt="Validate a Data Asset" style="width:800px;"/><br>
 
 After you click **Validate**, GX Cloud queries the data in Databricks based on the defined Expectations. GX Cloud uses the query results to determine if the data fails or meets your Expectations.
 
 After validation is completed, a notification appears indicating that the Validation results are ready. To view the results, you can either click on the link provided in the notification, or click on the Data Asset **Validations** tab.
 
-<img src="img/validation_result_1.png" alt="Validation results with passing and failing Expectations" style="width:700px;"/><br>
+<img src="../common/img/validation_result_1.png" alt="Validation results with passing and failing Expectations" style="width:700px;"/><br>
 
 You can see that the `passenger_count` Expectation has failed. This is because some of the larger New York City taxis in NYC can carry up to six passengers.
 
@@ -119,7 +119,7 @@ Now that you know your assumption about taxi passenger capacity was incorrect, y
 
 After the Expectation is updated, run the Validation again. When the notification indicating the Validation was successful appears, click the link in the notification or click the **Validations** tab. The `passenger_count` Expectation was successful. You can view the history of your Data Asset Validations by clicking **All Runs** below **Batches & run history**.
 
-<img src="img/validation_result_2.png" alt="Validation results with all passing Expectations" style="width:700px;"/><br>
+<img src="../common/img/validation_result_2.png" alt="Validation results with all passing Expectations" style="width:700px;"/><br>
 
 ## Profile Data
 You might wonder if there is an easier way to create your Expectations instead of making assumptions or manually inspecting the data. Thankfully, GX Cloud lets you profile your data directly, so that you don't have to!
