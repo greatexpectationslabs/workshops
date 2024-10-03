@@ -83,6 +83,7 @@ Create a second Expectation that checks the passenger count values to determine 
 >   1. Click back on the **Overview** tab and click on **New Expectation**.
 >   1. Click the **Expect Column Max To Be Between** Expectation.
 >   1. In the **Column** field, select `passenger_count` from the dropdown.
+>   1. In the **Min Value** field, enter `4`.
 >   1. In the **Max Value** field, enter `4`.
 >   1. Leave the other fields blank.
 >   1. Click **Save**.
