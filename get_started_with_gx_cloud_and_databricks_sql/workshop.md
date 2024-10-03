@@ -35,8 +35,9 @@ You can connect to Databricks SQL from GX Cloud by creating a Data Source and Da
 >
 >    * In the **Data Source name** field, enter a name. For example, `GX Workshop Databricks`.
 >    * In the **Connection** field, enter the Databricks SQL connection string:
->        `databricks://token:dapie55153c1eb3a60b1cfdae88839d6a3b5@dbc-8ad5a215-e8c7.cloud.databricks.com:443?http_path=/sql/1.0/warehouses/7d508f960af23038&catalog=workshops&schema=nyctaxi`
+>        `databricks://token:dapi3ae6f4396df7598eb1385e7f2fdd041e@dbc-8ad5a215-e8c7.cloud.databricks.com:443?http_path=/sql/1.0/warehouses/7d508f960af23038&catalog=workshops&schema=nyctaxi`
 > 1. Click **Connect**.
+> If you get a connection error, our shared token may have expired, or the Databricks Warehouse may not be running yet. Please try again after a couple minutes and if the error persists, please [open a Support ticket](https://support.greatexpectations.io/hc/en-us).
 
 <img src="img/databricks_sql_add_data_source.png" alt="Add a Databricks SQL Data Source" style="width:600px;"/><br>
 
