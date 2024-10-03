@@ -4,9 +4,8 @@ RUN apk update && \
     apk upgrade && \
     apk add curl
 
-# Copy the taxi data dump file from the great-expectations repo.
-ARG NYC_TAXI_DATA_URL=https://raw.githubusercontent.com/great-expectations/great_expectations/develop/examples/reference_environments/postgres/db_dump.sql
-RUN curl $NYC_TAXI_DATA_URL -o /docker-entrypoint-initdb.d/nyc_taxi_data.sql
+# Copy the taxi data dump file from the common direcotry.
+COPY nyc_taxi_data.sql /docker-entrypoint-initdb.d/nyc_taxi_data.sql
 
 # Remove the exec "$@" content that exists in the docker-entrypoint.sh file
 # so it will not start the PostgreSQL daemon (we don’t need it on this step).
