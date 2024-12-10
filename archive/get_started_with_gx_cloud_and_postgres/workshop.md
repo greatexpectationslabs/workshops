@@ -1,60 +1,60 @@
-# Get Started with GX Cloud and Databricks SQL
+# Get Started with GX Cloud and Postgres
 
-*This workshop content is current as of 20 September 2024.*
+*This workshop content is archived and no longer maintained.*
 
-Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a Databricks SQL Data Source, create Expectations, and run Validations.
+Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a Postgres Data Source, create Expectations, and run Validations.
 
 ## Prerequisites
-- A [GX Cloud](https://hubs.li/Q02mpbXd0) account with Admin or Editor permissions.
+- A [GX Cloud](https://hubl.li/Q02ng2Jx0) account with Admin or Editor permissions.
 
 ## Agenda
 You'll complete the following tasks in this workshop:
 
 1. [Sign in to GX Cloud](#sign-in-to-gx-cloud)
-1. [Create a Databricks SQL Data Source and Data Asset](#create-a-databricks-sql-data-source-and-data-asset)
+1. [Create a Postgres Data Source and Data Asset](#create-a-postgres-data-source-and-data-asset)
 1. [Create Expectations](#create-expectations)
 1. [Validate Expectations](#validate-a-data-asset)
 1. [Update the failing Expectation and run the Validation again](#update-the-failing-expectation-and-run-the-validation-again)
-1. [Profile Data](#profile-data)
+1. [Fetch Metrics](#fetch-metrics)
 
 ## GX terminology
 If you're new to GX, an understanding of the following [GX terminology](https://docs.greatexpectations.io/docs/reference/learn/glossary#) will be helpful as you complete this workshop.
 
-<img src="../common/img/gx_terminology.png" alt="Introductory GX terminology" style="width:800px;"/><br>
+<img src="../../common/img/gx_terminology.png" alt="Introductory GX terminology" style="width:800px;"/><br>
 
 ## Sign in to GX Cloud
-Sign in to [GX Cloud](https://hubs.li/Q02mpbXd0).
+Sign in to [GX Cloud](https://hubl.li/Q02ng2Jx0).
 
-## Create a Databricks SQL Data Source and Data Asset
-You can connect to Databricks SQL from GX Cloud by creating a Data Source and Data Asset.
+## Create a Postgres Data Source and Data Asset
+You'll need to connect to Postgres from GX Cloud. We have set up a publicly available AWS RDS instance for this workshop.
 
-> **Create a Databricks SQL Data Source**
+> **Create a Postgres Data Source**
 > 1. In GX Cloud, click **Data Assets** > **New Data Asset**, if this is your first time using GX Cloud, the **Data Assets** page will prompt to create a **Data Source**.
-> 1. Click **Databricks SQL**.
-> 1. Configure the Databricks SQL Data Source connection:
->
->    * In the **Data Source name** field, enter a name. For example, `GX Workshop Databricks`.
->    * In the **Connection** field, enter the Databricks SQL connection string:
->        `databricks://token:dapi94fba2b0f09b01b5ad2da46430a17a49@dbc-8ad5a215-e8c7.cloud.databricks.com:443?http_path=/sql/1.0/warehouses/7d508f960af23038&catalog=workshops&schema=nyctaxi`
+> 1. Click **PostgreSQL**.
+> 1. Click the **I have created a GX Cloud user with access permissions** checkbox (you do not need to create a user for this workshop) and then **Continue**.
+> 1. Configure the PostgreSQL **Data Source** connection:
+>    * In the **Data Source name** field, enter a name. For example, `GX Workshop Postgres`.
+>    * In the **Connection string** field, enter `postgresql+psycopg2://example_user:workshop_example_password@postgres.workshops.greatexpectations.io/gx_example_db`
 > 1. Click **Connect**.
-> If you get a connection error, our shared token may have expired, or the Databricks Warehouse may not be running yet. Please try again after a couple minutes and if the error persists, please [open a Support ticket](https://support.greatexpectations.io/hc/en-us).
 
-<img src="img/databricks_sql_add_data_source.png" alt="Add a Databricks SQL Data Source" style="width:600px;"/><br>
+<img src="img/pg_data_source_create_user.png" alt="Check the GX Cloud user box" style="width:600px;"/><br>
 
-> **Configure the Databricks SQL Data Asset**
-> 1. On the **Select tables to import as Data Assets** page, check the box next to `nyc_taxi_data`.
+<img src="img/add_pg_data_source.png" alt="Add a Postgres Data Source" style="width:600px;"/><br>
+
+> **Configure the GX Workshop Postgres Data Asset**
+> 1. On the **Select tables to import** page, check the box next to `nyc_taxi_data`.
 > 1. Click **Add 1 Asset**.
 
-<img src="img/databricks_sql_add_data_asset.png" alt="Add a Databricks SQL Data Asset" style="width:600px;"/><br>
+<img src="img/add_pg_data_asset.png" alt="Add a Postgres Data Source" style="width:600px;"/><br>
 
-Congratulations! You have successfully added a Databricks SQL Data Asset to your GX Cloud organization.
+Congratulations! You have successfully added a Postgres Data Asset to your GX Cloud organization.
 
 ## Create Expectations
 Expectations are a unique GX construct that enable you to make simple, declarative assertions about your data. You can think of Expectations as unit tests for your data. They make implicit assumptions about your data explicit, and they use self-explanatory language for describing data. Expectations can help you better understand your data and help you improve data quality.
 
-In GX Cloud, you create Expectations within an Expectation Suite, which is a collection of Expectations.
+In GX Cloud, you create Expectations for the Data Asset.
 
-The Databricks SQL Data Asset schema contains New York City (NYC) taxi trip data. The [NYC Taxi data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) is a popular set of open source data that contains records of completed taxi cab trips in NYC, including information such as pick up and drop off times, the distance of the trip, the fare collected, and so on.
+The Postgres Data Asset table contains New York City (NYC) taxi data from January 2019. The [NYC Taxi data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) is a popular set of open source data that contains records of completed taxi cab trips in NYC, including information such as pick up and drop off times, the number of passengers, the fare collected, and so on.
 
 You'll create Expectations to validate the taxi data. New Expectations are selected from the Expectation picker.
 
@@ -101,7 +101,7 @@ You have successfully created two Expectations. Now, make sure that they pass as
 
 <img src="../common/img/validate_1.png" alt="Validate a Data Asset" style="width:800px;"/><br>
 
-After you click **Validate**, GX Cloud queries the data in Databricks based on the defined Expectations. GX Cloud uses the query results to determine if the data fails or meets your Expectations.
+After you click **Validate**, GX Cloud runs queries based on the defined Expectations against the data in Postgres. GX Cloud uses the query results to determine if the data fails or meets your Expectations, and reports the results back to the UI.
 
 After validation is completed, a notification appears indicating that the Validation results are ready. To view the results, you can either click on the link provided in the notification, or click on the Data Asset **Validations** tab.
 
@@ -131,11 +131,11 @@ When you profile the data for a Data Asset, GX Cloud profiles the Data Asset and
 > 1. Click the Data Asset **Overview** tab. Basic information about your Data Asset is displayed in the **Data Asset Information** pane.
 > 1. Click the **Profile Data** button.
 
-<img src="img/databricks_sql_profile_data.png" alt="Profile data button for Databricks SQL Data Asset" style="width:700px;"/><br>
+<img src="img/pg_profile_data.png" alt="Profile data button for Postgres Data Asset" style="width:700px;"/><br>
 
 When the process completes, an updated view of your Data Asset appears. You can see the Data Asset row count as well as some key information about each of the columns. Take some time now to review the data included in metrics.
 
-<img src="img/fetch_databricks_sql_metrics.png" alt="Data Asset Metrics" style="width:700px;"/><br>
+<img src="img/fetch_pg_metrics.png" alt="Data Asset Metrics" style="width:700px;"/><br>
 
 When you have profiled the data for a Data Asset, you can use the introspection results when creating new Expectations. Let's create a new Expectation for this Data Asset. Note the several subtle, but key, changes on the Expectation creation page.
 
@@ -152,12 +152,12 @@ When you have profiled the data for a Data Asset, you can use the introspection 
 <img src="../common/img/new_expectation_with_metrics.png" alt="Create a new Expectation using Data Asset Metrics" style="width:500px;"/><br>
 
 ## Conclusion
-Congratulations! You've successfully completed the GX Cloud Databricks SQL Workshop. You have created a Databricks SQL Data Source and Data Asset, created Expectations, run some Validations, and fetched Metrics for your data. We hope you have a better understanding of how GX Cloud works and how it can work within your data pipeline.
+Congratulations! You've successfully completed the GX Cloud Postgres Workshop. You have created a Postgres Data Source and Data Asset, created Expectations, run some Validations, and fetched Metrics for your data. We hope you have a better understanding of how GX Cloud works and how it can work within your data pipeline.
 
 ## What's next?
-* [Connect to your own Databricks SQL warehouse](https://docs.greatexpectations.io/)
+* [Connect to your own Postgres instance](https://docs.greatexpectations.io/docs/cloud/connect/connect_postgresql)
 * [Create your own Expectations in GX Cloud](https://docs.greatexpectations.io/docs/cloud/expectations/manage_expectations)
-* Use the [GX Python API](https://docs.greatexpectations.io/docs/oss/) to create Data Sources, Data Assets, Expectations, Expectation Suites, and Checkpoints
+* Use the [GX Python API](https://docs.greatexpectations.io/docs/oss/) to create Data Sources, Data Assets, and Expectations
 * Connect to GX Cloud from an orchestrator (for example, [Airflow](https://airflow.apache.org/))
 * [Invite others](https://docs.greatexpectations.io/docs/cloud/users/manage_users#invite-a-user) to work in your GX Cloud organization
 * Explore our [documentation](https://docs.greatexpectations.io/docs/cloud/)
