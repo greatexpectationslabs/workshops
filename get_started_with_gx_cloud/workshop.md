@@ -77,8 +77,8 @@ Create a second Expectation that checks the passenger count values to determine 
 >   1. Click back on the **Overview** tab and click on **New Expectation**.
 >   1. Click the **Expect column maximum to be between** Expectation.
 >   1. In the **Column** field, select `passenger_count` from the dropdown.
->   1. In the first field, enter `4`.
->   1. In the second field, enter `4`.
+>   1. In the first fixed value field, enter `4`.
+>   1. In the second fixed value field, enter `4`.
 >   1. Leave the other fields blank.
 >   1. Click **Save**.
 
@@ -109,7 +109,7 @@ Now that you know your assumption about taxi passenger capacity was incorrect, y
 > **Update your Expectation**
 > 1. Click the **Expectations** tab.
 > 1. Click **Edit** (the pencil icon) for the `passenger_count` Expectation.
-> 1. In the **Max Value** field, change `4` to `7`.
+> 1. In both fixed value fields, change `4` to `7`.
 > 1. Click **Save**.
 
 After the Expectation is updated, run the Validation again. When the notification indicating the Validation was successful appears, click the link in the notification or click the **Validations** tab. The `passenger_count` Expectation was successful. You can view the history of your Data Asset Validations by clicking **All Runs** below **Batches & run history**.
@@ -134,14 +134,16 @@ When the process completes, an updated view of your Data Asset appears. You can 
 When you have profiled the data for a Data Asset, you can use the introspection results when creating new Expectations. Let's create a new Expectation for this Data Asset. Note the several subtle, but key, changes on the Expectation creation page.
 
 * When selecting new Expectations types, the **Column** input provides a dropdown menu of existing Data Asset columns, rather than a freeform text field.
-
 * Depending on the Expectation type and column selected, default values are populated automatically.
 
 > **Examine creating a new Expectation using profiled data**
 > 1. Click **New Expectation**.
 > 1. Click the **Expect Column Max To Be Between** Expectation.
 > 1. In the **Column** menu, select `passenger_count`.
-> 1. The value `7` is automatically added to the **Min Value** and **Max Value** fields.
+> 1. The value `7` is automatically added to the fixed value fields.
+> 1. Click the **X** at the top next to **New Expectation** or click **Back** to cancel.
+
+We've already created this expectation, so go ahead and cancel creating a nw expectation.
 
 <img src="img/new_expectation_with_metrics.png" alt="Create a new Expectation using Data Asset Metrics" style="width:500px;"/><br>
 
