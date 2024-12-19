@@ -192,7 +192,7 @@ The default schedule is to run every 24 hours, starting at the top of the next h
 <img src="img/edit_validation_schedule.png" alt="Edit the validation schedule" style="width:500px;"/><br>
 
 ## Review Alerts
-GX Cloud will automatically send alerts to users' email address. To disable or re-enable this, open the Alerts panel.
+GX Cloud will automatically send alerts to users' email address. To disable or re-enable this, open the Alerts panel. This is controlled on a per-user basis, so other users within your organization will need to enable this if they would like to be alerted to failing validations.
 
 > **Review Alerts**
 > 1. Click the **Alerts** button.
