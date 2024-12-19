@@ -146,7 +146,7 @@ When you have profiled the data for a Data Asset, you can use the introspection 
 > 1. The value `7` is automatically added to the fixed value fields.
 > 1. Click the **X** at the top next to **New Expectation** or click **Back** to cancel.
 
-We've already created this expectation, so go ahead and cancel creating a nw expectation.
+We've already created this expectation, so go ahead and cancel creating a new expectation.
 
 <img src="img/new_expectation_with_metrics.png" alt="Create a new Expectation using Data Asset Metrics" style="width:500px;"/><br>
 
