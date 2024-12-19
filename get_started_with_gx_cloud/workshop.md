@@ -29,7 +29,7 @@ If you're new to GX, an understanding of the following [GX terminology](https://
 Sign in to [GX Cloud](https://hubl.li/Q02ng2Jx0).
 
 ## Use Demo Data
-You'll need to setup a data source from GX Cloud. We provide demo data for this workshop.
+You'll need to setup a data source from GX Cloud. We provide demo data in a PostgreSQL database for this workshop.
 
 > 1. In GX Cloud under, "Not ready to connect to your data?", click **Use demo data**.
 
@@ -58,12 +58,12 @@ Your first Expectation will expect that there is an associated unique `id` for e
 
 > **Create your first Expectation**
 > 1. In the **Data Assets** list, click the `nyc_taxi_data` Data Asset.
-> 1. Click the **Overview** tab and then **New Expectation**.
+> 1. Click the **New Expectation** button.
 >   1. Type `null` into the search box to filter Expectation names
 > 1. Click the **Expect column values to not be null** Expectation.
 > 1. Create an Expectation that verifies that there is a unique ID for each record:
 >
->    1. In the **Column** field, select `id` from the dropdown.
+>    1. In the **Column** field, enter `id`.
 >    1. Click **Save**.
 
 <img src="img/filter_null_expectation.png" alt="Use the search filter" style="width:500px;"/><br>
@@ -79,7 +79,7 @@ Create a second Expectation that checks the passenger count values to determine 
 > Create an Expectation that asserts that there are no more than four passengers for any trip:
 >   1. Click back on the **Overview** tab and click on **New Expectation**.
 >   1. Click the **Expect column maximum to be between** Expectation.
->   1. In the **Column** field, select `passenger_count` from the dropdown.
+>   1. In the **Column** field, enter `passenger_count`.
 >   1. In the first fixed value field, enter `4`.
 >   1. In the second fixed value field, enter `4`.
 >   1. Leave the other fields blank.
@@ -87,7 +87,7 @@ Create a second Expectation that checks the passenger count values to determine 
 
 <img src="img/new_passenger_expectation.png" alt="Create a column max Expectation" style="width:500px;"/><br>
 
-Your new `id` and `passenger_count` Expectations appear in the Data Asset **Expectations** list under "Taxi data - Default Expectation Suite".
+Your new `id` and `passenger_count` Expectations appear in the Expectation list.
 
 ## Validate a Data Asset
 You have successfully created two Expectations. Now, make sure that they pass as expected when you validate your Data Asset.
@@ -100,11 +100,11 @@ You have successfully created two Expectations. Now, make sure that they pass as
 
 After you click **Validate**, GX Cloud runs queries based on the defined Expectations against the data in Postgres. GX Cloud uses the query results to determine if the data fails or meets your Expectations, and reports the results back to the UI.
 
-After validation is completed, a notification appears indicating that the Validation results are ready. To view the results, you can either click on the link provided in the notification, or click on the Data Asset **Validations** tab.
+After validation is completed, a notification appears indicating that the Validation results are ready. To view the results click on the Data Asset **Validations** tab.
+
+You can see that the `passenger_count` Expectation has failed. Click on the red (!) icon in the "Batches and run history" list, and you'll see that GX Cloud has an observed value of 7, not 4. This is because some of the larger New York City taxis in NYC are SUVs or minivans that can carry up to seven passengers.
 
 <img src="img/validation_result_1.png" alt="Validation results with passing and failing Expectations" style="width:700px;"/><br>
-
-You can see that the `passenger_count` Expectation has failed. This is because some of the larger New York City taxis in NYC are SUVs or minivans that can carry up to seven passengers.
 
 ## Update the failing Expectation and run the Validation again
 Now that you know the assumption about taxi passenger capacity was incorrect, you need to update the Expectation so the Validation of the `passenger_count` Expectation passes.
@@ -115,7 +115,7 @@ Now that you know the assumption about taxi passenger capacity was incorrect, yo
 > 1. In both fixed value fields, change `4` to `7`.
 > 1. Click **Save**.
 
-After the Expectation is updated, run the Validation again. When the notification indicating the Validation was successful appears, click the link in the notification or click the **Validations** tab. The `passenger_count` Expectation was successful. You can view the history of your Data Asset Validations by clicking **All Runs** below **Batches & run history**.
+After the Expectation is updated, click the **Validate** button again. When the notification indicating the Validation was successful appears, click the **Validations** tab. The `passenger_count` Expectation was successful and you will see the history of all runs by default.
 
 <img src="img/validation_result_2.png" alt="Validation results with all passing Expectations" style="width:700px;"/><br>
 
@@ -125,7 +125,7 @@ You might wonder if there is an easier way to create your Expectations instead o
 When you profile a Data Asset, GX Cloud reads the Data Asset and returns a collection of descriptive metrics including column types, statistical summaries, and null percentages.
 
 > **Profile Data for a Data Asset**
-> 1. Click the Data Asset **Overview** tab. Basic information about your Data Asset is displayed in the **Data Asset Information** pane.
+> 1. Click the Data Asset **Metrics** tab. The first time you visit this tab, it will fetch basic information about your Data Asset and display it in the **Data Asset Information** pane.
 > 1. Click the **Profile Data** button.
 
 <img src="img/demo_data_profile.png" alt="Profile data button for Demo Data Asset" style="width:700px;"/><br>
@@ -134,7 +134,7 @@ When the process completes, an updated view of your Data Asset appears. You can 
 
 <img src="img/fetch_demo_metrics.png" alt="Data Asset Metrics" style="width:700px;"/><br>
 
-When you have profiled the data for a Data Asset, you can use the introspection results when creating new Expectations. Let's create a new Expectation for this Data Asset. Note the several subtle, but key, changes on the Expectation creation page.
+Once you have profiled the data for a Data Asset, you can use the introspected results when creating new Expectations. Let's create a new Expectation for this Data Asset. Note the subtle, but key, changes on the Expectation creation page.
 
 * When selecting new Expectations types, the **Column** input provides a dropdown menu of existing Data Asset columns, rather than a freeform text field.
 * Depending on the Expectation type and column selected, default values are populated automatically.
@@ -151,26 +151,56 @@ We've already created this expectation, so go ahead and cancel creating a new ex
 <img src="img/new_expectation_with_metrics.png" alt="Create a new Expectation using Data Asset Metrics" style="width:500px;"/><br>
 
 ## Custom SQL Expectations
-You can create custom SQL Expectations in GX Cloud. These will fail validation if the SQL query returns one or more rows, so you can perform any query against the data that you wish.
+You can create custom SQL Expectations in GX Cloud. These will fail validation if the SQL query returns one or more rows. You can perform any query against the data that you wish.
 
-Let's create a new expectation using the custom SQL Expectation form. Since we are using the demo data set and we don't have access to query the data directly, we'll use the example query that is filled in by default.
+Let's create a new expectation using the custom SQL Expectation form. We're going to modify the example query that is filled in by default. 
 
 > **Create Custom SQL Expectation**
 > 1. On the Expectations tab, click **New Expectation**
 > 1. Click **Create custom Expectation** at the bottom of the panel
-> 1. Enter the description, "**Manhattan Passenger Count**"
-> 1. Review the SQL query, it should appear as below.
-> 1. Click **Save**.
+> 1. Enter the description, "**Queens to Newark Airport**"
+> 1. Modify the `WHERE` clause in the query to look like this:
+```sql
+SELECT
+  *
+FROM
+  {batch}
+WHERE
+  pickup_borough = 'Queens'
+  AND dropoff_borough = 'EWR'
+  AND fare_amount < 100
+```
+> Click **Save**.
 
-Note that in this query, we're selecting all rows for the "`Manhattan`" `pickup_borough` with a `passenger_count` of `4`.
+In this query, we're selecting all rides from `Queens` to the Newark Airport (code `EWR`), where the fares are less than `100` ($100 US). We know that Queens to EWR is generally a long drive that takes awhile, so we expect it to be expensive.
 
 <img src="img/new_sql_expectation.png" style="width:500px;"/><br>
 
-Now that the SQL Expectation is created, run the Validation again. Go to the Validations tab again and see that the Expectation failed. As we saw from the earlier exercise, this is because we will have rides that used taxis with up to 6 seats. When creating this Expectation, we may assume that rides to Manhattan were in smaller cabs because the streets are more crowded, but upon further investigation we know that isn't the case.
+Now that the SQL Expectation is created click **Validate**. Go to the **Validations** tab, and see that the Expectation failed. Click on the latest run that failed, and note that the observed value returned 6 rows, indicating the failure. 
 
 <img src="img/failed_validation_sql.png" style="width:500px;"/><br>
 
-Edit the Expectation, and in the SQL code box, change `passenger_count > 4` to `passenger_count > 6`. Rerun the Validation again and view the results.
+If we were to query the data directly, we will see our assumption about the expensive rides was a bit too high:
+
+```
+> SELECT fare_amount
+FROM nyc_taxi_data
+WHERE
+  pickup_borough = 'Queens'
+  AND dropoff_borough = 'EWR'
+  AND fare_amount < 100;
+ fare_amount
+-------------
+          78
+          76
+          81
+          83
+          98
+        92.5
+(6 rows)
+```
+
+Go back to the **Expectations** tab and edit the Expectation. In the SQL code box, change `fare_amount < 100` to `fare_amount < 76`. Rerun the Validation again and view the results.
 
 <img src="img/passed_validation_sql.png" style="width:500px;"/><br>
 
