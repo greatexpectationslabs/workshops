@@ -1,6 +1,6 @@
 # Get Started with GX Cloud
 
-*This workshop content is current as of 18 December 2024.*
+*This workshop content is current as of 23 January 2025.*
 
 Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a sample Data Source, create Expectations, and run Validations.
 
