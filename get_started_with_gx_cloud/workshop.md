@@ -50,7 +50,9 @@ In GX Cloud, you create Expectations for the Data Asset.
 
 The `nyc_taxi_data` Data Asset table contains New York City (NYC) taxi data from January 2022. The [NYC Taxi data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) is a popular set of open source data that contains records of completed taxi cab trips in NYC, including information such as pick up and drop off times, the number of passengers, the fare collected, and so on.
 
-You'll create Expectations to validate the taxi data. New Expectations are selected from the Expectation picker. The picker can be filtered using the search box or the drop down.
+By default, GX Cloud creates an Expectation to detect schema changes. Notice that once you've clicked into the newly-created Data Asset, there is an Expectation already created in the Expectations list. Take a moment to see that this Expectation ensures that the table has a specific list of columns.
+
+You can also create additional Expectations to validate the taxi data. New Expectations can be created by clicking on the `+ New Expectation` button in the upper righthand corner of the screen. 
 
 <img src="img/expectation_picker.png" alt="Create a missingness Expectation" style="width:500px;"/><br>
 
