@@ -56,40 +56,38 @@ You can also create additional Expectations to validate the taxi data. New Expec
 
 <img src="img/expectation_picker.png" alt="Create a missingness Expectation" style="width:500px;"/><br>
 
-Your first Expectation will expect that there is an associated unique `id` for each taxi trip. You expect that you should not see any null `id` values.
+GX Cloud has suggested a few Expectations to create in the information box at the top of the modal. 
 
 > **Create your first Expectation**
-> 1. In the **Data Assets** list, click the `nyc_taxi_data` Data Asset.
-> 1. Click the **New Expectation** button.
->   1. Type `null` into the search box to filter Expectation names
-> 1. Click the **Expect column values to not be null** Expectation.
-> 1. Create an Expectation that verifies that there is a unique ID for each record:
+> 1. Type `minimum` into the search box to filter Expectation names.
+> 1. Click the **Column minimum to be between** option.
+> 1. Create an Expectation that verifies that the minimum range of the `fare_amount` column is between 0 and 250
 >
->    1. In the **Column** field, enter `id`.
+>    1. In the **Column** field, select `fare_amount`.
+>    1. Enter `0` and `250` into the two fields below `the fixed values`.
 >    1. Click **Save**.
 
-<img src="img/filter_null_expectation.png" alt="Use the search filter" style="width:500px;"/><br>
+<img src="img/filter_minimum_expectation.png" alt="Use the search filter" style="width:500px;"/><br>
 
 <img src="img/new_expectation.png" alt="Create a missingness Expectation" style="width:500px;"/><br>
 
-Once created, your first Expectation is displayed on the Data Asset Expectations page.
+Once created, the new Expectation will appear at the bottom of the Expectations list.
 
-Create a second Expectation that checks the passenger count values to determine if the maximum allowable capacity of four passengers is exceeded on any given trip. Typically, trips don't accommodate more than four passengers, since there are normally only four passenger seats in a taxi cab.
+Create a second Expectation that checks the accuracy of the `pickup_borough` column. 
 
 > **Create your second Expectation**
 >
 > Create an Expectation that asserts that there are no more than four passengers for any trip:
->   1. Click back on the **Overview** tab and click on **New Expectation**.
->   1. Click the **Expect column maximum to be between** Expectation.
->   1. In the **Column** field, enter `passenger_count`.
->   1. In the first fixed value field, enter `4`.
->   1. In the second fixed value field, enter `4`.
->   1. Leave the other fields blank.
+> 1. Click back on **+ New Expectation**.
+> 1. Type `distinct` into the search box to filter Expectation names.
+> 1. Click the **Column distinct values to equal set** option. 
+>   1. In the **Column** field, select `pickup_borough`.
+>   1. Under **Value Set**, enter separate entries for `Bronx`, `Brooklyn`, `Manhattan`, `Queens`, and `Staten Island`.
 >   1. Click **Save**.
 
-<img src="img/new_passenger_expectation.png" alt="Create a column max Expectation" style="width:500px;"/><br>
+<img src="img/add_uniqueness_expectation.png" alt="Create a column max Expectation" style="width:500px;"/><br>
 
-Your new `id` and `passenger_count` Expectations appear in the Expectation list.
+The second Expectation you created appears at the bottom of the Expectation list.
 
 ## Validate a Data Asset
 You have successfully created two Expectations. Now, make sure that they pass as expected when you validate your Data Asset.
