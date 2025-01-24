@@ -102,20 +102,22 @@ After you click **Validate**, GX Cloud runs queries based on the defined Expecta
 
 After validation is completed, a notification appears indicating that the Validation results are ready. To view the results click on the Data Asset **Validations** tab.
 
-You can see that the `passenger_count` Expectation has failed. Click on the red (!) icon in the "Batches and run history" list, and you'll see that GX Cloud has an observed value of 7, not 4. This is because some of the larger New York City taxis in NYC are SUVs or minivans that can carry up to seven passengers.
+You can see that while automatically-generated Expectation has passed, the two Expectation that you manually added have both failed. You can investigate why they've failed by clicking on the **Validations** tab and then clicking on the most recent validation run on the lefthand side.
 
 <img src="img/validation_result_1.png" alt="Validation results with passing and failing Expectations" style="width:700px;"/><br>
 
-## Update the failing Expectation and run the Validation again
-Now that you know the assumption about taxi passenger capacity was incorrect, you need to update the Expectation so the Validation of the `passenger_count` Expectation passes.
+## Update the failing Expectations and run the Validation again
+The `fare_amount` Expectation is failing because GX Cloud detected that there is at least one row that falls outside of our expected range. Specifically, one of the rows in our demo data contains a fare amount of `-480`. It may be that refunds for rides are entered in as negative numbers, or there may simply be an issue with the data itself. In a real world scenario, you will want to start an investigation and then decide next steps therafter.
+
+The `pickup_borough` Expectation is failing because there are some rows that have a value of `EWR` in this column. Since that is an acceptable value and we simply missed it when setting up the Expectation, it will need to be updated to include it.
 
 > **Update your Expectation**
 > 1. Click the **Expectations** tab.
-> 1. Click **Edit** (the pencil icon) for the `passenger_count` Expectation.
-> 1. In both fixed value fields, change `4` to `7`.
+> 1. Click **Edit** (the pencil icon) for the `pickup_borough` Expectation.
+> 1. Add an additional value for `EWR` in the **Value Set**.
 > 1. Click **Save**.
 
-After the Expectation is updated, click the **Validate** button again. When the notification indicating the Validation was successful appears, click the **Validations** tab. The `passenger_count` Expectation was successful and you will see the history of all runs by default.
+After the Expectation is updated, click the **Validate** button again. When the notification indicating the Validation was successful appears, click the **Validations** tab. The `pickup_borough` Expectation has now passed, while the `fare_amount` Expectation has failed, since we did not update it.
 
 <img src="img/validation_result_2.png" alt="Validation results with all passing Expectations" style="width:700px;"/><br>
 
