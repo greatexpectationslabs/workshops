@@ -127,7 +127,7 @@ You might wonder if there is an easier way to create your Expectations instead o
 When you profile a Data Asset, GX Cloud reads the Data Asset and returns a collection of descriptive metrics including column types, statistical summaries, and null percentages.
 
 > **Profile Data for a Data Asset**
-> 1. Click the Data Asset **Metrics** tab. The first time you visit this tab, it will fetch basic information about your Data Asset and display it in the **Data Asset Information** pane.
+> 1. Click the Data Asset **Metrics** tab. The first time you visit this tab, it will fetch basic information about your Data Asset and display it in the **Data Asset Information** pane, as well as fetch the schema and display it in the table. 
 > 1. Click the **Profile Data** button.
 
 <img src="img/demo_data_profile.png" alt="Profile data button for Demo Data Asset" style="width:700px;"/><br>
@@ -138,29 +138,30 @@ When the process completes, an updated view of your Data Asset appears. You can 
 
 Once you have profiled the data for a Data Asset, you can use the introspected results when creating new Expectations. Let's create a new Expectation for this Data Asset. Note the subtle, but key, changes on the Expectation creation page.
 
-* When selecting new Expectations types, the **Column** input provides a dropdown menu of existing Data Asset columns, rather than a freeform text field.
 * Depending on the Expectation type and column selected, default values are populated automatically.
 
 > **Examine creating a new Expectation using profiled data**
-> 1. Click **New Expectation**.
-> 1. Click the **Expect column maximum to be between** Expectation.
-> 1. In the **Column** menu, select `passenger_count`.
-> 1. The value `7` is automatically added to the fixed value fields.
+> 1. Type `minimum` into the search box to filter Expectation names.
+> 1. Click the **Column minimum to be between** option.
+> 1. In the **Column** menu, select `fare_amount`.
+> 1. The value `-480` is automatically added to the fixed value fields.
 > 1. Click the **X** at the top next to **New Expectation** or click **Back** to cancel.
 
-We've already created this expectation, so go ahead and cancel creating a new expectation.
+You've already created this expectation, so go ahead and cancel creating a new expectation.
 
 <img src="img/new_expectation_with_metrics.png" alt="Create a new Expectation using Data Asset Metrics" style="width:500px;"/><br>
 
 ## Custom SQL Expectations
-You can create custom SQL Expectations in GX Cloud. These will fail validation if the SQL query returns one or more rows. You can perform any query against the data that you wish.
+You can also create custom SQL Expectations in GX Cloud. These will fail validation if the SQL query returns one or more rows. You can perform any query against the data that you wish.
 
 Let's create a new expectation using the custom SQL Expectation form. We're going to modify the example query that is filled in by default. 
 
 > **Create Custom SQL Expectation**
-> 1. On the Expectations tab, click **New Expectation**
-> 1. Click **Create custom Expectation** at the bottom of the panel
-> 1. Enter the description, "**Queens to Newark Airport**"
+> 1. Click on the **Expectations** tab.
+> 1. Click **+ New Expectation**.
+> 1. Click the **SQL** at the bottom of the panel.
+> 1. Enter the description, "**Queens to Newark Airport**".
+> 1. Delete the comment in the first line.
 > 1. Modify the `WHERE` clause in the query to look like this:
 ```sql
 SELECT
@@ -170,39 +171,15 @@ FROM
 WHERE
   pickup_borough = 'Queens'
   AND dropoff_borough = 'EWR'
-  AND fare_amount < 100
+  AND fare_amount < 75
 ```
 > Click **Save**.
 
-In this query, we're selecting all rides from `Queens` to the Newark Airport (code `EWR`), where the fares are less than `100` ($100 US). We know that Queens to EWR is generally a long drive that takes awhile, so we expect it to be expensive.
+In this query, we're selecting all rides from `Queens` to the Newark Airport (code `EWR`), where the fares are less than `100` ($100 US). We know that Queens to EWR is generally a long drive, so we expect it to be expensive.
 
 <img src="img/new_sql_expectation.png" style="width:500px;"/><br>
 
-Now that the SQL Expectation is created click **Validate**. Go to the **Validations** tab, and see that the Expectation failed. Click on the latest run that failed, and note that the observed value returned 6 rows, indicating the failure. 
-
-<img src="img/failed_validation_sql.png" style="width:500px;"/><br>
-
-If we were to query the data directly, we will see our assumption about the expensive rides was a bit too high:
-
-```
-> SELECT fare_amount
-FROM nyc_taxi_data
-WHERE
-  pickup_borough = 'Queens'
-  AND dropoff_borough = 'EWR'
-  AND fare_amount < 100;
- fare_amount
--------------
-          78
-          76
-          81
-          83
-          98
-        92.5
-(6 rows)
-```
-
-Go back to the **Expectations** tab and edit the Expectation. In the SQL code box, change `fare_amount < 100` to `fare_amount < 76`. Rerun the Validation again and view the results.
+Now that the SQL Expectation is created click **Validate**. Go to the **Validations** tab, and see that the Custom Sql Expectation has passed.
 
 <img src="img/passed_validation_sql.png" style="width:500px;"/><br>
 
