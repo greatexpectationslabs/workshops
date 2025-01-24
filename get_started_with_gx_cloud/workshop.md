@@ -69,7 +69,7 @@ GX Cloud has suggested a few Expectations to create in the information box at th
 
 <img src="img/filter_minimum_expectation.png" alt="Use the search filter" style="width:500px;"/><br>
 
-<img src="img/new_expectation.png" alt="Create a missingness Expectation" style="width:500px;"/><br>
+<img src="img/new_expectation.png" alt="Create a numerical Expectation" style="width:500px;"/><br>
 
 Once created, the new Expectation will appear at the bottom of the Expectations list.
 
@@ -85,7 +85,7 @@ Create a second Expectation that checks the accuracy of the `pickup_borough` col
 >   1. Under **Value Set**, enter separate entries for `Bronx`, `Brooklyn`, `Manhattan`, `Queens`, and `Staten Island`.
 >   1. Click **Save**.
 
-<img src="img/add_uniqueness_expectation.png" alt="Create a column max Expectation" style="width:500px;"/><br>
+<img src="img/add_uniqueness_expectation.png" alt="Create a uniqueness Expectation" style="width:500px;"/><br>
 
 The second Expectation you created appears at the bottom of the Expectation list.
 
@@ -119,7 +119,7 @@ The `pickup_borough` Expectation is failing because there are some rows that hav
 
 After the Expectation is updated, click the **Validate** button again. When the notification indicating the Validation was successful appears, click the **Validations** tab. The `pickup_borough` Expectation has now passed, while the `fare_amount` Expectation has failed, since we did not update it.
 
-<img src="img/validation_result_2.png" alt="Validation results with all passing Expectations" style="width:700px;"/><br>
+<img src="img/validation_result_2.png" alt="Validation results with edited Expectations" style="width:700px;"/><br>
 
 ## Profile Data
 You might wonder if there is an easier way to create your Expectations instead of making assumptions or manually inspecting the data. Thankfully, GX Cloud lets you profile data assets directly, so you don't have to wonder!
@@ -177,11 +177,11 @@ WHERE
 
 In this query, we're selecting all rides from `Queens` to the Newark Airport (code `EWR`), where the fares are less than `100` ($100 US). We know that Queens to EWR is generally a long drive, so we expect it to be expensive.
 
-<img src="img/new_sql_expectation.png" style="width:500px;"/><br>
+<img src="img/new_sql_expectation.png" alt="Create a custom sql expectation" style="width:500px;"/><br>
 
 Now that the SQL Expectation is created click **Validate**. Go to the **Validations** tab, and see that the Custom Sql Expectation has passed.
 
-<img src="img/passed_validation_sql.png" style="width:500px;"/><br>
+<img src="img/passed_validation_sql.png" alt="Validation result including custom sql expectation" style="width:500px;"/><br>
 
 Congratulations! You've created a custom SQL Expectation.
 
