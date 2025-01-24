@@ -80,7 +80,7 @@ Create a second Expectation that checks the accuracy of the `pickup_borough` col
 > Create an Expectation that asserts that there are no more than four passengers for any trip:
 > 1. Click back on **+ New Expectation**.
 > 1. Type `distinct` into the search box to filter Expectation names.
-> 1. Click the **Column distinct values to equal set** option. 
+> 1. Click the **Column distinct values to be in set** option. 
 >   1. In the **Column** field, select `pickup_borough`.
 >   1. Under **Value Set**, enter separate entries for `Bronx`, `Brooklyn`, `Manhattan`, `Queens`, and `Staten Island`.
 >   1. Click **Save**.
@@ -210,6 +210,23 @@ GX Cloud will automatically send alerts to users' email address. To disable or r
 <img src="img/alerts_button.png" alt="Alerts Button on Expectation Suite" style="width:500px;"/><br>
 
 <img src="img/alerts_enabled.png" alt="Alerts Panel to Enable/Disable Email alerts" style="width:500px;"/><br>
+
+## Using Batches of Data
+By default, GX Cloud validates the entire set of data in your Data Asset. However, users will often want to run validations regularly as data is ingested. GX Cloud allows you to validate a subset of the data, using a date column within your data set, and then choosing whether to divide the data on day, month of year.
+
+> **Edit the batch of data**
+> 1. Click on the **Expectations** tab.
+> 1. Click on **Edit batch**, which can be found beside the **Validate** button.
+> 1. Click on **Day**.
+> 1. In the **Validate by** dropdown, select `pickup_time`.
+
+<img src="img/edit_batch.png" alt="Edit batch" style="width:500px;"/><br>
+
+Clicking on the **Validate** button now gives you a new window where you can select the specific batch of data you would like to validate. You can either select the **Latest Batch**, which will choose the latest batch currently available in the data set, or choose a specific day by selecting **Custom Batch**. For now, leave **Latest Batch** selected and click on the **Run** button.
+
+When the Validation is complete, you will see that the results of the latest run are slightly different. The `fare_amount` Expectation is now passing, since the lowest fare collected 
+
+<img src="img/run_batch.png" alt="Validate batch" style="width:500px;"/><br>
 
 ## Conclusion
 Congratulations! You've successfully completed th Get Started with GX Cloud Workshop. You have connected the demo Data Source and Data Asset, created Expectations, run some Validations, and fetched Metrics for the data. We hope you have a better understanding of how GX Cloud works and how it can work within your data pipeline.
