@@ -1,6 +1,6 @@
 # Get Started with GX Cloud
 
-*This workshop content is current as of 18 December 2024.*
+*This workshop content is current as of 23 January 2025.*
 
 Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a sample Data Source, create Expectations, and run Validations.
 
@@ -50,44 +50,44 @@ In GX Cloud, you create Expectations for the Data Asset.
 
 The `nyc_taxi_data` Data Asset table contains New York City (NYC) taxi data from January 2022. The [NYC Taxi data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) is a popular set of open source data that contains records of completed taxi cab trips in NYC, including information such as pick up and drop off times, the number of passengers, the fare collected, and so on.
 
-You'll create Expectations to validate the taxi data. New Expectations are selected from the Expectation picker. The picker can be filtered using the search box or the drop down.
+By default, GX Cloud creates an Expectation to detect schema changes. Notice that once you've clicked into the newly-created Data Asset, there is an Expectation already created in the Expectations list. Take a moment to see that this Expectation ensures that the table has a specific list of columns.
+
+You can also create additional Expectations to validate the taxi data. New Expectations can be created by clicking on the `+ New Expectation` button in the upper righthand corner of the screen. 
 
 <img src="img/expectation_picker.png" alt="Create a missingness Expectation" style="width:500px;"/><br>
 
-Your first Expectation will expect that there is an associated unique `id` for each taxi trip. You expect that you should not see any null `id` values.
+GX Cloud has suggested a few Expectations to create in the information box at the top of the modal. 
 
 > **Create your first Expectation**
-> 1. In the **Data Assets** list, click the `nyc_taxi_data` Data Asset.
-> 1. Click the **New Expectation** button.
->   1. Type `null` into the search box to filter Expectation names
-> 1. Click the **Expect column values to not be null** Expectation.
-> 1. Create an Expectation that verifies that there is a unique ID for each record:
+> 1. Type `minimum` into the search box to filter Expectation names.
+> 1. Click the **Column minimum to be between** option.
+> 1. Create an Expectation that verifies that the minimum range of the `fare_amount` column is between 0 and 250
 >
->    1. In the **Column** field, enter `id`.
+>    1. In the **Column** field, select `fare_amount`.
+>    1. Enter `0` and `250` into the two fields below `the fixed values`.
 >    1. Click **Save**.
 
-<img src="img/filter_null_expectation.png" alt="Use the search filter" style="width:500px;"/><br>
+<img src="img/filter_minimum_expectation.png" alt="Use the search filter" style="width:500px;"/><br>
 
-<img src="img/new_expectation.png" alt="Create a missingness Expectation" style="width:500px;"/><br>
+<img src="img/new_expectation.png" alt="Create a numerical Expectation" style="width:500px;"/><br>
 
-Once created, your first Expectation is displayed on the Data Asset Expectations page.
+Once created, the new Expectation will appear at the bottom of the Expectations list.
 
-Create a second Expectation that checks the passenger count values to determine if the maximum allowable capacity of four passengers is exceeded on any given trip. Typically, trips don't accommodate more than four passengers, since there are normally only four passenger seats in a taxi cab.
+Create a second Expectation that checks the accuracy of the `pickup_borough` column. 
 
 > **Create your second Expectation**
 >
 > Create an Expectation that asserts that there are no more than four passengers for any trip:
->   1. Click back on the **Overview** tab and click on **New Expectation**.
->   1. Click the **Expect column maximum to be between** Expectation.
->   1. In the **Column** field, enter `passenger_count`.
->   1. In the first fixed value field, enter `4`.
->   1. In the second fixed value field, enter `4`.
->   1. Leave the other fields blank.
+> 1. Click back on **+ New Expectation**.
+> 1. Type `distinct` into the search box to filter Expectation names.
+> 1. Click the **Column distinct values to be in set** option. 
+>   1. In the **Column** field, select `pickup_borough`.
+>   1. Under **Value Set**, enter separate entries for `Bronx`, `Brooklyn`, `Manhattan`, `Queens`, and `Staten Island`.
 >   1. Click **Save**.
 
-<img src="img/new_passenger_expectation.png" alt="Create a column max Expectation" style="width:500px;"/><br>
+<img src="img/add_uniqueness_expectation.png" alt="Create a uniqueness Expectation" style="width:500px;"/><br>
 
-Your new `id` and `passenger_count` Expectations appear in the Expectation list.
+The second Expectation you created appears at the bottom of the Expectation list.
 
 ## Validate a Data Asset
 You have successfully created two Expectations. Now, make sure that they pass as expected when you validate your Data Asset.
@@ -102,22 +102,24 @@ After you click **Validate**, GX Cloud runs queries based on the defined Expecta
 
 After validation is completed, a notification appears indicating that the Validation results are ready. To view the results click on the Data Asset **Validations** tab.
 
-You can see that the `passenger_count` Expectation has failed. Click on the red (!) icon in the "Batches and run history" list, and you'll see that GX Cloud has an observed value of 7, not 4. This is because some of the larger New York City taxis in NYC are SUVs or minivans that can carry up to seven passengers.
+You can see that while automatically-generated Expectation has passed, the two Expectation that you manually added have both failed. You can investigate why they've failed by clicking on the **Validations** tab and then clicking on the most recent validation run on the lefthand side.
 
 <img src="img/validation_result_1.png" alt="Validation results with passing and failing Expectations" style="width:700px;"/><br>
 
-## Update the failing Expectation and run the Validation again
-Now that you know the assumption about taxi passenger capacity was incorrect, you need to update the Expectation so the Validation of the `passenger_count` Expectation passes.
+## Update the failing Expectations and run the Validation again
+The `fare_amount` Expectation is failing because GX Cloud detected that there is at least one row that falls outside of our expected range. Specifically, one of the rows in our demo data contains a fare amount of `-480`. It may be that refunds for rides are entered in as negative numbers, or there may simply be an issue with the data itself. In a real world scenario, you will want to start an investigation and then decide next steps therafter.
+
+The `pickup_borough` Expectation is failing because there are some rows that have a value of `EWR` in this column. Since that is an acceptable value and we simply missed it when setting up the Expectation, it will need to be updated to include it.
 
 > **Update your Expectation**
 > 1. Click the **Expectations** tab.
-> 1. Click **Edit** (the pencil icon) for the `passenger_count` Expectation.
-> 1. In both fixed value fields, change `4` to `7`.
+> 1. Click **Edit** (the pencil icon) for the `pickup_borough` Expectation.
+> 1. Add an additional value for `EWR` in the **Value Set**.
 > 1. Click **Save**.
 
-After the Expectation is updated, click the **Validate** button again. When the notification indicating the Validation was successful appears, click the **Validations** tab. The `passenger_count` Expectation was successful and you will see the history of all runs by default.
+After the Expectation is updated, click the **Validate** button again. When the notification indicating the Validation was successful appears, click the **Validations** tab. The `pickup_borough` Expectation has now passed, while the `fare_amount` Expectation has failed, since we did not update it.
 
-<img src="img/validation_result_2.png" alt="Validation results with all passing Expectations" style="width:700px;"/><br>
+<img src="img/validation_result_2.png" alt="Validation results with edited Expectations" style="width:700px;"/><br>
 
 ## Profile Data
 You might wonder if there is an easier way to create your Expectations instead of making assumptions or manually inspecting the data. Thankfully, GX Cloud lets you profile data assets directly, so you don't have to wonder!
@@ -125,7 +127,7 @@ You might wonder if there is an easier way to create your Expectations instead o
 When you profile a Data Asset, GX Cloud reads the Data Asset and returns a collection of descriptive metrics including column types, statistical summaries, and null percentages.
 
 > **Profile Data for a Data Asset**
-> 1. Click the Data Asset **Metrics** tab. The first time you visit this tab, it will fetch basic information about your Data Asset and display it in the **Data Asset Information** pane.
+> 1. Click the Data Asset **Metrics** tab. The first time you visit this tab, it will fetch basic information about your Data Asset and display it in the **Data Asset Information** pane, as well as fetch the schema and display it in the table. 
 > 1. Click the **Profile Data** button.
 
 <img src="img/demo_data_profile.png" alt="Profile data button for Demo Data Asset" style="width:700px;"/><br>
@@ -136,29 +138,30 @@ When the process completes, an updated view of your Data Asset appears. You can 
 
 Once you have profiled the data for a Data Asset, you can use the introspected results when creating new Expectations. Let's create a new Expectation for this Data Asset. Note the subtle, but key, changes on the Expectation creation page.
 
-* When selecting new Expectations types, the **Column** input provides a dropdown menu of existing Data Asset columns, rather than a freeform text field.
 * Depending on the Expectation type and column selected, default values are populated automatically.
 
 > **Examine creating a new Expectation using profiled data**
-> 1. Click **New Expectation**.
-> 1. Click the **Expect column maximum to be between** Expectation.
-> 1. In the **Column** menu, select `passenger_count`.
-> 1. The value `7` is automatically added to the fixed value fields.
+> 1. Type `minimum` into the search box to filter Expectation names.
+> 1. Click the **Column minimum to be between** option.
+> 1. In the **Column** menu, select `fare_amount`.
+> 1. The value `-480` is automatically added to the fixed value fields.
 > 1. Click the **X** at the top next to **New Expectation** or click **Back** to cancel.
 
-We've already created this expectation, so go ahead and cancel creating a new expectation.
+You've already created this expectation, so go ahead and cancel creating a new expectation.
 
 <img src="img/new_expectation_with_metrics.png" alt="Create a new Expectation using Data Asset Metrics" style="width:500px;"/><br>
 
 ## Custom SQL Expectations
-You can create custom SQL Expectations in GX Cloud. These will fail validation if the SQL query returns one or more rows. You can perform any query against the data that you wish.
+You can also create custom SQL Expectations in GX Cloud. These will fail validation if the SQL query returns one or more rows. You can perform any query against the data that you wish.
 
 Let's create a new expectation using the custom SQL Expectation form. We're going to modify the example query that is filled in by default. 
 
 > **Create Custom SQL Expectation**
-> 1. On the Expectations tab, click **New Expectation**
-> 1. Click **Create custom Expectation** at the bottom of the panel
-> 1. Enter the description, "**Queens to Newark Airport**"
+> 1. Click on the **Expectations** tab.
+> 1. Click **+ New Expectation**.
+> 1. Click the **SQL** at the bottom of the panel.
+> 1. Enter the description, "**Queens to Newark Airport**".
+> 1. Delete the comment in the first line.
 > 1. Modify the `WHERE` clause in the query to look like this:
 ```sql
 SELECT
@@ -168,41 +171,17 @@ FROM
 WHERE
   pickup_borough = 'Queens'
   AND dropoff_borough = 'EWR'
-  AND fare_amount < 100
+  AND fare_amount < 75
 ```
 > Click **Save**.
 
-In this query, we're selecting all rides from `Queens` to the Newark Airport (code `EWR`), where the fares are less than `100` ($100 US). We know that Queens to EWR is generally a long drive that takes awhile, so we expect it to be expensive.
+In this query, we're selecting all rides from `Queens` to the Newark Airport (code `EWR`), where the fares are less than `100` ($100 US). We know that Queens to EWR is generally a long drive, so we expect it to be expensive.
 
-<img src="img/new_sql_expectation.png" style="width:500px;"/><br>
+<img src="img/new_sql_expectation.png" alt="Create a custom sql expectation" style="width:500px;"/><br>
 
-Now that the SQL Expectation is created click **Validate**. Go to the **Validations** tab, and see that the Expectation failed. Click on the latest run that failed, and note that the observed value returned 6 rows, indicating the failure. 
+Now that the SQL Expectation is created click **Validate**. Go to the **Validations** tab, and see that the Custom Sql Expectation has passed.
 
-<img src="img/failed_validation_sql.png" style="width:500px;"/><br>
-
-If we were to query the data directly, we will see our assumption about the expensive rides was a bit too high:
-
-```
-> SELECT fare_amount
-FROM nyc_taxi_data
-WHERE
-  pickup_borough = 'Queens'
-  AND dropoff_borough = 'EWR'
-  AND fare_amount < 100;
- fare_amount
--------------
-          78
-          76
-          81
-          83
-          98
-        92.5
-(6 rows)
-```
-
-Go back to the **Expectations** tab and edit the Expectation. In the SQL code box, change `fare_amount < 100` to `fare_amount < 76`. Rerun the Validation again and view the results.
-
-<img src="img/passed_validation_sql.png" style="width:500px;"/><br>
+<img src="img/passed_validation_sql.png" alt="Validation result including custom sql expectation" style="width:500px;"/><br>
 
 Congratulations! You've created a custom SQL Expectation.
 
@@ -231,6 +210,23 @@ GX Cloud will automatically send alerts to users' email address. To disable or r
 <img src="img/alerts_button.png" alt="Alerts Button on Expectation Suite" style="width:500px;"/><br>
 
 <img src="img/alerts_enabled.png" alt="Alerts Panel to Enable/Disable Email alerts" style="width:500px;"/><br>
+
+## Using Batches of Data
+By default, GX Cloud validates the entire set of data in your Data Asset. However, users will often want to run validations regularly as data is ingested. GX Cloud allows you to validate a subset of the data, using a date column within your data set, and then choosing whether to divide the data on day, month of year.
+
+> **Edit the batch of data**
+> 1. Click on the **Expectations** tab.
+> 1. Click on **Edit batch**, which can be found beside the **Validate** button.
+> 1. Click on **Day**.
+> 1. In the **Validate by** dropdown, select `pickup_time`.
+
+<img src="img/edit_batch.png" alt="Edit batch" style="width:500px;"/><br>
+
+Clicking on the **Validate** button now gives you a new window where you can select the specific batch of data you would like to validate. You can either select the **Latest Batch**, which will choose the latest batch currently available in the data set, or choose a specific day by selecting **Custom Batch**. For now, leave **Latest Batch** selected and click on the **Run** button.
+
+When the Validation is complete, you will see that the results of the latest run are slightly different. The `fare_amount` Expectation is now passing, since the lowest fare collected 
+
+<img src="img/run_batch.png" alt="Validate batch" style="width:500px;"/><br>
 
 ## Conclusion
 Congratulations! You've successfully completed th Get Started with GX Cloud Workshop. You have connected the demo Data Source and Data Asset, created Expectations, run some Validations, and fetched Metrics for the data. We hope you have a better understanding of how GX Cloud works and how it can work within your data pipeline.
