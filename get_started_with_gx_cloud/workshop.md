@@ -1,6 +1,6 @@
 # Get Started with GX Cloud
 
-*This workshop content is current as of 23 January 2025.*
+*This workshop content is current as of 10 February 2025.*
 
 Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a sample Data Source, create Expectations, and run Validations.
 
@@ -117,7 +117,7 @@ The `pickup_borough` Expectation is failing because there are some rows that hav
 > 1. Add an additional value for `EWR` in the **Value Set**.
 > 1. Click **Save**.
 
-After the Expectation is updated, click the **Validate** button again. When the notification indicating the Validation was successful appears, click the **Validations** tab. The `pickup_borough` Expectation has now passed, while the `fare_amount` Expectation has failed, since we did not update it.
+After the Expectation is updated, click the **Validate** button again. When the notification indicating the Validation was successful appears, click the **Validations** tab. The `pickup_borough` Expectation has now passed, while the `fare_amount` Expectation has failed, since we did not update it. You will also see that the volume Expectation that was automatically generated has failed as well. That is because the number of rows of data has not increased.
 
 <img src="img/validation_result_2.png" alt="Validation results with edited Expectations" style="width:700px;"/><br>
 
