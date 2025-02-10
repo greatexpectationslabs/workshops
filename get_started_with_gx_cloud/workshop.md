@@ -1,6 +1,6 @@
 # Get Started with GX Cloud
 
-*This workshop content is current as of 23 January 2025.*
+*This workshop content is current as of 10 February 2025.*
 
 Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a sample Data Source, create Expectations, and run Validations.
 
@@ -50,7 +50,7 @@ In GX Cloud, you create Expectations for the Data Asset.
 
 The `nyc_taxi_data` Data Asset table contains New York City (NYC) taxi data from January 2022. The [NYC Taxi data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) is a popular set of open source data that contains records of completed taxi cab trips in NYC, including information such as pick up and drop off times, the number of passengers, the fare collected, and so on.
 
-By default, GX Cloud creates an Expectation to detect schema changes. Notice that once you've clicked into the newly-created Data Asset, there is an Expectation already created in the Expectations list. Take a moment to see that this Expectation ensures that the table has a specific list of columns.
+By default, GX Cloud creates an Expectation to detect schema changes and an Expectation to ensure volume changes. Notice that once you've clicked into the newly-created Data Asset, there are Expectations already created in the Expectations list. Take a moment to review these Expectations.
 
 You can also create additional Expectations to validate the taxi data. New Expectations can be created by clicking on the `+ New Expectation` button in the upper righthand corner of the screen. 
 
@@ -102,7 +102,7 @@ After you click **Validate**, GX Cloud runs queries based on the defined Expecta
 
 After validation is completed, a notification appears indicating that the Validation results are ready. To view the results click on the Data Asset **Validations** tab.
 
-You can see that while automatically-generated Expectation has passed, the two Expectation that you manually added have both failed. You can investigate why they've failed by clicking on the **Validations** tab and then clicking on the most recent validation run on the lefthand side.
+You can see that while automatically-generated Expectations have passed, the two Expectations that you manually added have both failed. You can investigate why they've failed by clicking on the **Validations** tab and then clicking on the most recent validation run on the lefthand side.
 
 <img src="img/validation_result_1.png" alt="Validation results with passing and failing Expectations" style="width:700px;"/><br>
 
@@ -117,7 +117,7 @@ The `pickup_borough` Expectation is failing because there are some rows that hav
 > 1. Add an additional value for `EWR` in the **Value Set**.
 > 1. Click **Save**.
 
-After the Expectation is updated, click the **Validate** button again. When the notification indicating the Validation was successful appears, click the **Validations** tab. The `pickup_borough` Expectation has now passed, while the `fare_amount` Expectation has failed, since we did not update it.
+After the Expectation is updated, click the **Validate** button again. When the notification indicating the Validation was successful appears, click the **Validations** tab. The `pickup_borough` Expectation has now passed, while the `fare_amount` Expectation has failed, since we did not update it. You will also see that the volume Expectation that was automatically generated has failed as well. That is because the number of rows of data has not increased.
 
 <img src="img/validation_result_2.png" alt="Validation results with edited Expectations" style="width:700px;"/><br>
 
