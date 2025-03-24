@@ -38,12 +38,28 @@ You'll need to setup a data source from GX Cloud. We provide demo data in a Post
 > **Select the `nyc_taxi_data` Data Asset**
 > 1. On the **Select tables to import** page, check the box next to `nyc_taxi_data`.
 > 1. Click **Add 1 Asset**.
+> 1. Click **Start monitoring**.
 
 <img src="img/add_demo_data_asset.png" alt="Add a Demo Data Asset" style="width:600px;"/><br>
+<img src="img/add_demo_data_monitoring.png" alt="Start Monitoring" style="width:600px;"/><br>
 
-Congratulations! You have successfully added the `nyc_taxi_data` demo Data Asset to your GX Cloud organization.
+Congratulations! You have successfully added the `nyc_taxi_data` demo Data Asset to your GX Cloud organization. Click onto the newly-created Data Asset to view it.
 
-## Create Expectations
+<img src="img/view_demo_asset.png" alt="View Demo Data Asset" style="width:600px;"/><br>
+
+## Generate Expectations
+GX Cloud helps you get started on your data quality journey by leveraging AI to analyze your data and generate Expectations for you. This is especially helpful if you're just getting started and are unsure of where to start with your data quality checks. 
+
+> 1. Click on the **Generate Expecations** button.
+
+<img src="img/generate_expectations.png" alt="Generate Expectations" style="width:600px;"/><br>
+
+GX Cloud will work in the background to generate Expectations, leveraging the power of AI. The generated Expectations may be different each time you use the tool. To see other iterations, simply delete the Expectations that were created and click on the **Generate Expectations** button to try again.
+
+<img src="img/delete_generated_expectations.png" alt="Delete Generated Expectations" style="width:600px;"/><br>
+
+
+## Manually Create Expectations
 Expectations are a unique GX construct that enable you to make simple, declarative assertions about your data. You can think of Expectations as unit tests for your data. They make implicit assumptions about your data explicit, and they use self-explanatory language for describing data. Expectations can help you better understand your data and help you improve data quality.
 
 In GX Cloud, you create Expectations for the Data Asset.
