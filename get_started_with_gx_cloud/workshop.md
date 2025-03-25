@@ -1,6 +1,6 @@
 # Get Started with GX Cloud
 
-*This workshop content is current as of 10 February 2025.*
+*This workshop content is current as of 24 March 2025.*
 
 Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a sample Data Source, create Expectations, and run Validations.
 
@@ -12,7 +12,8 @@ You'll complete the following tasks in this workshop:
 
 1. [Sign in to GX Cloud](#sign-in-to-gx-cloud)
 1. [Use demo data as a Data Source and Data Asset](#use-demo-data)
-1. [Create Expectations](#create-expectations)
+1. [Generate Expectations](#generate-expectations)
+1. [Manually Create Expectations](#manually-create-expectations)
 1. [Validate Expectations](#validate-a-data-asset)
 1. [Update the failing Expectation and run the Validation again](#update-the-failing-expectation-and-run-the-validation-again)
 1. [Profile Data](#profile-data)
@@ -29,7 +30,7 @@ If you're new to GX, an understanding of the following [GX terminology](https://
 Sign in to [GX Cloud](https://hubl.li/Q02ng2Jx0).
 
 ## Use Demo Data
-You'll need to setup a data source from GX Cloud. We provide demo data in a PostgreSQL database for this workshop.
+You'll need to setup a data source from GX Cloud. We provide demo data in a Snowflake database for this workshop.
 
 > 1. In GX Cloud under, "Not ready to connect to your data?", click **Use demo data**.
 
@@ -38,27 +39,39 @@ You'll need to setup a data source from GX Cloud. We provide demo data in a Post
 > **Select the `nyc_taxi_data` Data Asset**
 > 1. On the **Select tables to import** page, check the box next to `nyc_taxi_data`.
 > 1. Click **Add 1 Asset**.
+> 1. Click **Start monitoring**.
 
 <img src="img/add_demo_data_asset.png" alt="Add a Demo Data Asset" style="width:600px;"/><br>
+<img src="img/add_demo_data_monitoring.png" alt="By default, GX Cloud automatically generates Expectations to detect schema and volume issues. You can de-select recommendations you’d like to opt out of." style="width:600px;"/><br>
 
-Congratulations! You have successfully added the `nyc_taxi_data` demo Data Asset to your GX Cloud organization.
+Congratulations! You have successfully added the `nyc_taxi_data` demo Data Asset to your GX Cloud organization. Click on the newly-created Data Asset to view it.
 
-## Create Expectations
+<img src="img/view_demo_asset.png" alt="The asset has default coverage for schema and volume. There are calls to action to validate the Data Asset and add completeness coverage." style="width:600px;"/><br>
+
+## Generate Expectations
 Expectations are a unique GX construct that enable you to make simple, declarative assertions about your data. You can think of Expectations as unit tests for your data. They make implicit assumptions about your data explicit, and they use self-explanatory language for describing data. Expectations can help you better understand your data and help you improve data quality.
-
-In GX Cloud, you create Expectations for the Data Asset.
 
 The `nyc_taxi_data` Data Asset table contains New York City (NYC) taxi data from January 2022. The [NYC Taxi data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) is a popular set of open source data that contains records of completed taxi cab trips in NYC, including information such as pick up and drop off times, the number of passengers, the fare collected, and so on.
 
-By default, GX Cloud creates an Expectation to detect schema changes and an Expectation to ensure volume changes. Notice that once you've clicked into the newly-created Data Asset, there are Expectations already created in the Expectations list. Take a moment to review these Expectations.
+GX Cloud can help you get started on your data quality journey by leveraging AI to analyze your data and generate Expectations for you. This is especially helpful if you want to get started quickly.
 
+> 1. Click on the **Generate Expectations** button.
+
+<img src="img/generate_expectations.png" alt="The button for this Beta feature is between the buttons for Alerts and New Expectation." style="width:600px;"/><br>
+
+GX Cloud will work in the background to generate Expectations, leveraging the power of AI. The generated Expectations may be different each time you use the tool. To see other iterations, delete the Expectations that were created and click on the **Generate Expectations** button to try again.
+
+<img src="img/delete_generated_expectations.png" alt="Delete Expectations one-by-one. Each Expectation has a Delete Expectation button." style="width:600px;"/><br>
+
+
+## Manually Create Expectations
 You can also create additional Expectations to validate the taxi data. New Expectations can be created by clicking on the `+ New Expectation` button in the upper righthand corner of the screen. 
 
 <img src="img/expectation_picker.png" alt="Create a missingness Expectation" style="width:500px;"/><br>
 
 GX Cloud has suggested a few Expectations to create in the information box at the top of the modal. 
 
-> **Create your first Expectation**
+> **Create your first Expectation**y default, GX Cloud automatically generates Expectations to detect schema and volume issues. You can de-select recommendations you’d like to opt out of.
 > 1. Type `minimum` into the search box to filter Expectation names.
 > 1. Click the **Column minimum to be between** option.
 > 1. Create an Expectation that verifies that the minimum range of the `fare_amount` column is between 0 and 250
@@ -77,7 +90,7 @@ Create a second Expectation that checks the accuracy of the `pickup_borough` col
 
 > **Create your second Expectation**
 >
-> Create an Expectation that asserts that there are no more than four passengers for any trip:
+> Create an Expectation that confirms the acceptable list of `pickup_borough` values:
 > 1. Click back on **+ New Expectation**.
 > 1. Type `distinct` into the search box to filter Expectation names.
 > 1. Click the **Column distinct values to be in set** option. 
@@ -98,11 +111,11 @@ You have successfully created two Expectations. Now, make sure that they pass as
 
 <img src="img/validate_1.png" alt="Validate a Data Asset" style="width:800px;"/><br>
 
-After you click **Validate**, GX Cloud runs queries based on the defined Expectations against the data in Postgres. GX Cloud uses the query results to determine if the data fails or meets your Expectations, and reports the results back to the UI.
+After you click **Validate**, GX Cloud runs queries based on the defined Expectations against the data in Snowflake. GX Cloud uses the query results to determine if the data fails or meets your Expectations, and reports the results back to the UI.
 
 After validation is completed, a notification appears indicating that the Validation results are ready. To view the results click on the Data Asset **Validations** tab.
 
-You can see that while automatically-generated Expectations have passed, the two Expectations that you manually added have both failed. You can investigate why they've failed by clicking on the **Validations** tab and then clicking on the most recent validation run on the lefthand side.
+You can see that while the automatically-generated volume and schema change Expectations have passed, the two Expectations that you manually added have both failed. You can investigate why they've failed by clicking on the **Validations** tab and then clicking on the most recent validation run on the lefthand side.
 
 <img src="img/validation_result_1.png" alt="Validation results with passing and failing Expectations" style="width:700px;"/><br>
 
@@ -224,12 +237,12 @@ By default, GX Cloud validates the entire set of data in your Data Asset. Howeve
 
 Clicking on the **Validate** button now gives you a new window where you can select the specific batch of data you would like to validate. You can either select the **Latest Batch**, which will choose the latest batch currently available in the data set, or choose a specific day by selecting **Custom Batch**. For now, leave **Latest Batch** selected and click on the **Run** button.
 
-When the Validation is complete, you will see that the results of the latest run are slightly different. The `fare_amount` Expectation is now passing, since the lowest fare collected 
+When the Validation is complete, you will see that the results of the latest run are slightly different. The `fare_amount` Expectation is now passing, since the lowest fare collected falls within the expected range.
 
 <img src="img/run_batch.png" alt="Validate batch" style="width:500px;"/><br>
 
 ## Conclusion
-Congratulations! You've successfully completed th Get Started with GX Cloud Workshop. You have connected the demo Data Source and Data Asset, created Expectations, run some Validations, and fetched Metrics for the data. We hope you have a better understanding of how GX Cloud works and how it can work within your data pipeline.
+Congratulations! You've successfully completed th Get Started with GX Cloud Workshop. You have connected the demo Data Source and Data Asset, created Expectations three different ways (auto-generated standard, AI-generated personalized, and manually-created), run some Validations, and fetched Metrics for the data. We hope you have a better understanding of how GX Cloud works and how it can work within your data pipeline.
 
 ## What's next?
 * [Connect to your own Data Source](https://docs.greatexpectations.io/docs/cloud/connect/connect_lp)
