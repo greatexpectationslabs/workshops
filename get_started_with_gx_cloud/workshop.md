@@ -42,11 +42,11 @@ You'll need to setup a data source from GX Cloud. We provide demo data in a Snow
 > 1. Click **Start monitoring**.
 
 <img src="img/add_demo_data_asset.png" alt="Add a Demo Data Asset" style="width:600px;"/><br>
-<img src="img/add_demo_data_monitoring.png" alt="By default, GX Cloud automatically generates Expectations to detect schema and volume issues. You can de-select recommendations you’d like to opt out of." style="width:600px;"/><br>
+<img src="img/add_demo_data_monitoring.png" alt="By default, GX Cloud automatically generates Expectations to detect schema, volume, and completeness issues. You can de-select recommendations you’d like to opt out of." style="width:600px;"/><br>
 
 Congratulations! You have successfully added the `nyc_taxi_data` demo Data Asset to your GX Cloud organization. Click on the newly-created Data Asset to view it.
 
-<img src="img/view_demo_asset.png" alt="The asset has default coverage for schema and volume. There are calls to action to validate the Data Asset and add completeness coverage." style="width:600px;"/><br>
+<img src="img/view_demo_asset.png" alt="The asset has default coverage for schema, volume, and completeness. There are calls to action to validate the Data Asset and add completeness coverage." style="width:600px;"/><br>
 
 ## Generate Expectations
 Expectations are a unique GX construct that enable you to make simple, declarative assertions about your data. You can think of Expectations as unit tests for your data. They make implicit assumptions about your data explicit, and they use self-explanatory language for describing data. Expectations can help you better understand your data and help you improve data quality.
