@@ -1,6 +1,6 @@
 # Get Started with GX Cloud
 
-*This workshop content is current as of 24 March 2025.*
+*This workshop content is current as of 12 May 2025.*
 
 Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a sample Data Source, create Expectations, and run Validations.
 
@@ -59,9 +59,11 @@ GX Cloud can help you get started on your data quality journey by leveraging AI 
 
 <img src="img/generate_expectations.png" alt="The button for this Beta feature is between the buttons for Alerts and New Expectation." style="width:600px;"/><br>
 
-GX Cloud will work in the background to generate Expectations, leveraging the power of AI. The generated Expectations may be different each time you use the tool. To see other iterations, delete the Expectations that were created and click on the **Generate Expectations** button to try again.
+GX Cloud will work in the background to generate Expectations, leveraging the power of AI. The generated Expectations may be different each time you use the tool. 
 
-<img src="img/delete_generated_expectations.png" alt="Delete Expectations one-by-one. Each Expectation has a Delete Expectation button." style="width:600px;"/><br>
+When the Expectations have been generated, you will have the opportunity to review them. Take the time now to see what the tool has created and either approve or reject the Expectations. To see other iterations, reject all of the Expectations that were created and click on the **Generate Expectations** button to try again.
+
+<img src="img/review_generated_expectations.png" alt="Review the Expectations and either approve or reject them." style="width:600px;"/><br>
 
 
 ## Manually Create Expectations
@@ -71,7 +73,7 @@ You can also create additional Expectations to validate the taxi data. New Expec
 
 GX Cloud has suggested a few Expectations to create in the information box at the top of the modal. 
 
-> **Create your first Expectation**y default, GX Cloud automatically generates Expectations to detect schema and volume issues. You can de-select recommendations you’d like to opt out of.
+> **Create your first Expectation**By default, GX Cloud automatically generates Expectations to detect schema and volume issues. You can de-select recommendations you’d like to opt out of.
 > 1. Type `minimum` into the search box to filter Expectation names.
 > 1. Click the **Column minimum to be between** option.
 > 1. Create an Expectation that verifies that the minimum range of the `fare_amount` column is between 0 and 250
