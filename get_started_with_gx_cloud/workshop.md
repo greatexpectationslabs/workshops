@@ -1,6 +1,6 @@
 # Get Started with GX Cloud
 
-*This workshop content is current as of 12 May 2025.*
+*This workshop content is current as of 21 July 2025.*
 
 Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a sample Data Source, create Expectations, and run Validations.
 
@@ -183,7 +183,7 @@ GX Cloud provides a tool to generate SQL based on a prompt. The prompt accepts p
 
 In this example, we're selecting all rides from `Queens` to the Newark Airport (code `EWR`), where the fares are less than `75` ($75 US). We know that Queens to EWR is generally a long drive, so we expect it to be expensive.
 
-<img src="img/new_sql_expectation.png" alt="Create a custom sql expectation" style="width:500px;"/><br>
+<img src="img/new_sql_expectation.png" alt="Save the generated sql expectation" style="width:500px;"/><br>
 
 Now that the SQL Expectation is created click **Validate**. Go to the **Validations** tab, and see that the Custom Sql Expectation has passed.
 
