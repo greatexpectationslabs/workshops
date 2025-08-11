@@ -175,7 +175,7 @@ GX Cloud provides a tool to generate SQL based on a prompt. The prompt accepts p
 > 1. Click on the **Expectations** tab.
 > 1. Click **+ New Expectation**.
 > 1. Click the **SQL** at the bottom of the panel.
-> 1. In the text area, enter in `Check that rides from Queens to EWR have a fare amount of at least 75`.
+> 1. In the `Prompt for SQL generation` text area, enter in `Check that rides from Queens to EWR have a fare amount of at least 75`.
 > 1. Click **Generate SQL**
 > Click **Save**.
 
