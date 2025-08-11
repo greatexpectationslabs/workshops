@@ -1,6 +1,6 @@
 # Get Started with GX Cloud
 
-*This workshop content is current as of 21 July 2025.*
+*This workshop content is current as of 11 August 2025.*
 
 Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a sample Data Source, create Expectations, and run Validations.
 
@@ -175,15 +175,13 @@ GX Cloud provides a tool to generate SQL based on a prompt. The prompt accepts p
 > 1. Click on the **Expectations** tab.
 > 1. Click **+ New Expectation**.
 > 1. Click the **SQL** at the bottom of the panel.
-> 1. In the text area, enter in `Check that rides from Queens to EWR have a fare amount of at least 75`.
+> 1. In the `Prompt for SQL generation` text area, enter in `Check that rides from Queens to EWR have a fare amount of at least 75`.
 > 1. Click **Generate SQL**
 > Click **Save**.
 
-<img src="img/generate_new_sql_expectation.png" alt="Generate a custom sql expectation" style="width:500px;"/><br>
-
 In this example, we're selecting all rides from `Queens` to the Newark Airport (code `EWR`), where the fares are less than `75` ($75 US). We know that Queens to EWR is generally a long drive, so we expect it to be expensive.
 
-<img src="img/new_sql_expectation.png" alt="Save the generated sql expectation" style="width:500px;"/><br>
+<img src="img/generate_new_sql_expectation.png" alt="Generate a custom sql expectation" style="width:500px;"/><br>
 
 Now that the SQL Expectation is created click **Validate**. Go to the **Validations** tab, and see that the Custom Sql Expectation has passed.
 
