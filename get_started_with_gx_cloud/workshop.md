@@ -181,7 +181,7 @@ GX Cloud provides a tool to generate SQL based on a prompt. The prompt accepts p
 
 In this example, we're selecting all rides from `Queens` to the Newark Airport (code `EWR`), where the fares are less than `75` ($75 US). We know that Queens to EWR is generally a long drive, so we expect it to be expensive.
 
-<img src="img/generate_new_sql_expectation.png" alt="Generate a custom sql expectation" style="width:500px;"/><br>
+<img src="img/generate_new_sql_expectation.png" alt="Generate a custom sql expectation using a prompt, resulting in a query similar to the following: SELECT id, pickup_time, dropoff_time, fare_amount FROM {batch} WHERE pickup_borough = 'Queens' AND dropoff_borough = 'EWR' AND fare_amount < 75" style="width:500px;"/><br>
 
 Now that the SQL Expectation is created click **Validate**. Go to the **Validations** tab, and see that the Custom Sql Expectation has passed.
 
