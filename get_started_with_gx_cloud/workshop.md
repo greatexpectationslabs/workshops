@@ -39,6 +39,7 @@ You'll need to setup a data source from GX Cloud. We provide demo data in a Snow
 > **Select the `nyc_taxi_data` Data Asset**
 > 1. On the **Select tables to import** page, check the box next to `nyc_taxi_data`.
 > 1. Click **Add 1 Asset**.
+> 1. Click **Completeness**.
 > 1. Click **Start monitoring**.
 
 <img src="img/add_demo_data_asset.png" alt="Add a Demo Data Asset" style="width:600px;"/><br>
@@ -190,7 +191,7 @@ Now that the SQL Expectation is created click **Validate**. Go to the **Validati
 Congratulations! You've created a custom SQL Expectation.
 
 ## Review Validation Schedule
-GX Cloud will create a validation schedule when expectations are created. The schedule can be paused by clicking the "On" radio button to "Off". The schedule can also be modified by clicking the pencil "Edit Schedule" button.
+GX Cloud will create a validation schedule when expectations are created. The schedule can be created by clicking on the pencil icon next to the currently unscheduled validation.
 
 <img src="img/validation_schedule.png" alt="Validation schedule highlighted in the expectation view" style="width:500px;"/><br>
 
@@ -198,11 +199,12 @@ The default schedule is to run every 24 hours, starting at the top of the next h
 
 > **Edit the Validation schedule**
 > 1. Click **Edit Schedule** (the pencil icon).
+> 1. Click on the radio button to turn the schedule **ON**.
 > 1. Click **Frequency** drop down.
 > 1. Select **Every 6 hours**.
 > 1. Click **Save**.
 
-<img src="img/edit_validation_schedule.png" alt="Edit the validation schedule" style="width:500px;"/><br>
+<img src="img/edit_validation_schedule.png" alt="Edit validation schedule dialogue box showing the frequency and start time" style="width:500px;"/><br>
 
 ## Review Alerts
 GX Cloud will automatically send alerts to users' email address. To disable or re-enable this, open the Alerts panel. This is controlled on a per-user basis, so other users within your organization will need to enable this if they would like to be alerted to failing validations.
@@ -220,11 +222,11 @@ By default, GX Cloud validates the entire set of data in your Data Asset. Howeve
 
 > **Edit the batch of data**
 > 1. Click on the **Expectations** tab.
-> 1. Click on **Edit batch**, which can be found beside the **Validate** button.
+> 1. Click on pencil icon, which can be found beside the *Validate the entire asset* text.
 > 1. Click on **Day**.
 > 1. In the **Validate by** dropdown, select `pickup_time`.
 
-<img src="img/edit_batch.png" alt="Edit batch" style="width:500px;"/><br>
+<img src="img/edit_batch.png" alt="Edit batch dialogue box showing the batch interval and a dropdown for valid columns" style="width:500px;"/><br>
 
 Clicking on the **Validate** button now gives you a new window where you can select the specific batch of data you would like to validate. You can either select the **Latest Batch**, which will choose the latest batch currently available in the data set, or choose a specific day by selecting **Custom Batch**. For now, leave **Latest Batch** selected and click on the **Run** button.
 
