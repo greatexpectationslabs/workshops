@@ -52,7 +52,7 @@ Congratulations! You have successfully added the `nyc_taxi_data` demo Data Asset
 ## Generate Expectations
 Expectations are a unique GX construct that enable you to make simple, declarative assertions about your data. You can think of Expectations as unit tests for your data. They make implicit assumptions about your data explicit, and they use self-explanatory language for describing data. Expectations can help you better understand your data and help you improve data quality.
 
-The `nyc_taxi_data` Data Asset table contains New York City (NYC) taxi data from January 2022. The [NYC Taxi data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) is a popular set of open source data that contains records of completed taxi cab trips in NYC, including information such as pick up and drop off times, the number of passengers, the fare collected, and so on.
+The `nyc_taxi_data` Data Asset table contains New York City (NYC) taxi data from January 2024. The [NYC Taxi data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) is a popular set of open source data that contains records of completed taxi cab trips in NYC, including information such as pick up and drop off times, the number of passengers, the fare collected, and so on.
 
 GX Cloud can help you get started on your data quality journey by leveraging AI to analyze your data and generate Expectations for you. This is especially helpful if you want to get started quickly.
 
