@@ -1,6 +1,6 @@
 # Get Started with GX Cloud
 
-*This workshop content is current as of 9 October 2025.*
+*This workshop content is current as of 23 February 2026.*
 
 Welcome to our workshop! In this workshop, you'll learn how to connect your GX Cloud account to a sample Data Source, create Expectations, and run Validations.
 
@@ -81,6 +81,7 @@ GX Cloud has suggested a few Expectations to create in the information box at th
 >
 >    1. In the **Column** field, select `fare_amount`.
 >    1. Enter `0` and `250` into the two fields below `the fixed values`.
+>    1. Optional. Update the Severity of the Expectation using the dropdown.
 >    1. Click **Save**.
 
 <img src="img/filter_minimum_expectation.png" alt="Use the search filter" style="width:500px;"/><br>
@@ -206,16 +207,24 @@ The default schedule is to run every 24 hours, starting at the top of the next h
 
 <img src="img/edit_validation_schedule.png" alt="Edit validation schedule dialogue box showing the frequency and start time" style="width:500px;"/><br>
 
-## Review Alerts
-GX Cloud will automatically send alerts to users' email address. To disable or re-enable this, open the Alerts panel. This is controlled on a per-user basis, so other users within your organization will need to enable this if they would like to be alerted to failing validations.
+## Alerts
+GX Cloud allows you to set up email alerts for failed validations, depending on the severity level. 
 
-> **Review Alerts**
-> 1. Click the **Alerts** button.
-> 1. Click the radio button to turn off Email alerts, click it again to turn on Email alerts.
+> **Add Alerts**
+> 1. Click the **Settings** tab.
+> 1. Click on the **+ Add** button under the Alerts section.
 
-<img src="img/alerts_button.png" alt="Alerts Button on Expectation Suite" style="width:500px;"/><br>
+<img src="img/alerts_tab.png" alt="Alerts Tab on Data Asset page" style="width:500px;"/><br>
 
-<img src="img/alerts_enabled.png" alt="Alerts Panel to Enable/Disable Email alerts" style="width:500px;"/><br>
+Any alerts that have already been created will be listed here.
+
+> 1. Give your alert a name, e.g. `All failures`.
+> 1. Click all of the checkboxes for the severity levels.
+> 1. Add a desired recipient for the Alert.
+> 1. Click **save**.
+
+<img src="img/new_alert.png" alt="New Alert dialogue box showing the input fields for creating a new alert" style="width:500px;"/><br>
+_Note_: The email addresses entered must match the email domain of the account used to create your GX Cloud organization. 
 
 ## Using Batches of Data
 By default, GX Cloud validates the entire set of data in your Data Asset. However, users will often want to run validations regularly as data is ingested. GX Cloud allows you to validate a subset of the data, using a date column within your data set, and then choosing whether to divide the data on day, month of year.
